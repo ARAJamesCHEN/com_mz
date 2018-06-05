@@ -96,10 +96,42 @@ class Sql
     {
         foreach ($params as $param => &$value) {
             $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
-            $stmt->bindParam($param, $value);
+            $stmt->bing($param, $value);
+
+
+
         }
 
         return $stmt;
+    }
+
+
+    public function bindParam($stmt, $params = array())
+    {
+        foreach ($params as $param) {
+            $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
+
+            $type = 's';
+
+            echo $param;
+
+            $stmt = Db::getDB()->bind($stmt, $type, $param);
+
+        }
+
+        return $stmt;
+    }
+
+    public function prepare($sql){
+       return Db::getDB()->prepare($sql);
+    }
+
+    public function bindStmtRst($stmt){
+        return Db::getDB()->stmtBindRst($stmt);
+    }
+
+    public function fetchStmtRst($stmt){
+        return Db::getDB()->stmtFetch($stmt);
     }
 
     // 将数组转换成插入格式的sql语句
@@ -116,6 +148,12 @@ class Sql
         $name = implode(',', $names);
 
         return sprintf("(%s) values (%s)", $field, $name);
+    }
+
+    public function execute($stmt){
+
+        return Db::getDB()->executeStmt($stmt);
+
     }
 
     // 将数组转换成更新格式的sql语句

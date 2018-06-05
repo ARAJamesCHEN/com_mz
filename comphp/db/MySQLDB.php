@@ -4,21 +4,27 @@
 */
 namespace comphp\db;
 
+
+use app\log\Logger;
+
+include_once(APP_PATH. 'app/log/' .'Logger.php');
+
+
 class MySQL 
 {
 
-  //protected  $logger;
+  protected  $log;
   protected  $host;
   protected  $dbUser;
   protected  $dbPass;
   protected  $dbName;
   protected  $dbConn;
   protected  $dbconnectError;
+  protected  $result;
 
 
 	function __construct($host, $dbUser, $dbPass, $dbName )
 	{
-		//$this->logger = new Logger('logs','MySQL');
 		$this->host   = $host;
 		$this->dbUser = $dbUser;
 		$this->dbPass = $dbPass;
@@ -38,7 +44,8 @@ class MySQL
 		}
 		else
 		{
-			$this->logger->log_msg(Logger::TYPE_NOTICE,'connected to server');
+			//$this->log->log_msg(Logger::TYPE_NOTICE,'connected to server');
+            echo ('connected to server');
 		}
 	   
 	}
@@ -52,7 +59,8 @@ class MySQL
            }
 		   else
            {
-			   $this->logger->log_msg(Logger::TYPE_NOTICE, " $this->dbName  database selected ");
+			   //$this->log->log_msg(Logger::TYPE_NOTICE, " $this->dbName  database selected ");
+               echo (" $this->dbName  database selected ");
            }
       }
      
@@ -131,9 +139,14 @@ class MySQL
 		 return new MySQLResult( $this, $queryResource ); 
    }
 
-   function prepare($sql){
+    /**
+     * http://php.net/manual/en/mysqli.prepare.php
+     * @param $sql
+     * @return bool|\mysqli_stmt
+     */
+   public function prepare($sql){
 
-       $stmt = mysqli_stmt($this->dbConn, $sql);
+       $stmt = mysqli_prepare($this->dbConn, $sql);
 
        if(!$stmt){
            trigger_error ( 'prepare Failed: <br>' . mysqli_error($this->dbConn ) . '<br> SQL: ' . $sql );
@@ -143,16 +156,52 @@ class MySQL
 
    }
 
-    function bind($sql){
+    function bind($stmt, $type, $value){
 
-        $stmt = mysqli_stmt($this->dbConn, $sql);
-
-        if(!$stmt){
-            trigger_error ( 'prepare Failed: <br>' . mysqli_error($this->dbConn ) . '<br> SQL: ' . $sql );
+        if(!mysqli_stmt_bind_param($stmt, $type,$value)){
+            var_dump($stmt);
+            trigger_error ( 'bind Failed: <br>' . mysqli_error($this->dbConn )
+                . '<br>para:'. $value);
         }else{
             return $stmt;
         }
 
+    }
+
+    public function executeStmt($stmt){
+
+        if(mysqli_stmt_execute($stmt)){
+            echo "mysqli_stmt_execute was executed<br>";
+        }else{
+            //var_dump($this->dbConn);
+            var_dump($stmt);
+            trigger_error ( 'executeStmt Failed: <br>' . mysqli_error($this->dbConn) );
+        }
+
+        return $stmt;
+    }
+
+    public function stmtBindRst($stmt){
+        if(mysqli_stmt_bind_result($stmt,$this->result)){
+            echo "mysqli_stmt_bind_result was executed<br>";
+
+            mysqli_stmt_fetch($stmt);
+
+            echo "The:".$this->result;
+
+        }else{
+            trigger_error ( 'stmtBindRst Failed: <br>' . mysqli_error($this->dbConn ) . '<br> statement: ' . $stmt );
+        }
+
+        return $stmt;
+    }
+
+    public function stmtFetch($stmt){
+
+        while (mysqli_stmt_fetch($stmt)) {
+            echo "mysqli_stmt_fetch was executed<br>";
+             var_dump($this->result);
+        }
     }
    
 }

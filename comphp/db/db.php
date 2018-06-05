@@ -2,6 +2,7 @@
 
 namespace comphp\db;
 
+include('MySQLDB.php');
 
 class Db
 {
@@ -9,6 +10,7 @@ class Db
     private static $db = null;
 
     public static function getDB(){
+
         if (self::$db !== null) {
             return self::$db;
         }
@@ -18,12 +20,10 @@ class Db
         $dbPass = DB_PASS;
         $dbName = DB_NAME;
 
-        $db = new MySQL( $host, $dbUser, $dbPass, $dbName ) ;
-        $db->selectDatabase();
+        self::$db = new MySQL( $host, $dbUser, $dbPass, $dbName ) ;
+        self::$db->selectDatabase();
 
-
-
-        return $db;
+        return self::$db;
 
     }
 }

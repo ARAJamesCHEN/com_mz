@@ -13,5 +13,6 @@ $config['db']['dbname'] = 'php_comdb';
 
 $config['defaultController'] = 'login';
 $config['defaultView'] = 'login';
+$config['defaultAction'] = 'init';
 
 return $config;

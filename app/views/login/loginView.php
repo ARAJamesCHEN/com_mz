@@ -1,12 +1,13 @@
 
-    <main>
+    <main class=""container">
 	    <section id="auth-content" class="auth-container container-fluid ">
 		    <div class="auth-logo">
                <h2 class="header-border">  Log in </h2>
             </div>
 			<div class="login-content">
 			    <p>Use an existing account you have on Theseus and the Minotaur Gaming Community.</p>
-				<form action = "login.php" method="POST">
+                <!-- www.test.com/controllerName/actionName/queryString -->
+				<form action = "login.php?login" method="POST">
 				    <ol>
                         <div>
 				    	    <label for="username" class=" required">Username <span>*</span></label>

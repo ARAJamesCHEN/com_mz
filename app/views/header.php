@@ -1,5 +1,7 @@
-
-
+<?php
+session_save_path( './' );
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +25,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	<link rel="Stylesheet" href="./static/css/Style.css">
 </head>
-<body id="login">
+<body id="<?php ?>">
     <header id="header">
 	    <div id="logo" class="display-flex justify-content-space-between">
 		    <div class="logo-img">
@@ -43,7 +45,7 @@
 						   $theUsrName = $_SESSION[ 'theUsrName' ];
 						   echo '<a href="#"  rel="nofollow">User:'.$theUsrName.'</li>';
 					   }else{
-						   echo '<a href="login/login.php"  rel="nofollow">Sign in/Join</a></li>';
+						   echo '<a href="login.php"  rel="nofollow">Sign in/Join</a></li>';
 					   }
 				    ?>
 			    <li id="navAboutUs"><a href="temp.html" rel="nofollow">About us</a></li>

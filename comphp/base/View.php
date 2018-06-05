@@ -21,6 +21,7 @@ class View
 
     public function assign($name, $value)
     {
+
         $this->variables[$name] = $value;
     }
 
@@ -32,7 +33,7 @@ class View
 
         $controllerHeader = APP_PATH . 'app/views/' . $this->_controller . '/header.php';
         $controllerFooter = APP_PATH . 'app/views/' . $this->_controller . '/footer.php';
-        $controllerLayout = APP_PATH . 'app/views/' . $this->_controller . '/' . $this->_viewName . '.php';
+        $controllerLayout = APP_PATH . 'app/views/' . $this->_viewName.'/'. $this->_viewName.'View.php';
 
         // header
         if (is_file($controllerHeader)) {
@@ -43,7 +44,7 @@ class View
 
         //view
         if (is_file($controllerLayout)) {
-            include ($controllerLayout);
+            include_once ($controllerLayout);
         } else {
             echo "<h1>Fail to find View File</h1>";
         }

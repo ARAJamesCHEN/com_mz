@@ -21,10 +21,20 @@ class Comphp
         $this->route();
     }
 
+    /**
+     * www.test.com/controllerName/actionName/queryString
+     * ：yoursite.com/item/detail/1/hello
+     *
+     * www.test.com/controllerName.php
+     *
+     * yoursite.com/login/init
+     */
     public function route(){
         $controllerName = $this->config['defaultController'];
 
-        $viewName = $this->config['defaultView'];
+        $viewName  = $this->config['defaultView'];
+
+        $actionName  = $this->config['defaultAction'];
 
         $param = array();
 
@@ -36,6 +46,12 @@ class Comphp
 
         $url = trim($url, '/');
 
+        $input = $_SERVER['QUERY_STRING'];
+
+        if(!empty($input)){
+            $actionName = $input;
+        }
+
         if ($url) {
             $urlArray = explode('/', $url);
 
@@ -43,6 +59,7 @@ class Comphp
 
             //var_dump($urlArray);
 
+            //www.test.com/controllerName.php
             $size = count($urlArray);
 
             $phpFileName = ucfirst($urlArray[$size-1]);
@@ -53,21 +70,29 @@ class Comphp
 
             if(strtolower($controllerName) == 'index'){
                 $controllerName = "Login";
+            }else{
+                $begStr = substr($controllerName, 0, 1);
+                $endStr = substr($controllerName, 1);
+
+                $controllerName = strtoupper($begStr).$endStr;
+
             }
 
             array_shift($urlArray);
 
             $viewName = strtolower($controllerName);
 
+
+
         }
 
         $controller = 'app\\controllers\\'. $controllerName . 'Controller';
 
         if (!class_exists($controller)) {
-            exit($controller . 'Controller is not exist!');
+            exit($controller . ' [Controller is not exist!]');
         }
 
-        new $controller($controllerName, $viewName);
+        new $controller($controllerName, $viewName, $actionName);
 
 
     }
