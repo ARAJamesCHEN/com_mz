@@ -68,7 +68,7 @@ class Comphp
 
             $controllerName = substr($phpFileName, 0 ,$pos);
 
-            if(strtolower($controllerName) == 'index'){
+            if(strtolower($controllerName) == 'index' || strtolower($controllerName) == 'comphp'){
                 $controllerName = "Login";
             }else{
                 $begStr = substr($controllerName, 0, 1);
@@ -132,6 +132,7 @@ class Comphp
             define('DB_NAME', $this->config['db']['dbname']);
             define('DB_USER', $this->config['db']['username']);
             define('DB_PASS', $this->config['db']['password']);
+            define('DB_SYS', $this->config['db']['sys']);
         }
     }
 

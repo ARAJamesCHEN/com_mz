@@ -1,5 +1,5 @@
 
-    <main class=""container">
+    <div class="container">
 	    <section id="auth-content" class="auth-container container-fluid ">
 		    <div class="auth-logo">
                <h2 class="header-border">  Log in </h2>
@@ -30,4 +30,4 @@
 
 			<div>
 		</section>
-	</main>
+	</div>

@@ -21,7 +21,6 @@ class Sql
     /**
      *
      * $this->where(['id = 1','and title="Web"', ...])->fetch();
-     * 为防止注入，建议通过$param方式传入参数：
      * $this->where(['id = :id'], [':id' => $id])->fetch();
      *
      * @param array $where
@@ -31,6 +30,10 @@ class Sql
     {
         if ($where) {
             $this->filter .= ' WHERE ';
+
+            array_push($where, 'and sys = ?');
+            array_push($param,DB_SYS );
+
             $this->filter .= implode(' ', $where);
 
             $this->param = $param;
@@ -68,70 +71,30 @@ class Sql
         return $sth->fetchAll();
     }
 
-    // 查询一条
-    public function fetch()
+	public function fetchByStmt()
     {
         $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
+        $sth = Db::getDB()->prepareBindQuery($sql, $this->param);
+        return $sth;
+    }
+
+    public function update($data)
+    {
+        $sql = sprintf("update `%s` set %s %s", $this->table, $this->formatUpdate($data), $this->filter);
+
         $sth = Db::getDB()->prepare($sql);
-        $sth = $this->formatParam($sth, $this->param);
+
+        $paras = array_merge($data, $this->param);
+
+        $sth = Db::getDB()->bindParams($sth, $paras);
+
         $sth->execute();
 
-        return $sth->fetch();
-    }
+        $rowCount = $sth->affected_rows;
 
-    /**
-     * 占位符绑定具体的变量值
-     * @param
-     * @param array $params 参数，有三种类型：
-     * 1）如果SQL语句用问号?占位符，那么$params应该为
-     *    [$a, $b, $c]
-     * 2）如果SQL语句用冒号:占位符，那么$params应该为
-     *    ['a' => $a, 'b' => $b, 'c' => $c]
-     *    或者
-     *    [':a' => $a, ':b' => $b, ':c' => $c]
-     *
-     * @return PDOStatement
-     */
-    public function formatParam($stmt, $params = array())
-    {
-        foreach ($params as $param => &$value) {
-            $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
-            $stmt->bing($param, $value);
+        $sth->close();
 
-
-
-        }
-
-        return $stmt;
-    }
-
-
-    public function bindParam($stmt, $params = array())
-    {
-        foreach ($params as $param) {
-            $param = is_int($param) ? $param + 1 : ':' . ltrim($param, ':');
-
-            $type = 's';
-
-            echo $param;
-
-            $stmt = Db::getDB()->bind($stmt, $type, $param);
-
-        }
-
-        return $stmt;
-    }
-
-    public function prepare($sql){
-       return Db::getDB()->prepare($sql);
-    }
-
-    public function bindStmtRst($stmt){
-        return Db::getDB()->stmtBindRst($stmt);
-    }
-
-    public function fetchStmtRst($stmt){
-        return Db::getDB()->stmtFetch($stmt);
+        return $rowCount;
     }
 
     // 将数组转换成插入格式的sql语句
@@ -150,18 +113,17 @@ class Sql
         return sprintf("(%s) values (%s)", $field, $name);
     }
 
-    public function execute($stmt){
-
-        return Db::getDB()->executeStmt($stmt);
-
-    }
-
-    // 将数组转换成更新格式的sql语句
+    /**
+     * 将数组转换成更新格式的sql语句
+     * array - > update sql
+     * @param $data
+     * @return string
+     */
     private function formatUpdate($data)
     {
         $fields = array();
         foreach ($data as $key => $value) {
-            $fields[] = sprintf("`%s` = :%s", $key, $key);
+            $fields[] = sprintf("`%s` = ?", $key);
         }
 
         return implode(',', $fields);

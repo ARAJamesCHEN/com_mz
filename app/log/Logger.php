@@ -2,7 +2,7 @@
 
 namespace app\log;
 
-class Log
+class MyLog
 {
 	
   	private $log_name;
@@ -13,7 +13,7 @@ class Log
 	
 	private $log_file;
 	
-	private $log;
+	private $myLog;
 	
 	private $path = __FILE__;
 	
@@ -51,18 +51,18 @@ class Log
 			file_put_contents($this->log_file, '');
 		}
 		
-        $this->log=fopen($this->log_file,'a');
+        $this->myLog=fopen($this->log_file,'a');
 	}
 	  
     public function log_msg($type, $msg)
     {//the action
         $log_line=join(' : ', array( date(DATE_RFC822), $this->page_name, $this->app_id,$type, $msg ) );
-        fwrite($this->log, $log_line."\n");
+        fwrite($this->myLog, $log_line."\n");
     }
 	
     function __destruct()
     {//makes sure to close the file and write lines when the process ends.
-        $this->log_msg("Closing log");
-        fclose($this->log);
+        $this->log_msg(self::TYPE_NOTICE,"Closing log");
+        fclose($this->myLog);
     }
 }

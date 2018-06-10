@@ -15,25 +15,17 @@ session_start();
 	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	<link rel="Stylesheet" href="./static/css/Style.css">
 </head>
 <body id="<?php ?>">
-    <header id="header">
-	    <div id="logo" class="display-flex justify-content-space-between">
+    <header id="header" class="row">
+	    <div id="logo" class="col display-flex justify-content-space-between">
 		    <div class="logo-img">
                 <a href="post.php"  rel="nofollow"><img id="logo" src="./static/images/logo2.png" alt="logo"></a>
 			</div>
 			<span class="logo-title"><p>Game Community<p/><span>
 	    </div>
-		<nav>
+		<nav class="col">
 		    <ul>
 			    <li id="navHome"><a href="temp.html" rel="nofollow">Home</a></li>
 			    <li id="navPost"><a href="post.php" rel="nofollow">Forms</a></li>
@@ -41,9 +33,13 @@ session_start();
 				    <?php
 					   $theUsrName = null;
 
+					   //echo $_SESSION[ 'theUsrName' ];
+
 					   if(isset($_SESSION[ 'theUsrName' ]) && !empty($_SESSION[ 'theUsrName' ]) ){
-						   $theUsrName = $_SESSION[ 'theUsrName' ];
-						   echo '<a href="#"  rel="nofollow">User:'.$theUsrName.'</li>';
+						   $theUsrName = $_SESSION['theUsrName'];
+						   echo "<a href='#'  rel='nofollow'>User:$theUsrName /</a>
+                                 <a href='#'  rel='nofollow'>LogOut</a>
+                                </li>";
 					   }else{
 						   echo '<a href="login.php"  rel="nofollow">Sign in/Join</a></li>';
 					   }

@@ -6,10 +6,12 @@
  * Time: 5:42 PM
  */
 
+
 $config['db']['host'] = 'localhost';
 $config['db']['username'] = 'root';
 $config['db']['password'] = '';
 $config['db']['dbname'] = 'php_comdb';
+$config['db']['sys'] = 'G';
 
 $config['defaultController'] = 'login';
 $config['defaultView'] = 'login';

@@ -2,7 +2,7 @@
 
 namespace comphp\db;
 
-include('MySQLDB.php');
+include(APP_PATH.'comphp/db/'.'MySQLDB.php');
 
 class Db
 {
@@ -21,7 +21,6 @@ class Db
         $dbName = DB_NAME;
 
         self::$db = new MySQL( $host, $dbUser, $dbPass, $dbName ) ;
-        self::$db->selectDatabase();
 
         return self::$db;
 

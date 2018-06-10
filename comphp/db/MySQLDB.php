@@ -4,8 +4,9 @@
 */
 namespace comphp\db;
 
+use mysqli;
 
-use app\log\Logger;
+use app\log\MyLog;
 
 include_once(APP_PATH. 'app/log/' .'Logger.php');
 
@@ -13,23 +14,27 @@ include_once(APP_PATH. 'app/log/' .'Logger.php');
 class MySQL 
 {
 
-  protected  $log;
+  protected  $myLog;
   protected  $host;
   protected  $dbUser;
   protected  $dbPass;
   protected  $dbName;
   protected  $dbConn;
-  protected  $dbconnectError;
+  protected  $dbConnectError;
   protected  $result;
 
+  protected  $dbConnForStmt;
+  protected  $dbconnectForStmtError;
+  
 
 	function __construct($host, $dbUser, $dbPass, $dbName )
 	{
+		$this->myLog = new MyLog('MySQL', 'MySQLDB.php');
 		$this->host   = $host;
 		$this->dbUser = $dbUser;
 		$this->dbPass = $dbPass;
 		$this->dbName = $dbName;
-		$this->connectToServer();
+		$this->connectToServerOOP();
 	}
 
 
@@ -40,14 +45,29 @@ class MySQL
 		{
 		   trigger_error('could not connect to server' );
 		   
-		   $this->dbconnectError = true;
+		   $this->dbConnectError = true;
 		}
 		else
 		{
-			//$this->log->log_msg(Logger::TYPE_NOTICE,'connected to server');
-            echo ('connected to server');
+			$this->myLog->log_msg(MyLog::TYPE_NOTICE,'connected to server');
+            //echo ('connected to server');
 		}
 	   
+	}
+	
+	function connectToServerOOP(){
+
+		$this->dbConnForStmt = new MySQLi( $this->host, $this->dbUser, $this->dbPass, $this->dbName);
+
+		if($this->dbConnForStmt->connect_error){
+			trigger_error('could not connect to server oop' );
+		}else
+		{
+			$this->dbConnForStmt->set_charset('utf8');
+            $this->myLog->log_msg(MyLog::TYPE_NOTICE,'connected to server');
+			//echo ('connected to server for oop');
+		}
+		
 	}
 
     function selectDatabase()
@@ -55,12 +75,12 @@ class MySQL
     if (! mysqli_select_db( $this->dbConn, $this->dbName ) )
            {
               trigger_error( 'could not select database' );  
-              $this->dbconnectError = true;                     
+              $this->dbConnectError = true;
            }
 		   else
            {
-			   //$this->log->log_msg(Logger::TYPE_NOTICE, " $this->dbName  database selected ");
-               echo (" $this->dbName  database selected ");
+			   $this->myLog->log_msg(MyLog::TYPE_NOTICE, " $this->dbName  database selected ");
+               //echo (" $this->dbName  database selected ");
            }
       }
      
@@ -97,7 +117,7 @@ class MySQL
 
    function isError()
    {
-      if  ( $this->dbconnectError )
+      if  ( $this->dbConnectError )
       {
          return true;
       }
@@ -129,7 +149,7 @@ class MySQL
 
 	function query( $sql )
 	{
-		mysqli_query( $this->dbConn, "set character_set_results='utf8'"); 
+		 mysqli_query( $this->dbConn, "set character_set_results='utf8'");
 		 if (!$queryResource = mysqli_query($this->dbConn, $sql ))
 		 {
 			trigger_error ( 'Query Failed: <br>' . mysqli_error($this->dbConn ) . '<br> SQL: ' . $sql );
@@ -140,69 +160,69 @@ class MySQL
    }
 
     /**
-     * http://php.net/manual/en/mysqli.prepare.php
      * @param $sql
-     * @return bool|\mysqli_stmt
+     * @return mixed
      */
    public function prepare($sql){
+       $stmt = $this->dbConnForStmt->prepare($sql);
 
-       $stmt = mysqli_prepare($this->dbConn, $sql);
+       return $stmt;
+   }
 
-       if(!$stmt){
-           trigger_error ( 'prepare Failed: <br>' . mysqli_error($this->dbConn ) . '<br> SQL: ' . $sql );
-       }else{
-           return $stmt;
+    /**
+     * @param $stmt
+     * @param array $paras
+     * @return mixed
+     */
+   public function bindParams ($stmt, array $paras){
+
+       //var_dump($paras);
+
+       $params = array_merge(array(str_repeat('s', count($paras))), $paras);
+
+       $paramsRef = array();
+
+       foreach($params as $k => $v){
+           $paramsRef[$k] = &$params[$k];
        }
+
+       call_user_func_array(array($stmt, 'bind_param'), $paramsRef);
+
+       return $stmt;
 
    }
 
-    function bind($stmt, $type, $value){
+   public function queryStmt($stmt){
+       $stmt->execute();
 
-        if(!mysqli_stmt_bind_param($stmt, $type,$value)){
-            var_dump($stmt);
-            trigger_error ( 'bind Failed: <br>' . mysqli_error($this->dbConn )
-                . '<br>para:'. $value);
-        }else{
-            return $stmt;
-        }
+       $result = $stmt->get_result();
 
-    }
+       $stmt->close();
+       return new MySQLResult($this, $result);
+   }
 
-    public function executeStmt($stmt){
+    /**
+     * http://php.net/manual/zh/mysqli-stmt.get-result.php
+     * OOP
+     * @param $sql
+     * @param array $paras
+     * @return mixed
+     */
+   public function prepareBindQuery($sql, array $paras){
 
-        if(mysqli_stmt_execute($stmt)){
-            echo "mysqli_stmt_execute was executed<br>";
-        }else{
-            //var_dump($this->dbConn);
-            var_dump($stmt);
-            trigger_error ( 'executeStmt Failed: <br>' . mysqli_error($this->dbConn) );
-        }
+	    //echo $sql;
 
-        return $stmt;
-    }
+	    //var_dump($paras);
 
-    public function stmtBindRst($stmt){
-        if(mysqli_stmt_bind_result($stmt,$this->result)){
-            echo "mysqli_stmt_bind_result was executed<br>";
+        $stmt = $this->prepare($sql);
 
-            mysqli_stmt_fetch($stmt);
+        $stmt = $this->bindParams($stmt, $paras);
 
-            echo "The:".$this->result;
+        return $this->queryStmt($stmt);
 
-        }else{
-            trigger_error ( 'stmtBindRst Failed: <br>' . mysqli_error($this->dbConn ) . '<br> statement: ' . $stmt );
-        }
+   }
+   
 
-        return $stmt;
-    }
-
-    public function stmtFetch($stmt){
-
-        while (mysqli_stmt_fetch($stmt)) {
-            echo "mysqli_stmt_fetch was executed<br>";
-             var_dump($this->result);
-        }
-    }
    
 }
 
@@ -210,30 +230,25 @@ class MySQL
 class MySQLResult 
 {
    protected $mysql;
-   protected $query;
+   protected $result;
 
-   function __construct( &$mysql, $query )
+   function __construct( &$mysql, $result )
    {
      $this->mysql = &$mysql;
-     $this->query = $query;
+     $this->result = $result;
    }
 
     function size()
     {
-        return mysqli_num_rows($this->query);
+        return $this->result->num_rows;
     }
 
     function fetch()
     {
-		if ( $row = mysqli_fetch_array( $this->query , MYSQLI_ASSOC ))
+		if ( $row = $this->result->fetch_array(MYSQLI_ASSOC))
 		{
 		   return $row;
 		}
-			   else if ( $this->size() > 0 )
-       {
-           mysqli_data_seek ( $this->query , 0 );
-           return false;
-       }
        else
        {
            return false;
