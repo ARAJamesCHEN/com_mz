@@ -38,7 +38,7 @@ session_start();
 					   if(isset($_SESSION[ 'theUsrName' ]) && !empty($_SESSION[ 'theUsrName' ]) ){
 						   $theUsrName = $_SESSION['theUsrName'];
 						   echo "<a href='#'  rel='nofollow'>User:$theUsrName /</a>
-                                 <a href='#'  rel='nofollow'>LogOut</a>
+                                 <a href='logout.php'  rel='nofollow'>LogOut</a>
                                 </li>";
 					   }else{
 						   echo '<a href="login.php"  rel="nofollow">Sign in/Join</a></li>';
