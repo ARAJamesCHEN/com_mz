@@ -1,6 +1,6 @@
-<form id="content" class="display-flex justify-content-space-between">
-    <img id="leftImg" class="barImg" src="./static/images/leftImg.jpg" alt="leftImg">
-    <main class="post-main">
+<form id="content" class="row display-flex justify-content-space-between">
+    <img id="leftImg" class="barImg col-sm-2" src="./static/images/leftImg.jpg" alt="leftImg">
+    <main class="post-main col-sm-8">
         <section class="breadcrumbs">
             <ul class="display-flex">
                 <li><a href="#" rel="nofollow">Forums</a></li>
@@ -45,8 +45,8 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="#" class="btn" rel="nofollow">Start a new topic</a>
-                    <a href="createNewPoll.php" class="btn" rel="nofollow">Start a new Poll</a>
+                    <a href="#" class="btn btn-primary" rel="nofollow">Start a new topic</a>
+                    <a href="createNewPoll.php?init" class="btn btn-primary" rel="nofollow">Start a new Poll</a>
                 </div>
                 <table class="table table-striped table-bordered table-forums">
                     <thead>
@@ -574,11 +574,11 @@
                             </a>
                         </li>
                     </ul>
-                    <a href="#" class="btn" rel="nofollow">Start a new topic</a>
-                    <a href="createNewPoll.php" class="btn" rel="nofollow">Start a new Poll</a>
+                    <a href="#" class="btn btn-primary" rel="nofollow">Start a new topic</a>
+                    <a href="createNewPoll.php?init" class="btn btn-primary" rel="nofollow">Start a new Poll</a>
                 </div>
             </div>
         </section>
     </main>
-    <img id="rightImg" class="barImg" src="./static/images/rightImg.jpg" alt="rightImg">
+    <img id="rightImg" class="barImg col-sm-2" src="./static/images/rightImg.jpg" alt="rightImg">
 </form>

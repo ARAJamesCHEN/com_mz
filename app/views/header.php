@@ -11,13 +11,20 @@ session_start();
     <![endif]-->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login:: Theseus and the Minotaur Gaming Community</title>
+    <title>
+        <?php
+            if(isset($_SESSION[ 'thePageName' ]) && !empty($_SESSION[ 'thePageName' ]) ){
+                echo  $_SESSION[ 'thePageName' ];
+            }else{
+                echo  'Login';
+            }
+        ?>:: Theseus and the Minotaur Gaming Community</title>
 	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
 	<link rel="Stylesheet" href="./static/css/Style.css">
 </head>
-<body id="<?php ?>">
+<body>
     <header id="header" class="row">
 	    <div id="logo" class="col display-flex justify-content-space-between">
 		    <div class="logo-img">

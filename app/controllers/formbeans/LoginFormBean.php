@@ -8,8 +8,9 @@
 
 namespace app\controllers\formbeans;
 
+use comphp\base\FormBean;
 
-class LoginFormBean
+class LoginFormBean extends FormBean
 {
 
     private $formUsrName;
@@ -47,6 +48,8 @@ class LoginFormBean
     {
         $this->formUsrPwd = $formUsrPwd;
     }
+
+
 
 }
 

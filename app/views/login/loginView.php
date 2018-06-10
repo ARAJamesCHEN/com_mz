@@ -26,6 +26,7 @@
                             <input type="submit" value="Register" class="btn">
                        </li>
                     </ol>
+                    <?php echo $warning?>
 				</form>
 
 			<div>

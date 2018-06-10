@@ -25,7 +25,7 @@ class Controller
         $this->_view = new View($controller, $viewName);
         $this->_actionName = $actionName;
         $this->init();
-        $this->render();
+
 
     }
 

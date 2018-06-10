@@ -37,6 +37,8 @@ class LoginController extends Controller
 
         }
 
+        $this->assign('warning', $this->formBean->getWarning());
+        $this->render();
     }
 
     public function loginFunction(){
@@ -49,7 +51,7 @@ class LoginController extends Controller
 				
 				if ( !$userInfo )
                 {
-                    echo "Not a valid surname, password combination <br />";
+                    $this->formBean->setWarning("Not a valid surname, password combination");
                 }else{
 					if($userInfo->size()>0){
 
@@ -65,31 +67,35 @@ class LoginController extends Controller
 
 						if(!$this->checkPwd($this->formBean->getFormUsrPwd(), $userLoginPwd )){
 
-                            echo " <p class='bg-danger text-white'>You password is wrong!</p> <br />";
+                            $this->formBean->setWarning(" <p class='bg-danger text-white'>You password is wrong!</p>");
 
-                            return;
+                        }else{
+                            if(ValidateUtil::validateIfWeakPwd($this->formBean->getFormUsrPwd())){
+                                echo "<script type='text/javascript'>alert('Login successfully! Your passwords is weak. We suggest you to modify the password!')</script>";
+                            }
 
+                            session_save_path( './' );
+                            session_start();
+
+                            $_SESSION[ 'theUsrName' ] = $this->formBean->getFormUsrName();
+                            $_SESSION[ 'userID' ] = $userID;
+                            $_SESSION[ 'thePageName' ] = 'Post';
+
+                            header( 'Location:post.php' ) ;
                         }
 
-                        if(ValidateUtil::validateIfWeakPwd($this->formBean->getFormUsrPwd())){
-                            echo "<script type='text/javascript'>alert('Login successfully! Your passwords is weak. We suggest you to modify the password!')</script>";
-                        }
-
-                        session_save_path( './' );
-                        session_start();
-
-                        $_SESSION[ 'theUsrName' ] = $this->formBean->getFormUsrName();
-                        $_SESSION[ 'userID' ] = $userID;
-
-			            header( 'Location:post.php' ) ;
 			        }else{
-			  	        echo " <p class='bg-danger text-white'>No User was found!</p> <br />";
+
+                        $this->formBean->setWarning("<p class='bg-danger text-white'>No User was found!</p>");
+
 			        }
 				} 
 
             }
 
         }
+
+
 
     }
 
@@ -110,7 +116,8 @@ class LoginController extends Controller
             $this->formBean->setFormUsrName($_POST['user_name']);
 
             if(!ValidateUtil::validateUserName($this->formBean->getFormUsrName())){
-                echo "<p class='bg-danger text-white'>Please input the right user name</p>";
+                $this->formBean->setWarning("<p class='bg-danger text-white'>Please input the right user name</p>");
+                //echo "<p class='bg-danger text-white'>Please input the right user name</p>";
 
                 $hasIssue = true;
             }
@@ -120,7 +127,8 @@ class LoginController extends Controller
             $this->formBean->setFormUsrPwd($_POST['user_pwd']);
 
             if(ValidateUtil::validateIfPwdUnleagal($this->formBean->getFormUsrPwd())){
-                echo "<p class='bg-danger text-white'>Please input the right style password</p>";
+                $this->formBean->setWarning("<p class='bg-danger text-white'>Please input the right style password</p>");
+                //echo "<p class='bg-danger text-white'>Please input the right style password</p>";
                 $hasIssue = true;
             }
         }

@@ -8,7 +8,6 @@
 namespace app\models;
 
 use comphp\base\Model;
-use comphp\db\Db;
 
 
 class UserModel extends Model

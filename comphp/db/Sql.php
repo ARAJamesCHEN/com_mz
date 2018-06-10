@@ -28,16 +28,16 @@ class Sql
      */
     public function where($where = array(), $param = array())
     {
-        if ($where) {
-            $this->filter .= ' WHERE ';
+        $this->filter .= ' WHERE ';
 
-            array_push($where, 'and sys = ?');
-            array_push($param,DB_SYS );
+        $sysFiller = empty($where) ? 'sys' : 'and sys';
+        $sysFiller .= ' = ?';
+        array_push($where, $sysFiller);
+        array_push($param,DB_SYS );
 
-            $this->filter .= implode(' ', $where);
+        $this->filter .= implode(' ', $where);
 
-            $this->param = $param;
-        }
+        $this->param = $param;
 
         return $this;
     }
@@ -60,17 +60,20 @@ class Sql
         return $this;
     }
 
-    // 查询所有
+    /**
+     * @return mixed
+     */
     public function fetchAll()
     {
         $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
-        $sth = Db::getDB()->prepare($sql);
-        $sth = $this->formatParam($sth, $this->param);
-        $sth->execute();
+        $sth = Db::getDB()->prepareBindQuery($sql, $this->param);
 
-        return $sth->fetchAll();
+        return $sth;
     }
 
+    /**
+     * @return mixed
+     */
 	public function fetchByStmt()
     {
         $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);

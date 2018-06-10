@@ -243,6 +243,11 @@ class MySQLResult
         return $this->result->num_rows;
     }
 
+    /**
+     * OOP
+     * http://php.net/manual/zh/mysqli-stmt.get-result.php
+     * @return bool
+     */
     function fetch()
     {
 		if ( $row = $this->result->fetch_array(MYSQLI_ASSOC))
@@ -253,6 +258,23 @@ class MySQLResult
        {
            return false;
        }         
+    }
+
+    /**
+     * OOP
+     * http://php.net/manual/zh/mysqli-stmt.get-result.php
+     * @return bool
+     */
+    function fetchAll()
+    {
+        if ( $row = $this->result->fetch_all(MYSQLI_ASSOC))
+        {
+            return $row;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     function insertID()
