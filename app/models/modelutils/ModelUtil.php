@@ -10,6 +10,7 @@ namespace app\models\modelutils;
 
 use app\controllers\formbeans\CreateNewPollFormBean;
 use app\models\modelVOs\PollModelVO;
+use app\models\modelVOs\PollOptionModelVO;
 
 class ModelUtil
 {
@@ -28,6 +29,19 @@ class ModelUtil
         $pollModelVO->setSys(DB_SYS);
 
         return $pollModelVO;
+    }
+
+    public function getPollOptionModelVO($optionKey, $optionName,$newPollID){
+        $pollOptionModelVO = new PollOptionModelVO();
+
+        $pollOptionModelVO->setOptionName($optionName);
+        $pollOptionModelVO->setOptionValue($optionKey);
+        $pollOptionModelVO->setPollID($newPollID);
+        $pollOptionModelVO->setVotedNum(0);
+        $pollOptionModelVO->setSys(DB_SYS);
+
+        return $pollOptionModelVO;
+
     }
 
 }

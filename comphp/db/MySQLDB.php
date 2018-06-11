@@ -154,9 +154,13 @@ class MySQL
      */
    public function prepare($sql){
 
-       $stmt = $this->dbConnForStmt->prepare($sql);
+       $stmt = false;
 
-       //var_dump($stmt);
+       try {
+           $stmt = $this->dbConnForStmt->prepare($sql);
+       } catch (\Exception $e) {
+           echo $e->getMessage();
+       }
 
        return $stmt;
    }

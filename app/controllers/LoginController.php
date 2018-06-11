@@ -86,8 +86,8 @@ class LoginController extends Controller
                                 echo "<script type='text/javascript'>alert('Login successfully! Your passwords is weak. We suggest you to modify the password!')</script>";
                             }
 
-                            session_save_path( './' );
-                            session_start();
+                            //session_save_path( './' );
+                            //session_start();
 
                             $_SESSION[ 'theUsrName' ] = $this->formBean->getFormUsrName();
                             $_SESSION[ 'userID' ] = $userID;

@@ -108,13 +108,15 @@ class Sql
 
         $sth = Db::getDB()->prepare($sql);
 
+        //var_dump($sth);
+
         $sth = Db::getDB()->bindParams($sth, $this->param);
 
         $sth->execute();
 
-        $insertID = Db::getDB()->getDbConnForStmt()->insert_id;
+        $insertID = $sth->insert_id;
 
-        echo $insertID;
+        //echo $insertID;
 
         $sth->close();
 
@@ -130,6 +132,9 @@ class Sql
     {
         $fields = array();
         $names = array();
+
+        $this->param = array();
+
         foreach ($data as $key => $value) {
             $fields[] = sprintf("`%s`", $key);
             $names[] = sprintf("?", $key);
