@@ -63,17 +63,6 @@ class Sql
     /**
      * @return mixed
      */
-    public function fetchAll()
-    {
-        $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
-        $sth = Db::getDB()->prepareBindQuery($sql, $this->param);
-
-        return $sth;
-    }
-
-    /**
-     * @return mixed
-     */
 	public function fetchByStmt()
     {
         $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
@@ -81,6 +70,10 @@ class Sql
         return $sth;
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function update($data)
     {
         $sql = sprintf("update `%s` set %s %s", $this->table, $this->formatUpdate($data), $this->filter);
@@ -100,7 +93,11 @@ class Sql
         return $rowCount;
     }
 
-    // 将数组转换成插入格式的sql语句
+    /**
+     * array to insert sql
+     * @param $data
+     * @return string
+     */
     private function formatInsert($data)
     {
         $fields = array();
@@ -117,7 +114,6 @@ class Sql
     }
 
     /**
-     * 将数组转换成更新格式的sql语句
      * array - > update sql
      * @param $data
      * @return string

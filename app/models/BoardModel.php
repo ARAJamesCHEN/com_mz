@@ -24,4 +24,5 @@ class BoardModel extends Model
         return $result;
 
     }
+
 }

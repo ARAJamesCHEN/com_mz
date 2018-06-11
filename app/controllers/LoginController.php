@@ -18,6 +18,11 @@ include(APP_PATH . 'app/controllers/formbeans/'.'LoginFormBean.php');
 
 define('LOGIN_ACTION_LOGIN', "login" );
 
+/**
+ * WorkFlow Controller
+ * Class LoginController
+ * @package app\controllers
+ */
 class LoginController extends Controller
 {
 
@@ -25,6 +30,9 @@ class LoginController extends Controller
 
 	private $userModel;
 
+    /**
+     * init()
+     */
     public function init(){
 
         $this->formBean = LoginFormBeanFactory::create();
@@ -41,6 +49,9 @@ class LoginController extends Controller
         $this->render();
     }
 
+    /**
+     *
+     */
     public function loginFunction(){
 
         if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
@@ -70,6 +81,7 @@ class LoginController extends Controller
                             $this->formBean->setWarning(" <p class='bg-danger text-white'>You password is wrong!</p>");
 
                         }else{
+
                             if(ValidateUtil::validateIfWeakPwd($this->formBean->getFormUsrPwd())){
                                 echo "<script type='text/javascript'>alert('Login successfully! Your passwords is weak. We suggest you to modify the password!')</script>";
                             }
@@ -99,6 +111,11 @@ class LoginController extends Controller
 
     }
 
+    /**
+     * @param $userInputPwd
+     * @param $userLoginPwd
+     * @return bool
+     */
     private function checkPwd($userInputPwd, $userLoginPwd){
         if (password_verify($userInputPwd, $userLoginPwd)) {
             return true;
@@ -107,6 +124,9 @@ class LoginController extends Controller
         }
     }
 
+    /**
+     * @return bool
+     */
     private function isValidLogin(){
 
         $hasIssue = false;
@@ -117,7 +137,6 @@ class LoginController extends Controller
 
             if(!ValidateUtil::validateUserName($this->formBean->getFormUsrName())){
                 $this->formBean->setWarning("<p class='bg-danger text-white'>Please input the right user name</p>");
-                //echo "<p class='bg-danger text-white'>Please input the right user name</p>";
 
                 $hasIssue = true;
             }
@@ -128,7 +147,6 @@ class LoginController extends Controller
 
             if(ValidateUtil::validateIfPwdUnleagal($this->formBean->getFormUsrPwd())){
                 $this->formBean->setWarning("<p class='bg-danger text-white'>Please input the right style password</p>");
-                //echo "<p class='bg-danger text-white'>Please input the right style password</p>";
                 $hasIssue = true;
             }
         }

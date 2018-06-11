@@ -11,7 +11,27 @@ namespace comphp\base;
 
 class FormBean
 {
+    private $hasError = false;
+
     private $warning;
+
+
+    /**
+     * @return bool
+     */
+    public function isHasError(): bool
+    {
+        return $this->hasError;
+    }
+
+    /**
+     * @param bool $hasError
+     */
+    public function setHasError(bool $hasError): void
+    {
+        $this->hasError = $hasError;
+    }
+
 
     /**
      * @return mixed

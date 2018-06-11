@@ -27,7 +27,7 @@ class MySQL
   protected  $dbconnectForStmtError;
   
 
-	function __construct($host, $dbUser, $dbPass, $dbName )
+  public function __construct($host, $dbUser, $dbPass, $dbName )
 	{
 		$this->myLog = new MyLog('MySQL', 'MySQLDB.php');
 		$this->host   = $host;
@@ -37,25 +37,10 @@ class MySQL
 		$this->connectToServerOOP();
 	}
 
-
-	function connectToServer()
-	{
-		$this->dbConn = mysqli_connect( $this->host, $this->dbUser, $this->dbPass );
-		if ($this->dbConn->connect_error)
-		{
-		   trigger_error('could not connect to server' );
-		   
-		   $this->dbConnectError = true;
-		}
-		else
-		{
-			$this->myLog->log_msg(MyLog::TYPE_NOTICE,'connected to server');
-            //echo ('connected to server');
-		}
-	   
-	}
-	
-	function connectToServerOOP(){
+    /**
+     * OOP style
+     */
+  public function connectToServerOOP(){
 
 		$this->dbConnForStmt = new MySQLi( $this->host, $this->dbUser, $this->dbPass, $this->dbName);
 
@@ -69,21 +54,6 @@ class MySQL
 		}
 		
 	}
-
-    function selectDatabase()
-    {
-    if (! mysqli_select_db( $this->dbConn, $this->dbName ) )
-           {
-              trigger_error( 'could not select database' );  
-              $this->dbConnectError = true;
-           }
-		   else
-           {
-			   $this->myLog->log_msg(MyLog::TYPE_NOTICE, " $this->dbName  database selected ");
-               //echo (" $this->dbName  database selected ");
-           }
-      }
-     
 
     function dropDatabase()
     {
@@ -160,6 +130,7 @@ class MySQL
    }
 
     /**
+     * defense SQL injection
      * @param $sql
      * @return mixed
      */
@@ -170,6 +141,7 @@ class MySQL
    }
 
     /**
+     * defense SQL injection
      * @param $stmt
      * @param array $paras
      * @return mixed
@@ -192,6 +164,10 @@ class MySQL
 
    }
 
+    /**
+     * @param $stmt
+     * @return MySQLResult
+     */
    public function queryStmt($stmt){
        $stmt->execute();
 

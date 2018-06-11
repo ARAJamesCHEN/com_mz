@@ -14,8 +14,10 @@ class Comphp
 
     public function run()
     {
+        //
         spl_autoload_register(array($this, 'loadClass'));
         $this->setReporting();
+        $this->removeXssQuotes();
         $this->removeMagicQuotes();
         $this->setDbConfig();
         $this->route();
@@ -35,8 +37,6 @@ class Comphp
         $viewName  = $this->config['defaultView'];
 
         $actionName  = $this->config['defaultAction'];
-
-        $param = array();
 
         $url = $_SERVER['REQUEST_URI'];
 
@@ -81,9 +81,6 @@ class Comphp
             array_shift($urlArray);
 
             $viewName = strtolower($controllerName);
-
-
-
         }
 
         $controller = 'app\\controllers\\'. $controllerName . 'Controller';
@@ -109,12 +106,75 @@ class Comphp
         }
     }
 
+    /**
+     * defense for XSS
+     */
+    public function removeXssQuotes(){
+
+        if (get_magic_quotes_gpc()) {
+
+            $_GET = isset($_GET) ? $this->cleanXssPrepare($_GET ) : '';
+            $_POST = isset($_POST) ? $this->cleanXssPrepare($_POST ) : '';
+            $_COOKIE = isset($_COOKIE) ? $this->cleanXssPrepare($_COOKIE) : '';
+            $_SESSION = isset($_SESSION) ? $this->cleanXssPrepare($_SESSION) : '';
+
+
+
+
+        }
+
+    }
+
+    /**
+     * defense for XSS
+     * @param $value
+     * @return array|mixed|null|string|string[]
+     */
+    public function cleanXssPrepare($value){
+        $value = is_array($value) ? array_map(array($this, 'cleanXssStringQuotes'), $value) : $this->cleanXssStringQuotes($value);
+        echo '$value';
+        return $value;
+    }
+
+    /**
+     * defense for XSS
+     * @param $string
+     * @return mixed|null|string|string[]
+     */
+    public function cleanXssStringQuotes($string){
+
+        if(!is_array($string)){
+            $string = trim($string);
+            $string = strip_tags($string);
+            $string = htmlspecialchars($string, ENT_QUOTES);
+            $string = str_replace (array ('"', "\\", "'", "/", "..", "../", "./", "//" ), '', $string);
+            $no = '/%0[0-8bcef]/';
+            $string = preg_replace ($no, '', $string);
+            $no = '/%1[0-9a-f]/';
+            $string = preg_replace ($no, '', $string);
+            $no = '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S';
+            $string = preg_replace ($no, '', $string);
+        }
+
+        return $string;
+
+    }
+
+
+    /**
+     * defense for SQL Injection
+     * @param $value
+     * @return array|string
+     */
     public function stripSlashesDeep($value)
     {
         $value = is_array($value) ? array_map(array($this, 'stripSlashesDeep'), $value) : stripslashes($value);
         return $value;
     }
 
+    /**
+     * defense for SQL Injection
+     */
     public function removeMagicQuotes()
     {
         if (get_magic_quotes_gpc()) {
@@ -143,7 +203,6 @@ class Comphp
         if (isset($classMap[$className])) {
             $file = $classMap[$className];
         } elseif (strpos($className, '\\') !== false) {
-            // 包含应用（application目录）文件
             $file = APP_PATH . str_replace('\\', '/', $className) . '.php';
             if (!is_file($file)) {
                 return;
@@ -164,6 +223,7 @@ class Comphp
             'comphp\base\View' => CORE_PATH . '/base/View.php',
             'comphp\db\Db' => CORE_PATH . '/db/Db.php',
             'comphp\db\Sql' => CORE_PATH . '/db/Sql.php',
+            'comphp\db\base' => CORE_PATH . '/db/FormBean.php'
         ];
     }
 

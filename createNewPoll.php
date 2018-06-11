@@ -15,4 +15,12 @@ $config = require(APP_PATH . 'config/config.php');
 
 $_SESSION[ 'thePageName' ] = 'createNewPoll';
 
+if(isset($_POST['question'])){
+    echo $_POST['question'];
+    echo $_POST['option1'];
+}else{
+    echo 'No find';
+}
+
 (new comphp\Comphp($config))->run();
+
