@@ -13,6 +13,8 @@ class CreateNewPollFormBean extends FormBean
 {
     private $boards;
 
+    private $selectedBoard;
+
     private $question;
 
     private $titleWarning;
@@ -28,6 +30,24 @@ class CreateNewPollFormBean extends FormBean
     private $content;
 
     private $contentWarning;
+
+    /**
+     * @return mixed
+     */
+    public function getSelectedBoard()
+    {
+        return $this->selectedBoard;
+    }
+
+    /**
+     * @param mixed $selectedBoard
+     */
+    public function setSelectedBoard($selectedBoard): void
+    {
+        $this->selectedBoard = $selectedBoard;
+    }
+
+
 
     /**
      * @return mixed

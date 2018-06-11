@@ -25,7 +25,9 @@ class UserModel extends Model
 		$this->where($whereArray, $paramArray);
 		
 		$result = $this->model = $this->fetchByStmt();
-		
+
+		//var_dump($result);
+
 		return $result;
 
     }

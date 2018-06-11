@@ -20,6 +20,7 @@ class MySQL
   protected  $dbPass;
   protected  $dbName;
   protected  $dbConn;
+
   protected  $dbConnectError;
   protected  $result;
 
@@ -36,6 +37,23 @@ class MySQL
 		$this->dbName = $dbName;
 		$this->connectToServerOOP();
 	}
+
+
+    /**
+     * @return mixed
+     */
+    public function getDbConnForStmt()
+    {
+        return $this->dbConnForStmt;
+    }
+
+    /**
+     * @param mixed $dbConnForStmt
+     */
+    public function setDbConnForStmt($dbConnForStmt): void
+    {
+        $this->dbConnForStmt = $dbConnForStmt;
+    }
 
     /**
      * OOP style
@@ -135,7 +153,10 @@ class MySQL
      * @return mixed
      */
    public function prepare($sql){
+
        $stmt = $this->dbConnForStmt->prepare($sql);
+
+       //var_dump($stmt);
 
        return $stmt;
    }

@@ -13,14 +13,10 @@ require(APP_PATH . 'comphp/Comphp.php');
 
 $config = require(APP_PATH . 'config/config.php');
 
-$_SESSION[ 'thePageName' ] = 'createNewPoll';
+session_save_path( './' );
+session_start();
 
-if(isset($_POST['question'])){
-    echo $_POST['question'];
-    echo $_POST['option1'];
-}else{
-    echo 'No find';
-}
+$_SESSION[ 'thePageName' ] = 'createNewPoll';
 
 (new comphp\Comphp($config))->run();
 

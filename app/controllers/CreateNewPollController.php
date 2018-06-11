@@ -22,6 +22,8 @@ define('NEWPOLL_ACTION_ADD', "add" );
 
 class CreateNewPollController extends Controller
 {
+
+
     private $formBean;
 
     private $boardModel;
@@ -48,10 +50,13 @@ class CreateNewPollController extends Controller
 
         }
 
+        $this->assign('warning', $this->formBean->getWarning());
+
         $this->assign('boardsInfoArray', $this->formBean->getBoards() );
         $this->assign('titleWarning', $this->formBean->getTitleWarning() );
         $this->assign('optionWarning', $this->formBean->getOptionWarning() );
         $this->assign('contentWarning', $this->formBean->getContentWarning() );
+        $this->assign('isMutiWarning', $this->formBean->getisMutiWarning());
 
         $this->render();
 
@@ -72,15 +77,11 @@ class CreateNewPollController extends Controller
                 $boardKey = $aRow['boardID'];
                 $boardValue = $aRow['boardName'];
 
-                $boardArrayTmp = array(
-
-                    $boardKey => $boardValue
-
-                );
-
-                $boardArray = array_merge($boardArray,$boardArrayTmp);
+                $boardArray[$boardKey] = $boardValue;
 
             }
+
+            //  var_dump($boardArray);
 
             $this->formBean->setBoards($boardArray);
 
@@ -103,16 +104,23 @@ class CreateNewPollController extends Controller
 
             }
 
-            $pollModelVO = (new ModelUtil())->getPollModelVO();
+            //var_dump($_SESSION);
 
-            $this->pollModel->addNewPoll($pollModelVO);
+            $pollModelVO = (new ModelUtil())->getPollModelVO($this->formBean);
+
+            //var_dump($pollModelVO);
+
+            $result = $this->pollModel->addNewPoll($pollModelVO);
+
+            if(!$result){
+
+                $this->formBean->setWarning("Insert Failure!");
+
+            }else{
+                $this->formBean->setWarning("Insert Success!");
+            }
+
         }
-
-
-
-
-
-
 
     }
 
@@ -126,6 +134,10 @@ class CreateNewPollController extends Controller
             return;
         }
 
+        $selectedBoardId = $_POST['boardID'];
+
+        $formBean->setSelectedBoard($selectedBoardId);
+
         $question = $_POST['question'];
 
         if(strlen($question)>500){
@@ -136,7 +148,7 @@ class CreateNewPollController extends Controller
         }else{
 
 
-
+            $formBean->setQuestion($question);
 
         }
 
@@ -151,7 +163,9 @@ class CreateNewPollController extends Controller
             $formBean->setOptionWarning("Please input at least one option");
         }else{
 
+            $options = [$option1,$option2,$option3,$option4, $option5];
 
+            $formBean->setOptions($options);
 
         }
 
@@ -159,15 +173,27 @@ class CreateNewPollController extends Controller
 
         if(!empty($isMutilChoice)){
 
+            //var_dump($isMutilChoice);
+
             if (!filter_var($isMutilChoice, FILTER_VALIDATE_BOOLEAN)) {
                 $formBean->setHasError(true);
-                $formBean->setIsMutiWarning(">Sorry, you have entered an incorrect multiple choice");
+                $formBean->setIsMutiWarning("Sorry, you have entered an incorrect multiple choice");
+            }else{
+                $formBean->setIsMultiple($isMutilChoice);
             }
 
         }
 
 
-        $content = $_POST['multi_choice'];
+        $content = $_POST['content'];
+
+        if(strlen($content)>2000){
+            $formBean->setHasError(true);
+            $formBean->setContentWarning("No more than 2000 characters");
+        }else{
+            $formBean->setContent($content);
+        }
+
 
 
     }

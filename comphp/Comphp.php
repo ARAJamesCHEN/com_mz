@@ -14,7 +14,6 @@ class Comphp
 
     public function run()
     {
-        //
         spl_autoload_register(array($this, 'loadClass'));
         $this->setReporting();
         $this->removeXssQuotes();

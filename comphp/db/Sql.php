@@ -94,6 +94,34 @@ class Sql
     }
 
     /**
+     * insert data
+     * @param $data
+     * @return mixed
+     */
+    public function add($data)
+    {
+        $sql = sprintf("insert into `%s` %s", $this->table, $this->formatInsert($data));
+
+        //echo $sql;
+
+        //var_dump($this->param);
+
+        $sth = Db::getDB()->prepare($sql);
+
+        $sth = Db::getDB()->bindParams($sth, $this->param);
+
+        $sth->execute();
+
+        $insertID = Db::getDB()->getDbConnForStmt()->insert_id;
+
+        echo $insertID;
+
+        $sth->close();
+
+        return $insertID;
+    }
+
+    /**
      * array to insert sql
      * @param $data
      * @return string
@@ -104,7 +132,10 @@ class Sql
         $names = array();
         foreach ($data as $key => $value) {
             $fields[] = sprintf("`%s`", $key);
-            $names[] = sprintf(":%s", $key);
+            $names[] = sprintf("?", $key);
+
+            array_push($this->param, $value);
+
         }
 
         $field = implode(',', $fields);

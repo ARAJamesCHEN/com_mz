@@ -10,6 +10,11 @@ define('APP_PATH', __DIR__ . '/');
 
 define('APP_DEBUG', true);
 
+session_save_path( './' );
+session_start();
+
+$_SESSION[ 'thePageName' ] = 'post';
+
 require(APP_PATH . 'comphp/Comphp.php');
 
 $config = require(APP_PATH . 'config/config.php');

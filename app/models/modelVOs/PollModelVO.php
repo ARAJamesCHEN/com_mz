@@ -27,7 +27,7 @@ class PollModelVO
 
     private $userID;
 
-    private $sys;
+    private $sys = DB_SYS;
 
     /**
      * @return mixed

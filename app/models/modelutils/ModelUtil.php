@@ -10,7 +10,6 @@ namespace app\models\modelutils;
 
 use app\controllers\formbeans\CreateNewPollFormBean;
 use app\models\modelVOs\PollModelVO;
-use app\models\modelutils\DateUtil;
 
 class ModelUtil
 {
@@ -18,7 +17,7 @@ class ModelUtil
     public function getPollModelVO(CreateNewPollFormBean $formBean){
         $pollModelVO = new PollModelVO();
 
-        $pollModelVO->setBoardID($formBean->getBoards());
+        $pollModelVO->setBoardID($formBean->getSelectedBoard());
         $pollModelVO->setContent($formBean->getContent());
         $pollModelVO->setOptionType($formBean->isMultiple() ? 'M' : 'S');
         $pollModelVO->setPostNum(0);
