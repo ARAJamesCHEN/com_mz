@@ -24,6 +24,8 @@ class UsrModelServiceImpl implements UsrModelService
 
         $userInfo = $usrModel->searchUsrInfoByLoginName($loginName);
 
+        $rst->setIsSuccess(true);
+
         $rst->setResult($userInfo);
 
         return $rst;

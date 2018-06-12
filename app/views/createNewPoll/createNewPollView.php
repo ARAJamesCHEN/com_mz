@@ -8,8 +8,8 @@
         <span></span>
         <select name="boardID">
             <?php
-                if(is_array($formBean->getBoards()) && !empty($formBean->getBoards())){
-                    foreach ($formBean->getBoards() as $key => $value){
+                if(is_array($boards) && !empty($boards)){
+                    foreach ($boards as $key => $value){
                         if(intval($formBean->getSelectedBoard() ) == intval($key)){
                             echo "<option  value='$key' selected>$value</option>";
                         }else{

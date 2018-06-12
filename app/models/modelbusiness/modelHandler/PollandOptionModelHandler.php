@@ -7,14 +7,18 @@
  */
 
 namespace app\models\modelbusiness\modelHandler;
+use app\models\modelbusiness\modelVOs\PollOptionModelVO;
+use app\models\modelInterface\PollModelServiceImpl;
+use app\models\modelInterface\PollOptionService;
+use app\models\modelInterface\PollOptionServiceImpl;
 use comphp\db\db;
 
 use comphp\base\Model;
 use app\models\modelbusiness\modelutils\ModelUtil;
 use app\models\modelbusiness\modelEntity\PollModel;
-use app\models\modelbusiness\modelEntity\PollOptionModel;
 use app\models\modelbusiness\modelVOs\PollModelVO;
 use comphp\base\RstBean;
+use app\models\modelInterface\PollModelService;
 
 class PollandOptionModelHandler extends Model
 {
@@ -34,10 +38,6 @@ class PollandOptionModelHandler extends Model
      */
     public function pollAndOptionTranstionFlow(PollModelVO $pollModelVO, $pollOptions){
 
-        $pollModel = new PollModel();
-
-        $pollOptionModel = new PollOptionModel();
-
         $rslt = new RstBean();
 
         //transation
@@ -47,22 +47,29 @@ class PollandOptionModelHandler extends Model
             $mysqliCon->begin_transaction();
 
             try {
-                $insertID = $pollModel->addNewPoll($pollModelVO);
+                $rst = $this->callAddPollService(new PollModelServiceImpl() ,$pollModelVO);
             } catch (\Exception $e) {
                 var_dump($pollModelVO);
-                $mysqliCon->rollback();
                 throw new \Exception('insert a poll failure!'. $e->getMessage());
             }
 
+            $insertID = $rst->getResult();
+
             if (!$insertID) {
-                $mysqliCon->rollback();
                 throw new \Exception('insert a poll failure! no insert id return!');
             }
 
             foreach ($pollOptions as $key => $value) {
                 $pollOptionModelVO = (new ModelUtil())->getPollOptionModelVO($key, $value, $insertID);
                 //var_dump($pollOptionModelVO);
-                $pollOptionModel->addNewPollOptions($pollOptionModelVO);
+
+                $rst = $this->callAddPollOptionService(new PollOptionServiceImpl(), $pollOptionModelVO);
+
+                if(!$rst->isSuccess()){
+                    var_dump($pollOptionModelVO);
+                    throw new \Exception('insert a poll option failure,some reason:'.$pollOptionModelVO->getOptionName() );
+                }
+
             }
 
             $mysqliCon->commit();
@@ -78,6 +85,19 @@ class PollandOptionModelHandler extends Model
 
         return $rslt;
 
+
+    }
+
+    private function  callAddPollService(PollModelService $pollModelService, PollModelVO $pollModelVO){
+
+        return $pollModelService->addNewPoll($pollModelVO);
+
+
+    }
+
+    private function callAddPollOptionService(PollOptionService $pollOptionService,PollOptionModelVO $pollOptionModelVO){
+
+        return $pollOptionService->addNewPollOptions($pollOptionModelVO);
 
     }
 

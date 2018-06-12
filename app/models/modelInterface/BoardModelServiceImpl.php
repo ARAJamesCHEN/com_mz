@@ -23,6 +23,8 @@ class BoardModelServiceImpl implements BoardModelService
         $result = $boradModel->searchAllBoard();
 
         $rslt->setResult($result);
+        $rslt->setIsSuccess(true);
+
 
         return $rslt;
 

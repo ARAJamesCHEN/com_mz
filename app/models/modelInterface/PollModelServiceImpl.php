@@ -7,19 +7,34 @@
  */
 
 namespace app\models\modelInterface;
+use app\models\modelbusiness\modelEntity\PollModel;
 use app\models\modelbusiness\modelVOs\PollModelVO;
-use app\models\modelbusiness\modelHandler\PollandOptionModelHandler;
+use comphp\base\RstBean;
 
 class PollModelServiceImpl implements PollModelService
 {
 
-    public function addNewPollWithOption(PollModelVO $pollModelVO,$pollOptions)
+    public function addNewPoll(PollModelVO $pollModelVO)
     {
-        // TODO: Implement addNewPollWithOption() method.
+        $rst = new RstBean();
 
-        $rslt = (new PollandOptionModelHandler())->pollAndOptionTranstionFlow($pollModelVO, $pollOptions);
+        $pollModel = new PollModel();
 
-        return $rslt;
+        $insert_id = $pollModel->addNewPoll($pollModelVO);
+
+        if($insert_id){
+            $rst->setIsSuccess(true);
+        }else{
+            $rst->setIsSuccess(false);
+        }
+
+        $rst->setResult($insert_id);
+
+        return $rst;
 
     }
+
+
+
+
 }

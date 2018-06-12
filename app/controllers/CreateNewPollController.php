@@ -10,11 +10,12 @@ namespace app\controllers;
 use app\controllers\formbeans\CreateNewPollFormBean;
 use app\controllers\formbeans\CreateNewPollFormBeanFactory;
 use app\models\modelbusiness\modelutils\ModelUtil;
-use app\models\modelInterface\PollModelServiceImpl;
+use app\models\modelInterface\PollAndOptionUnionServiceImpl;
 use app\models\modelInterface\PollModelService;
 use app\models\modelInterface\BoardModelService;
 use app\models\modelInterface\BoardModelServiceImpl;
 use comphp\base\Controller;
+use app\models\modelInterface\PollAndOptionsUnionService;
 
 
 include(APP_PATH . 'app/controllers/formbeans/'.'CreateNewPollFormBean.php');
@@ -29,13 +30,9 @@ define('NEWPOLL_ACTION_ADD', "add" );
  */
 class CreateNewPollController extends Controller
 {
-    protected $pollModelService;
-
-    protected $boardModelService;
+    private $boards;
 
     private $formBean;
-
-    private $boardModel;
 
     public function init()
     {
@@ -45,18 +42,15 @@ class CreateNewPollController extends Controller
 
         $this->formBean = CreateNewPollFormBeanFactory::create();
 
-        $boardModelService = new BoardModelServiceImpl();
-
-        $this->initViewParasFunction($boardModelService);
+        $this->initViewParasFunction(new BoardModelServiceImpl());
 
         if ($this->_actionName == NEWPOLL_ACTION_ADD){
 
-            $pollModelService = new PollModelServiceImpl();
-
-            $this->addNewPollFunction($pollModelService);
+            $this->addNewPollFunction(new PollAndOptionUnionServiceImpl());
 
         }
 
+        $this->assign('boards', $this->boards);
         $this->assign('formBean', $this->formBean);
         $this->render();
 
@@ -77,6 +71,8 @@ class CreateNewPollController extends Controller
 
             $rows = $boardInfos->fetchAll();
 
+            //var_dump($rows);
+
             foreach ($rows as $key=>$aRow){
 
                 $boardKey = $aRow['boardID'];
@@ -86,6 +82,7 @@ class CreateNewPollController extends Controller
 
             }
 
+            $this->boards = $boardArray;
             $this->formBean->setBoards($boardArray);
 
         }
@@ -95,7 +92,7 @@ class CreateNewPollController extends Controller
     /**
      * @param PollModelService $comModelIntService
      */
-    private function addNewPollFunction(PollModelService $comModelIntService){
+    private function addNewPollFunction(PollAndOptionsUnionService $comModelIntService){
 
         if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
 
@@ -109,7 +106,7 @@ class CreateNewPollController extends Controller
 
             $pollModelVO = (new ModelUtil())->getPollModelVO($this->formBean);
 
-            var_dump($pollModelVO);
+            //var_dump($pollModelVO);
 
             $options = $this->formBean->getOptions();
 

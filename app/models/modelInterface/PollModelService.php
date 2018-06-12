@@ -11,14 +11,6 @@ use app\models\modelbusiness\modelVOs\PollModelVO;
 interface PollModelService
 {
 
-
-    /**
-     * add new poll and poll options
-     * @param PollModelVO $pollModelVO
-     * @param $pollOptions
-     * @return mixed
-     */
-    public function addNewPollWithOption(PollModelVO $pollModelVO,$pollOptions);
-
+   public function addNewPoll(PollModelVO $pollModelVO);
 
 }
