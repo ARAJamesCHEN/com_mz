@@ -1,6 +1,6 @@
 <?php
 
-namespace app\log;
+namespace comphp\log;
 
 class MyLog
 {

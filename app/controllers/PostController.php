@@ -8,7 +8,6 @@
 namespace app\controllers;
 
 use comphp\base\Controller;
-use app\models\UserModel;
 
 class PostController extends Controller
 {

@@ -14,7 +14,7 @@ include(APP_PATH. 'comphp/db/' .'db.php');
 include(APP_PATH. 'comphp/db/' .'sql.php');
 //include(APP_PATH. 'comphp/db/' .'MySQLDB.php');
 include(APP_PATH. 'comphp/base/' .'Model.php');
-include(APP_PATH. 'app/models/' .'UserModel.php');
+include(APP_PATH . 'app/models/' . 'UserModel.php');
 require(APP_PATH . 'comphp/Comphp.php');
 $config = require(APP_PATH . 'config/config.php');
 

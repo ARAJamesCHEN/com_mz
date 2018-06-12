@@ -11,9 +11,29 @@ namespace comphp\base;
 
 class FormBean
 {
+
+    private $usrId;
+
     private $hasError = false;
 
     private $warning;
+
+    /**
+     * @return mixed
+     */
+    public function getUsrId()
+    {
+        $this->usrId = $_SESSION[ 'userID' ];
+        return $this->usrId;
+    }
+
+    /**
+     * @param mixed $usrId
+     */
+    public function setUsrId($usrId)
+    {
+        $this->usrId = $usrId;
+    }
 
 
     /**

@@ -6,14 +6,16 @@
  * Time: 21:37
  */
 
-namespace app\models\modelHandler;
+namespace app\models\modelbusiness\modelHandler;
 use comphp\db\db;
 
 use comphp\base\Model;
-use app\models\modelutils\ModelUtil;
-use app\models\PollModel;
-use app\models\PollOptionModel;
-use app\models\modelVOs\PollModelVO;
+use app\models\modelbusiness\modelutils\ModelUtil;
+use app\models\modelbusiness\modelEntity\PollModel;
+use app\models\modelbusiness\modelEntity\PollOptionModel;
+use app\models\modelbusiness\modelVOs\PollModelVO;
+use comphp\base\RstBean;
+
 class PollandOptionModelHandler extends Model
 {
 
@@ -30,8 +32,14 @@ class PollandOptionModelHandler extends Model
      * @param $pollOptions
      * @throws \Exception
      */
-    public function pollAndOptionTranstionFlow(PollModel $pollModel,PollModelVO $pollModelVO,
-                                               PollOptionModel $pollOptionModel, $pollOptions){
+    public function pollAndOptionTranstionFlow(PollModelVO $pollModelVO, $pollOptions){
+
+        $pollModel = new PollModel();
+
+        $pollOptionModel = new PollOptionModel();
+
+        $rslt = new RstBean();
+
         //transation
         $mysqliCon = Db::getDB()->getDbConnForStmt();
 
@@ -53,6 +61,7 @@ class PollandOptionModelHandler extends Model
 
             foreach ($pollOptions as $key => $value) {
                 $pollOptionModelVO = (new ModelUtil())->getPollOptionModelVO($key, $value, $insertID);
+                //var_dump($pollOptionModelVO);
                 $pollOptionModel->addNewPollOptions($pollOptionModelVO);
             }
 
@@ -64,6 +73,10 @@ class PollandOptionModelHandler extends Model
             throw new \Exception('insert a poll failure,some reason:'. $e->getMessage() );
 
         }
+
+        $rslt->setIsSuccess(true);
+
+        return $rslt;
 
 
     }

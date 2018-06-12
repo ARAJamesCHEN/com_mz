@@ -1,5 +1,5 @@
 <?php
-namespace app\uti;
+namespace app\controllers\util;
 
 class ValidateUtil {
 	

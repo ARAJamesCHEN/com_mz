@@ -6,11 +6,11 @@
  * Time: 17:58
  */
 
-namespace app\models;
+namespace app\models\modelbusiness\modelEntity;
 
 
 use comphp\base\Model;
-use app\models\modelVOs\PollOptionModelVO;
+use app\models\modelbusiness\modelVOs\PollOptionModelVO;
 class PollOptionModel extends Model
 {
 

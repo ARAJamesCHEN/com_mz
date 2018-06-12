@@ -6,7 +6,7 @@
  * Time: 20:19
  */
 
-namespace app\models;
+namespace app\models\modelbusiness\modelEntity;
 
 use comphp\base\Model;
 

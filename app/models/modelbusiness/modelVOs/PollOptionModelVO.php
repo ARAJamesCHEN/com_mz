@@ -6,7 +6,7 @@
  * Time: 18:01
  */
 
-namespace app\models\modelVOs;
+namespace app\models\modelbusiness\modelVOs;
 
 
 class PollOptionModelVO

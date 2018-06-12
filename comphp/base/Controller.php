@@ -7,6 +7,8 @@
  */
 namespace comphp\base;
 
+use app\models\modelInterface\PollModelServiceImpl;
+
 /**
  * Class Controller
  * @package comphp\base
@@ -17,6 +19,8 @@ class Controller
     protected $_viewName;
     protected $_actionName;
     protected $_view;
+    protected $_usrId;
+
 
     public function __construct($controller, $viewName, $actionName)
     {
@@ -24,6 +28,7 @@ class Controller
         $this->_viewName = $viewName;
         $this->_view = new View($controller, $viewName);
         $this->_actionName = $actionName;
+
         $this->init();
 
 
@@ -31,6 +36,16 @@ class Controller
 
     public function init(){
 
+        if(isset($_SESSION[ 'userID' ]) && !empty($_SESSION[ 'userID' ])){
+
+            $this->_usrId = $_SESSION[ 'userID' ];
+
+        }else{
+
+            if(!strrpos(strtolower($this->_viewName), 'login')){
+                header( 'Location:Login.php' ) ;
+            }
+        }
 
     }
 

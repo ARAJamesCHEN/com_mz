@@ -9,13 +9,13 @@
 namespace app\controllers;
 use app\controllers\formbeans\CreateNewPollFormBean;
 use app\controllers\formbeans\CreateNewPollFormBeanFactory;
-use app\models\modelutils\ModelUtil;
-use app\models\PollModel;
-use app\models\PollOptionModel;
+use app\models\modelbusiness\modelutils\ModelUtil;
+use app\models\modelInterface\PollModelServiceImpl;
+use app\models\modelInterface\PollModelService;
+use app\models\modelInterface\BoardModelService;
+use app\models\modelInterface\BoardModelServiceImpl;
 use comphp\base\Controller;
-use app\models\BoardModel;
 
-use app\models\modelHandler\PollandOptionModelHandler;
 
 include(APP_PATH . 'app/controllers/formbeans/'.'CreateNewPollFormBean.php');
 
@@ -25,15 +25,13 @@ define('NEWPOLL_ACTION_ADD', "add" );
 
 class CreateNewPollController extends Controller
 {
+    protected $pollModelService;
 
+    protected $boardModelService;
 
     private $formBean;
 
     private $boardModel;
-
-    private $pollModel;
-
-    private $pollOptionModel;
 
     public function init()
     {
@@ -41,19 +39,15 @@ class CreateNewPollController extends Controller
 
         $this->formBean = CreateNewPollFormBeanFactory::create();
 
-        $this->boardModel = new BoardModel();
+        $boardModelService = new BoardModelServiceImpl();
 
-        $this->pollModel = new PollModel();
-
-        $this->pollOptionModel = new PollOptionModel();
-
-        $this->initViewParasFunction();
-
-
+        $this->initViewParasFunction($boardModelService);
 
         if ($this->_actionName == NEWPOLL_ACTION_ADD){
 
-            $this->addNewPollFunction();
+            $pollModelService = new PollModelServiceImpl();
+
+            $this->addNewPollFunction($pollModelService);
 
         }
 
@@ -69,9 +63,11 @@ class CreateNewPollController extends Controller
 
     }
 
-    private function initViewParasFunction(){
+    private function initViewParasFunction(BoardModelService $boardModelService){
 
-        $boardInfos = $this->boardModel->searchAllBoard();
+        $rslt = $boardModelService->searchAllBoard();
+
+        $boardInfos = $rslt->getResult();
 
         if ( $boardInfos  && $boardInfos->size()>0 ){
 
@@ -88,8 +84,6 @@ class CreateNewPollController extends Controller
 
             }
 
-            //  var_dump($boardArray);
-
             $this->formBean->setBoards($boardArray);
 
         }
@@ -99,7 +93,7 @@ class CreateNewPollController extends Controller
     /**
      *
      */
-    private function addNewPollFunction(){
+    private function addNewPollFunction(PollModelService $comModelIntService){
 
         if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
 
@@ -116,11 +110,15 @@ class CreateNewPollController extends Controller
             $options = $this->formBean->getOptions();
 
             try {
-                (new PollandOptionModelHandler())->pollAndOptionTranstionFlow($this->pollModel, $pollModelVO, $this->pollOptionModel, $options);
+                $rslt = $comModelIntService->addNewPollWithOption($pollModelVO, $options);
             } catch (\Exception $e) {
 
                 $this->formBean->setWarning("Insert Failure!".$e->getMessage());
 
+            }
+
+            if(!$rslt->isSuccess()){
+                $this->formBean->setWarning("Insert Failure!");
             }
 
 
@@ -168,8 +166,15 @@ class CreateNewPollController extends Controller
         }else{
 
             $options = [$option1,$option2,$option3,$option4, $option5];
+            $optionsData = array();
 
-            $formBean->setOptions($options);
+            foreach ($options as $option){
+                if(!is_null($option) && !empty($option)){
+                    array_push($optionsData, $option);
+                }
+            }
+
+            $formBean->setOptions($optionsData);
 
         }
 

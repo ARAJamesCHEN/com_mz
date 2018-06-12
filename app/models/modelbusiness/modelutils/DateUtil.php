@@ -6,7 +6,7 @@
  * Time: 12:33 PM
  */
 
-namespace app\models\modelutils;
+namespace app\models\modelbusiness\modelutils;
 
 
 class DateUtil

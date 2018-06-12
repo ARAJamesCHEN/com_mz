@@ -5,7 +5,7 @@
  * Date: 1/06/2018
  * Time: 7:35 PM
  */
-namespace app\models;
+namespace app\models\modelbusiness\modelEntity;
 
 use comphp\base\Model;
 

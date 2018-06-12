@@ -6,11 +6,11 @@
  * Time: 12:23 PM
  */
 
-namespace app\models\modelutils;
+namespace app\models\modelbusiness\modelutils;
 
 use app\controllers\formbeans\CreateNewPollFormBean;
-use app\models\modelVOs\PollModelVO;
-use app\models\modelVOs\PollOptionModelVO;
+use app\models\modelbusiness\modelVOs\PollModelVO;
+use app\models\modelbusiness\modelVOs\PollOptionModelVO;
 
 class ModelUtil
 {
@@ -25,7 +25,7 @@ class ModelUtil
         $pollModelVO->setViewNum(0);
         $pollModelVO->setPostDate((new DateUtil())->getCurrentDate());
         $pollModelVO->setQuestion($formBean->getQuestion());
-        $pollModelVO->setUserID($_SESSION[ 'userID' ]);
+        $pollModelVO->setUserID($formBean->getUsrId());
         $pollModelVO->setSys(DB_SYS);
 
         return $pollModelVO;

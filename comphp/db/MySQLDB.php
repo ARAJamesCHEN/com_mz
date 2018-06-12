@@ -6,9 +6,9 @@ namespace comphp\db;
 
 use mysqli;
 
-use app\log\MyLog;
+use comphp\log\MyLog;
 
-include_once(APP_PATH. 'app/log/' .'Logger.php');
+include_once(APP_PATH. 'comphp/log/' .'Logger.php');
 
 
 class MySQL 

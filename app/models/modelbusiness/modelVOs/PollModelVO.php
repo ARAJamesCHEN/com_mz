@@ -6,7 +6,7 @@
  * Time: 12:12 PM
  */
 
-namespace app\models\modelVOs;
+namespace app\models\modelbusiness\modelVOs;
 
 class PollModelVO
 {

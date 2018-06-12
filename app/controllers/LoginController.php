@@ -10,9 +10,9 @@ namespace app\controllers;
 
 use app\controllers\formbeans\LoginFormBeanFactory;
 use comphp\base\Controller;
-use app\models\UserModel;
-use app\uti\ValidateUtil;
-include(APP_PATH. 'app/util/' .'ValidateUtil.php');
+use app\models\modelbusiness\modelEntity\UserModel;
+use app\controllers\util\ValidateUtil;
+include(APP_PATH. 'app/controllers/util/' .'ValidateUtil.php');
 include(APP_PATH . 'app/controllers/formbeans/'.'LoginFormBean.php');
 
 
