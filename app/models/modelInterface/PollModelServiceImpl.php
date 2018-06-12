@@ -37,6 +37,21 @@ class PollModelServiceImpl implements PollModelService
 
     public function serarchPollByID($pollID)
     {
-        // TODO: Implement serarchPollByID() method.
+
+        $rst = new RstBean();
+
+        $pollModel = new PollModel();
+
+        $result = $pollModel->searchPollByID($pollID);
+
+        if(is_null($result) || !$result){
+            $rst->setIsSuccess(false);
+        }else{
+            $rst->setIsSuccess(true);
+            $rst->setResult($result);
+        }
+
+        return $rst;
+
     }
 }
