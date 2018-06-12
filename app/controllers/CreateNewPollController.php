@@ -120,9 +120,15 @@ class CreateNewPollController extends Controller
 
             if(!$rslt->isSuccess()){
                 $this->formBean->setWarning("Insert Failure!");
+                return;
             }else{
                 $this->formBean = CreateNewPollFormBeanFactory::create();
             }
+
+
+            $_SESSION['PollId'] = $rslt->getResult();
+
+            header('Location:pollRst.php?init' );
 
 
         }

@@ -81,6 +81,7 @@ class PollandOptionModelHandler extends Model
 
         }
 
+        $rslt->setResult($insertID);
         $rslt->setIsSuccess(true);
 
         return $rslt;

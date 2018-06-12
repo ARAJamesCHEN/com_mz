@@ -76,6 +76,8 @@ class Comphp
 
                 $controllerName = strtoupper($begStr).$endStr;
 
+                //echo $controllerName;
+
             }
 
             array_shift($urlArray);
