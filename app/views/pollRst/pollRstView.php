@@ -1,14 +1,15 @@
  <main class="post-main">
-	    <section class="breadcrumbs">
+     <p class='bg-danger text-white'><?php echo $formBean->getWarning();?></p>
+       <section class="breadcrumbs">
 			<ul class="display-flex">
 				<li><a href="#" rel="nofollow">Forums</a></li>
-				<li><a href="post.html" rel="nofollow"><?php echo $formBean->boardName ?></a></li>
+				<li><a href="post.html" rel="nofollow"><?php echo $pollRstBean->getBoardName() ?></a></li>
 			</ul>
 		</section>
 		<section class="post-content">
 			<div class="forum-section__top">
 		        <div class="forum-head-one">
-		            <h1> <?php echo $formBean->question?></h1>
+		            <h1> <?php echo $pollRstBean->getQuestion()?></h1>
 			    </div>
 			</div>
 			<div>
@@ -28,7 +29,7 @@
 									</a>
 									<dl class="user-info hide-mobile">
 									    <dt class="user-info__name">
-										    <a href="#"><?php echo $formBean->usrName?></a>
+										    <a href="#"><?php echo $pollRstBean->getUserName()?></a>
 										</dt>
 										<dd class="user-info__item">
 										</dd>
@@ -36,7 +37,7 @@
 										    <span>Member Since:</span> December 1, 2017
                                         </dd>
 										<dd class="user-info__item">
-										    <span>Posts:</span> <?php echo $formBean->usrPostNum ?>
+										    <span>Posts:</span> <?php echo $pollRstBean->getPostNum() ?>
 										</dd>
 									</dl>
 								</div>
@@ -45,8 +46,8 @@
 							<div class="message-wrap">
 								<div class="message-inner">
 									<div class="message-title">
-                                        Posted by <a href="#"><?php $formBean->usrName?></a>(<?php $formBean->usrPostNum ?> posts)
-										<span class="icon icon-time"> <?php echo $formBean->postDate ?></span>
+                                        Posted by <a href="#"><?php echo $pollRstBean->getUserName();?></a>(<?php echo $pollRstBean->getPostNum() ?> posts)
+										<span class="icon icon-time"> <?php echo $pollRstBean->getPostDateDisplay() ?></span>
 									</div>
 									<div class="message-breadcrumb"></div>
 									<div class="message-content">
@@ -58,20 +59,38 @@
 															<i class="icon icon-align-left"></i>
                                                              Poll:
 														</span>
-                                                        <?php$formBean->question?> (<?php echo $formBean->votedNum ?> votes)
+                                                        <?php echo $pollRstBean->getQuestion()?> (<?php echo $pollRstBean->getViewNum() ?> votes)
 													</h3>
 												</div>
 												<form class="js-poll-form" data-ajaxform="true">
-												    <div>
-                                                        Theseus 80%
-                                                        <?php echo $formBean->optionName.' '.$formBean->optionNameVoteRate.'%' ;  ?>
-                                                    </div>
-													<div class="progress progress-success"><div class="bar" style="width: 80%;"></div></div>
-													<div>
-                                                        Minotaur 20%
-                                                        <?php echo $formBean->optionName.' '.$formBean->optionNameVoteRate.'%' ;  ?>
-													</div>
-													<div class="progress "><div class="bar" style="width: 20%;"></div></div>
+
+                                                    <?php
+
+                                                        $count = 0;
+
+                                                        foreach($pollOptionRstBeanCollection as $optionValue => $option){
+
+                                                            //var_dump($option);
+
+                                                            $optionName = $option->getOptionName();
+                                                            $votePercentage = $option->getVotedPercentage();
+
+                                                            $votePercentage = 50;
+
+                                                            echo "<div>$optionName  $votePercentage</div>";
+
+                                                            if($count%2 == 0){
+                                                                echo "<div class='progress progress-success'>";
+                                                                $count++;
+                                                            }else{
+                                                                echo "<div class='progress'>";
+                                                                $count--;
+                                                            }
+                                                            echo "<div class='bar' style='width: $votePercentage%'>";
+                                                            echo "</div></div>";
+                                                        }
+
+                                                    ?>
 												</form>
 											</div>
 										</article>

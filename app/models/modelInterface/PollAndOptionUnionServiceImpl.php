@@ -15,10 +15,10 @@ class PollAndOptionUnionServiceImpl implements PollAndOptionsUnionService
 {
 
     /**
-     * add new poll and poll options
      * @param PollModelVO $pollModelVO
      * @param $pollOptions
      * @return mixed
+     * @throws \Exception
      */
     public function addNewPollWithOption(PollModelVO $pollModelVO,$pollOptions)
     {
@@ -33,5 +33,9 @@ class PollAndOptionUnionServiceImpl implements PollAndOptionsUnionService
     public function searchPollWithOptionByID($pollID)
     {
         // TODO: Implement searchPollWithOptionByID() method.
+
+        $rslt = (new PollandOptionModelHandler())->getPollAndPollOptionsByPollID($pollID);
+
+        return $rslt;
     }
 }

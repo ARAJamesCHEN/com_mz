@@ -7,20 +7,21 @@
  */
 
 namespace app\models\modelbusiness\modelHandler;
-use app\models\modelbusiness\modelVOs\PollOptionModelVO;
+
+use app\models\modelInterface\BoardModelServiceImpl;
 use app\models\modelInterface\PollModelServiceImpl;
-use app\models\modelInterface\PollOptionService;
 use app\models\modelInterface\PollOptionServiceImpl;
+use app\models\modelInterface\UsrModelServiceImpl;
 use comphp\db\db;
 
-use comphp\base\Model;
 use app\models\modelbusiness\modelutils\ModelUtil;
 use app\models\modelbusiness\modelEntity\PollModel;
 use app\models\modelbusiness\modelVOs\PollModelVO;
 use comphp\base\RstBean;
-use app\models\modelInterface\PollModelService;
 
-class PollandOptionModelHandler extends Model
+use comphp\base\Handler;
+
+class PollandOptionModelHandler extends Handler
 {
 
     /**
@@ -35,6 +36,7 @@ class PollandOptionModelHandler extends Model
      * @param PollOptionModel $pollOptionModel
      * @param $pollOptions
      * @throws \Exception
+     * @return mixed
      */
     public function pollAndOptionTranstionFlow(PollModelVO $pollModelVO, $pollOptions){
 
@@ -89,17 +91,48 @@ class PollandOptionModelHandler extends Model
 
     }
 
-    private function  callAddPollService(PollModelService $pollModelService, PollModelVO $pollModelVO){
+    /**
+     * @param $pollID
+     * @return RstBean
+     */
+    public function getPollAndPollOptionsByPollID($pollID){
 
-        return $pollModelService->addNewPoll($pollModelVO);
+        $rslt = new RstBean();
+
+        //poll result
+        $pollRst = $this->callPollModelServiceForSearch(new PollModelServiceImpl(), $pollID);
+
+        //poll option result
+        $pollOptionRst = $this->callPollOptionModelServiceForSearch(new PollOptionServiceImpl(), $pollID);
+
+        $pollRstBean = $pollRst->getResult();
+
+        //var_dump($pollRstBean);
+
+        // board Rst
+        $boardRstBean = $this->callBoardModelServiceForSearch(new BoardModelServiceImpl(), $pollRstBean->getBoardID());
+
+        //var_dump($boardRstBean);
+
+        $pollRstBean->setBoardName($boardRstBean->getBoardName());
+
+        //user name rst
+        $usrRst = $this->callUsrModelServiceForSearch(new UsrModelServiceImpl(), $pollRstBean->getUserID());
+        $pollRstBean->setUserName($usrRst->getUsrName());
+
+        $rsltArray = [$pollRstBean, $pollOptionRst->getResult()];
 
 
-    }
+        //var_dump($rsltArray);
 
-    private function callAddPollOptionService(PollOptionService $pollOptionService,PollOptionModelVO $pollOptionModelVO){
+        if(is_null($rsltArray) || !$rsltArray){
+            $rslt->setIsSuccess(false);
+        }else{
+            $rslt->setIsSuccess(true);
+            $rslt->setResult($rsltArray);
+        }
 
-        return $pollOptionService->addNewPollOptions($pollOptionModelVO);
-
+        return $rslt;
     }
 
 

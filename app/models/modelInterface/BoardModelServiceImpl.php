@@ -9,6 +9,8 @@
 namespace app\models\modelInterface;
 
 use app\models\modelbusiness\modelEntity\BoardModel;
+use app\models\modelbusiness\modelutils\ModelUtil;
+use app\models\modelbusiness\modelRstBean\BoardRstBean;
 use comphp\base\RstBean;
 
 class BoardModelServiceImpl implements BoardModelService
@@ -28,5 +30,21 @@ class BoardModelServiceImpl implements BoardModelService
 
         return $rslt;
 
+    }
+
+    public function searchBoardByID($boardID)
+    {
+        // TODO: Implement searchBoradByID() method.
+        $rslt = new BoardRstBean();
+
+        $boardModel = new BoardModel();
+
+        $result = $boardModel->searchBoardByID($boardID);
+
+        $rslt = ((new ModelUtil())->getBoardRstBean($result));
+
+        $rslt->setIsSuccess(true);
+
+        return $rslt;
     }
 }

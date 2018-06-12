@@ -10,7 +10,9 @@ namespace app\models\modelInterface;
 
 
 use app\models\modelbusiness\modelEntity\UserModel;
+use app\models\modelbusiness\modelutils\ModelUtil;
 use comphp\base\RstBean;
+use app\models\modelbusiness\modelRstBean\UsrRstBean;
 
 class UsrModelServiceImpl implements UsrModelService
 {
@@ -27,6 +29,22 @@ class UsrModelServiceImpl implements UsrModelService
         $rst->setIsSuccess(true);
 
         $rst->setResult($userInfo);
+
+        return $rst;
+    }
+
+    public function searchUsrInfoByID($usrID)
+    {
+        // TODO: Implement searchUsrInfoByID() method.
+        $rst = new UsrRstBean();
+
+        $usrModel = new UserModel();
+
+        $userInfo = $usrModel->searchUsrInfoByUsrID($usrID);
+
+        $rst = (new ModelUtil())->getUsrRstBean($userInfo);
+
+        $rst->setIsSuccess(true);
 
         return $rst;
     }

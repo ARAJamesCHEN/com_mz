@@ -14,4 +14,6 @@ interface UsrModelService
 
     public function searchUsrInfoByLoginName($loginName);
 
+    public function searchUsrInfoByID($usrID);
+
 }

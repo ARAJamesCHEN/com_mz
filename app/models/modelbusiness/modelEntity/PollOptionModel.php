@@ -44,7 +44,17 @@ class PollOptionModel extends Model
 
         }
 
+    }
 
+    public function searchPollOptionsByPollID($pollID){
+
+        if(!is_null($pollID)){
+            $whereArray = ['pollID=?'];
+            $paramArray = [$pollID];
+            $this->where($whereArray, $paramArray);
+            $result = $this->model = $this->fetchByStmt();
+            return $result;
+        }
 
     }
 

@@ -25,4 +25,19 @@ class BoardModel extends Model
 
     }
 
+    public function searchBoardByID($boardID)
+    {
+
+        $whereArray = ['boardID=?'];
+
+        $paramArray = [$boardID];
+
+        $this->where($whereArray, $paramArray);
+
+        $result = $this->model = $this->fetchByStmt();
+
+        return $result;
+
+    }
+
 }

@@ -17,4 +17,6 @@ interface BoardModelService
      */
     public function searchAllBoard();
 
+    public function searchBoardByID($boardID);
+
 }

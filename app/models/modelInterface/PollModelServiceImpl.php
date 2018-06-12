@@ -10,10 +10,16 @@ namespace app\models\modelInterface;
 use app\models\modelbusiness\modelEntity\PollModel;
 use app\models\modelbusiness\modelVOs\PollModelVO;
 use comphp\base\RstBean;
+use app\models\modelbusiness\modelutils\ModelUtil;
+use app\models\modelbusiness\modelRstBean\PollRstBean;
 
 class PollModelServiceImpl implements PollModelService
 {
 
+    /**
+     * @param PollModelVO $pollModelVO
+     * @return RstBean
+     */
     public function addNewPoll(PollModelVO $pollModelVO)
     {
         $rst = new RstBean();
@@ -34,21 +40,26 @@ class PollModelServiceImpl implements PollModelService
 
     }
 
-
-    public function serarchPollByID($pollID)
+    /**
+     * @param $pollID
+     * @return RstBean
+     */
+    public function searchPollByID($pollID)
     {
 
-        $rst = new RstBean();
+        $rst = new PollRstBean();
 
         $pollModel = new PollModel();
 
         $result = $pollModel->searchPollByID($pollID);
 
+        $rstBean = (new ModelUtil())->getPollRstBean($result);
+
         if(is_null($result) || !$result){
             $rst->setIsSuccess(false);
         }else{
             $rst->setIsSuccess(true);
-            $rst->setResult($result);
+            $rst->setResult($rstBean);
         }
 
         return $rst;

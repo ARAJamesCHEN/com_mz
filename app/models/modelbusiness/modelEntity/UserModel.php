@@ -32,5 +32,20 @@ class UserModel extends Model
 
     }
 
+    public function searchUsrInfoByUsrID($usrID)
+    {
+
+        $whereArray = ['userID=?'];
+
+        $paramArray = [$usrID];
+
+        $this->where($whereArray, $paramArray);
+
+        $result = $this->model = $this->fetchByStmt();
+
+        return $result;
+
+    }
+
 }
 
