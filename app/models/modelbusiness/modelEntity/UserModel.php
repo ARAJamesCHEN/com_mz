@@ -26,8 +26,6 @@ class UserModel extends Model
 		
 		$result = $this->model = $this->fetchByStmt();
 
-		//var_dump($result);
-
 		return $result;
 
     }

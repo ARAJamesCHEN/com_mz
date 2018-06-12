@@ -9,8 +9,9 @@
 namespace app\controllers;
 
 use app\controllers\formbeans\LoginFormBeanFactory;
+use app\models\modelInterface\UsrModelService;
+use app\models\modelInterface\UsrModelServiceImpl;
 use comphp\base\Controller;
-use app\models\modelbusiness\modelEntity\UserModel;
 use app\controllers\util\ValidateUtil;
 include(APP_PATH. 'app/controllers/util/' .'ValidateUtil.php');
 include(APP_PATH . 'app/controllers/formbeans/'.'LoginFormBean.php');
@@ -28,8 +29,6 @@ class LoginController extends Controller
 
     private $formBean;
 
-	private $userModel;
-
     /**
      * init()
      */
@@ -37,11 +36,11 @@ class LoginController extends Controller
 
         $this->formBean = LoginFormBeanFactory::create();
 
-	    $this->userModel = new UserModel();
-
         if($this->_actionName == LOGIN_ACTION_LOGIN){
 
-            $this->loginFunction();
+            $usrModelService = new UsrModelServiceImpl();
+
+            $this->loginFunction($usrModelService);
 
         }
 
@@ -52,14 +51,16 @@ class LoginController extends Controller
     /**
      *
      */
-    public function loginFunction(){
+    public function loginFunction(UsrModelService $usrModelService){
 
         if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
             //valid
             if($this->isValidLogin()){
 
-				$userInfo = $this->userModel->searchUsrInfoByLoginName($this->formBean->getFormUsrName());
-				
+				$rst = $usrModelService->searchUsrInfoByLoginName($this->formBean->getFormUsrName());
+
+                $userInfo = $rst->getResult();
+
 				if ( !$userInfo )
                 {
                     $this->formBean->setWarning("Not a valid surname, password combination");
@@ -78,16 +79,13 @@ class LoginController extends Controller
 
 						if(!$this->checkPwd($this->formBean->getFormUsrPwd(), $userLoginPwd )){
 
-                            $this->formBean->setWarning(" <p class='bg-danger text-white'>You password is wrong!</p>");
+                            $this->formBean->setWarning("You password is wrong!");
 
                         }else{
 
                             if(ValidateUtil::validateIfWeakPwd($this->formBean->getFormUsrPwd())){
                                 echo "<script type='text/javascript'>alert('Login successfully! Your passwords is weak. We suggest you to modify the password!')</script>";
                             }
-
-                            //session_save_path( './' );
-                            //session_start();
 
                             $_SESSION[ 'theUsrName' ] = $this->formBean->getFormUsrName();
                             $_SESSION[ 'userID' ] = $userID;
@@ -98,7 +96,7 @@ class LoginController extends Controller
 
 			        }else{
 
-                        $this->formBean->setWarning("<p class='bg-danger text-white'>No User was found!</p>");
+                        $this->formBean->setWarning("No User was found!");
 
 			        }
 				} 
@@ -136,7 +134,7 @@ class LoginController extends Controller
             $this->formBean->setFormUsrName($_POST['user_name']);
 
             if(!ValidateUtil::validateUserName($this->formBean->getFormUsrName())){
-                $this->formBean->setWarning("<p class='bg-danger text-white'>Please input the right user name</p>");
+                $this->formBean->setWarning("Please input the right user name");
 
                 $hasIssue = true;
             }
@@ -146,7 +144,7 @@ class LoginController extends Controller
             $this->formBean->setFormUsrPwd($_POST['user_pwd']);
 
             if(ValidateUtil::validateIfPwdUnleagal($this->formBean->getFormUsrPwd())){
-                $this->formBean->setWarning("<p class='bg-danger text-white'>Please input the right style password</p>");
+                $this->formBean->setWarning("Please input the right style password");
                 $hasIssue = true;
             }
         }

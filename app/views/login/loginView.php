@@ -26,7 +26,7 @@
                             <input type="submit" value="Register" class="btn">
                        </li>
                     </ol>
-                    <?php echo $warning?>
+                    <?php echo "<p class='bg-danger text-white'>$warning</p>" ?>
 				</form>
 
 			<div>

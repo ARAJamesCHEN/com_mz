@@ -23,6 +23,10 @@ define('NEWPOLL_ACTION_INIT', "init" );
 
 define('NEWPOLL_ACTION_ADD', "add" );
 
+/**
+ * Class CreateNewPollController
+ * @package app\controllers
+ */
 class CreateNewPollController extends Controller
 {
     protected $pollModelService;
@@ -63,6 +67,9 @@ class CreateNewPollController extends Controller
 
     }
 
+    /**
+     * @param BoardModelService $boardModelService
+     */
     private function initViewParasFunction(BoardModelService $boardModelService){
 
         $rslt = $boardModelService->searchAllBoard();
@@ -91,7 +98,7 @@ class CreateNewPollController extends Controller
     }
 
     /**
-     *
+     * @param PollModelService $comModelIntService
      */
     private function addNewPollFunction(PollModelService $comModelIntService){
 
