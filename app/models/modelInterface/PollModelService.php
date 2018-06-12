@@ -13,4 +13,6 @@ interface PollModelService
 
    public function addNewPoll(PollModelVO $pollModelVO);
 
+   public function serarchPollByID($pollID);
+
 }

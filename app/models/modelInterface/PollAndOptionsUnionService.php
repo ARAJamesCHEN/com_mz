@@ -21,4 +21,6 @@ interface PollAndOptionsUnionService
      */
     public function addNewPollWithOption(PollModelVO $pollModelVO,$pollOptions);
 
+    public function searchPollWithOptionByID($pollID);
+
 }

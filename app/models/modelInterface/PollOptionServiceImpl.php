@@ -37,4 +37,9 @@ class PollOptionServiceImpl implements PollOptionService
 
 
     }
+
+    public function searchPollOptionsByPollID($pollID)
+    {
+        // TODO: Implement searchPollOptionsByPollID() method.
+    }
 }

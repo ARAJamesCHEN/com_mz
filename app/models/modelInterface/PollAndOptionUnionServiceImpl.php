@@ -29,4 +29,9 @@ class PollAndOptionUnionServiceImpl implements PollAndOptionsUnionService
         return $rslt;
 
     }
+
+    public function searchPollWithOptionByID($pollID)
+    {
+        // TODO: Implement searchPollWithOptionByID() method.
+    }
 }

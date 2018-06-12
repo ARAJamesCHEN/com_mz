@@ -35,6 +35,8 @@ class PollModelServiceImpl implements PollModelService
     }
 
 
-
-
+    public function serarchPollByID($pollID)
+    {
+        // TODO: Implement serarchPollByID() method.
+    }
 }

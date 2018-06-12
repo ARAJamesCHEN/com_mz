@@ -12,6 +12,9 @@ namespace app\controllers;
 use comphp\base\Controller;
 use app\controllers\formbeans\PollRstFormBean;
 use app\controllers\formbeans\PollRstFormBeanFactory;
+use app\models\modelInterface\PollModelService;
+use app\models\modelInterface\PollModelServiceImpl;
+
 include(APP_PATH . 'app/controllers/formbeans/'.'PollRstFormBean.php');
 
 CONST POLL_RST_INIT = "init";
@@ -32,20 +35,28 @@ class PollRstController extends Controller
         }
 
         if(POLL_RST_INIT == $this->_actionName){
+            if(!empty($pollID)){
 
+
+                $this->displayPollDetail(new PollModelServiceImpl());
+
+
+            }else{
+                throw new \Exception("Cannot get PollID!");
+            }
         }
 
-        if(!empty($pollID)){
 
-
-
-
-        }
 
 
 
         $this->render();
     }
 
+    private function displayPollDetail(PollModelService $pollModelService){
 
+
+
+    }
 }
+

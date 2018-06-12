@@ -15,4 +15,6 @@ interface PollOptionService
 
     public function addNewPollOptions(PollOptionModelVO $pollOptionModelVO);
 
+    public function searchPollOptionsByPollID($pollID);
+
 }

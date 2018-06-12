@@ -2,13 +2,13 @@
 	    <section class="breadcrumbs">
 			<ul class="display-flex">
 				<li><a href="#" rel="nofollow">Forums</a></li>
-				<li><a href="post.html" rel="nofollow">Games Discussion</a></li>
+				<li><a href="post.html" rel="nofollow"><?php echo $formBean->boardName ?></a></li>
 			</ul>
 		</section>
 		<section class="post-content">
 			<div class="forum-section__top">
 		        <div class="forum-head-one">
-		            <h1>  Theseus vs Minotaur, which one do you prefer?</h1>
+		            <h1> <?php echo $formBean->question?></h1>
 			    </div>
 			</div>
 			<div>
@@ -28,7 +28,7 @@
 									</a>
 									<dl class="user-info hide-mobile">
 									    <dt class="user-info__name">
-										    <a href="#">James</a>
+										    <a href="#"><?php echo $formBean->usrName?></a>
 										</dt>
 										<dd class="user-info__item">
 										</dd>
@@ -36,7 +36,7 @@
 										    <span>Member Since:</span> December 1, 2017
                                         </dd>
 										<dd class="user-info__item">
-										    <span>Posts:</span> 202
+										    <span>Posts:</span> <?php echo $formBean->usrPostNum ?>
 										</dd>
 									</dl>
 								</div>
@@ -45,8 +45,8 @@
 							<div class="message-wrap">
 								<div class="message-inner">
 									<div class="message-title">
-                                        Posted by <a href="#">James</a>(202 posts)
-										<span class="icon icon-time"> 2 year, 3 months ago</span>
+                                        Posted by <a href="#"><?php $formBean->usrName?></a>(<?php $formBean->usrPostNum ?> posts)
+										<span class="icon icon-time"> <?php echo $formBean->postDate ?></span>
 									</div>
 									<div class="message-breadcrumb"></div>
 									<div class="message-content">
@@ -58,16 +58,18 @@
 															<i class="icon icon-align-left"></i>
                                                              Poll:
 														</span>
-                                                        Theseus vs Minotaur, which one do you prefer? (10 votes)
+                                                        <?php$formBean->question?> (<?php echo $formBean->votedNum ?> votes)
 													</h3>
 												</div>
 												<form class="js-poll-form" data-ajaxform="true">
 												    <div>
                                                         Theseus 80%
-													</div>
+                                                        <?php echo $formBean->optionName.' '.$formBean->optionNameVoteRate.'%' ;  ?>
+                                                    </div>
 													<div class="progress progress-success"><div class="bar" style="width: 80%;"></div></div>
 													<div>
                                                         Minotaur 20%
+                                                        <?php echo $formBean->optionName.' '.$formBean->optionNameVoteRate.'%' ;  ?>
 													</div>
 													<div class="progress "><div class="bar" style="width: 20%;"></div></div>
 												</form>
