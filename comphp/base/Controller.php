@@ -34,19 +34,23 @@ class Controller
 
     }
 
-    public function init(){
+    public function init(){}
 
+    public function forwardToLogin(){
         if(isset($_SESSION[ 'userID' ]) && !empty($_SESSION[ 'userID' ])){
 
             $this->_usrId = $_SESSION[ 'userID' ];
 
+            return false;
+
         }else{
 
             if(!strrpos(strtolower($this->_viewName), 'login')){
-                header( 'Location:Login.php' ) ;
+                header( 'Location:Login.php?forward' ) ;
             }
-        }
 
+            return true;
+        }
     }
 
     public function assign($name, $value)

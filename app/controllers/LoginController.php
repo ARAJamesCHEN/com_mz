@@ -18,6 +18,7 @@ include(APP_PATH . 'app/controllers/formbeans/'.'LoginFormBean.php');
 
 
 define('LOGIN_ACTION_LOGIN', "login" );
+define('LOGIN_ACTION_FORWARD', "forward" );
 
 /**
  * WorkFlow Controller
@@ -42,6 +43,8 @@ class LoginController extends Controller
 
             $this->loginFunction($usrModelService);
 
+        }elseif ($this->_actionName == LOGIN_ACTION_FORWARD){
+            $this->formBean->setWarning("Please login first!");
         }
 
         $this->assign('warning', $this->formBean->getWarning());

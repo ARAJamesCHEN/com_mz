@@ -18,6 +18,7 @@ class Comphp
         $this->setReporting();
         $this->removeXssQuotes();
         $this->removeMagicQuotes();
+        $this->defenseSQLInjection();
         $this->setDbConfig();
         $this->route();
     }
@@ -110,17 +111,10 @@ class Comphp
      */
     public function removeXssQuotes(){
 
-        if (get_magic_quotes_gpc()) {
-
-            $_GET = isset($_GET) ? $this->cleanXssPrepare($_GET ) : '';
-            $_POST = isset($_POST) ? $this->cleanXssPrepare($_POST ) : '';
-            $_COOKIE = isset($_COOKIE) ? $this->cleanXssPrepare($_COOKIE) : '';
-            $_SESSION = isset($_SESSION) ? $this->cleanXssPrepare($_SESSION) : '';
-
-
-
-
-        }
+        $_GET = isset($_GET) ? $this->cleanXssPrepare($_GET ) : '';
+        $_POST = isset($_POST) ? $this->cleanXssPrepare($_POST ) : '';
+        $_COOKIE = isset($_COOKIE) ? $this->cleanXssPrepare($_COOKIE) : '';
+        $_SESSION = isset($_SESSION) ? $this->cleanXssPrepare($_SESSION) : '';
 
     }
 
@@ -131,7 +125,7 @@ class Comphp
      */
     public function cleanXssPrepare($value){
         $value = is_array($value) ? array_map(array($this, 'cleanXssStringQuotes'), $value) : $this->cleanXssStringQuotes($value);
-        echo '$value';
+        //var_dump($value) ;
         return $value;
     }
 
@@ -161,7 +155,7 @@ class Comphp
 
 
     /**
-     * defense for SQL Injection
+     * defense for MagicQuotes
      * @param $value
      * @return array|string
      */
@@ -172,17 +166,58 @@ class Comphp
     }
 
     /**
-     * defense for SQL Injection
+     * defense for MagicQuotes
      */
     public function removeMagicQuotes()
     {
-        if (get_magic_quotes_gpc()) {
+        if(get_magic_quotes_gpc()){
             $_GET = isset($_GET) ? $this->stripSlashesDeep($_GET ) : '';
             $_POST = isset($_POST) ? $this->stripSlashesDeep($_POST ) : '';
             $_COOKIE = isset($_COOKIE) ? $this->stripSlashesDeep($_COOKIE) : '';
             $_SESSION = isset($_SESSION) ? $this->stripSlashesDeep($_SESSION) : '';
         }
+
     }
+
+    /**
+     * 1. remove magic quotes
+     * 2. addSlashes
+     * 3. bind para query * strong
+     */
+    public function defenseSQLInjection(){
+        if(!get_magic_quotes_gpc()){
+            $_GET = isset($_GET) ? $this->doSthToDefenseSQLInject($_GET ) : '';
+            $_POST = isset($_POST) ? $this->doSthToDefenseSQLInject($_POST ) : '';
+            $_COOKIE = isset($_COOKIE) ? $this->doSthToDefenseSQLInject($_COOKIE) : '';
+            $_SESSION = isset($_SESSION) ? $this->doSthToDefenseSQLInject($_SESSION) : '';
+        }
+    }
+
+    /**
+     * https://blog.csdn.net/u011781769/article/details/48470759
+     * @param $value
+     * @return mixed|string
+     */
+    public function doSthToDefenseSQLInject($value){
+
+        //$value = is_array($value) ? array_map(array($this, 'addSlashesToStr'), $value) : addslashes($value);
+
+        if(is_array($value)){
+            array_map(array($this, 'doSthToDefenseSQLInject'), $value);
+        }else{
+            $value = addslashes($value);
+
+            $value = str_replace("_", "\_", $value);
+            $value = str_replace("%", "\%", $value);
+            $value = nl2br($value);
+        }
+
+        return $value;
+
+    }
+
+
+
 
     public function setDbConfig()
     {
