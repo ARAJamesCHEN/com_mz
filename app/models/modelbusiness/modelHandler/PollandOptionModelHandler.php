@@ -8,6 +8,7 @@
 
 namespace app\models\modelbusiness\modelHandler;
 
+use app\models\modelbusiness\modelutils\DateUtil;
 use app\models\modelInterface\BoardModelServiceImpl;
 use app\models\modelInterface\PollModelServiceImpl;
 use app\models\modelInterface\PollOptionServiceImpl;
@@ -116,6 +117,7 @@ class PollandOptionModelHandler extends Handler
         //user name rst
         $usrRst = $this->callUsrModelServiceForSearch(new UsrModelServiceImpl(), $pollRstBean->getUserID());
         $pollRstBean->setUserName($usrRst->getUsrName());
+        $pollRstBean->setPostDateDisplay((new DateUtil())->getFormatDate($pollRstBean->getPostDate()));
 
         //poll option result
         $pollOptionRst = $this->callPollOptionModelServiceForSearch(new PollOptionServiceImpl(), $pollID);

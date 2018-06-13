@@ -20,4 +20,12 @@ class DateUtil
         return $today;
     }
 
+    public function getFormatDate($datePara){
+
+        if($datePara){
+            $date=date_create($datePara);
+            return date_format($date,"l dS \of F Y ");
+        }
+
+    }
 }
