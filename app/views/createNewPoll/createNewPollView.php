@@ -63,7 +63,7 @@
         <span></span>
 
         <div class="content-layout">
-            <input type="checkbox" name="multi_choice" value="<?php echo $formBean->isMultiple()?>" class="content-layout-input"></input>
+            <input type="checkbox" name="multi_choice" value="true" class="content-layout-input"></input>
             <span class="content-layout-label">Multiple Choices</span>
             <span></span>
             <p class='bg-danger text-white'><?php echo $formBean->getisMutiWarning()?></p>

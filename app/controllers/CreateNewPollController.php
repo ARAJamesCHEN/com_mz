@@ -93,9 +93,9 @@ class CreateNewPollController extends Controller
             }
 
 
-            $_SESSION['PollId'] = $rslt->getResult();
+            $thePollID = $rslt->getResult();
 
-            header('Location:pollRst.php?init' );
+            header("Location:pollRst.php?dopollinit_$thePollID" );
 
 
         }
@@ -171,20 +171,20 @@ class CreateNewPollController extends Controller
 
         if(isset($_POST['multi_choice'])){
             $isMutilChoice = $_POST['multi_choice'];
-        }
-
-        if(!empty($isMutilChoice)){
 
             if (!filter_var($isMutilChoice, FILTER_VALIDATE_BOOLEAN)) {
                 $formBean->setHasError(true);
                 $formBean->setIsMutiWarning("Sorry, you have entered an incorrect multiple choice");
             }else{
-                $formBean->setIsMultiple($isMutilChoice);
+                $formBean->setIsMultiple(true);
             }
 
+
+        }else{
+            $formBean->setIsMultiple(false);
         }
 
-
+        //var_dump($_POST);
         $content = $_POST['content'];
 
         if(strlen($content)>2000){

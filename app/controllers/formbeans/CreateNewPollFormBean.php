@@ -23,7 +23,7 @@ class CreateNewPollFormBean extends FormBean
 
     private $optionWarning;
 
-    private $isMultiple = false;
+    private $isMultiple;
 
     private $isMutiWarning;
 

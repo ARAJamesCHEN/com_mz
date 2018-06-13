@@ -85,6 +85,8 @@ class PollRstController extends Controller
 
             $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $pollID);
 
+        }else{
+            $this->formBean->setWarning('Please select a poll first!');
         }
 
 
