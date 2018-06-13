@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849605aa-e7da-4d87-a070-1c5f397a70a9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/CreateNewPollController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CreateNewPollController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/PollRstController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PollRstController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/formbeans/CreateNewPollFormBean.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/formbeans/CreateNewPollFormBean.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/createNewPoll/createNewPollView.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/createNewPoll/createNewPollView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comphp/log/Logger.phpMySQL.log" beforeDir="false" afterPath="$PROJECT_DIR$/comphp/log/Logger.phpMySQL.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sess_3e2lh2pq3umb8h3a5hrf2r4d7k" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sess_a32ag9p1dndlerv4mhbl1f0sr0" beforeDir="false" afterPath="$PROJECT_DIR$/sess_a32ag9p1dndlerv4mhbl1f0sr0" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreateNewPollController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateNewPollController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/CreateNewPollController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -66,11 +63,23 @@
       <file leaf-file-name="PollRstController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/PollRstController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
+            <state relative-caret-position="477">
               <caret line="88" column="67" selection-start-line="88" selection-start-column="67" selection-end-line="88" selection-end-column="67" />
               <folding>
                 <element signature="e#122#149#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -107,15 +116,6 @@
               <folding>
                 <element signature="e#120#147#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogoutController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/LogoutController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -161,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/logout.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/app/models/modelVOs/PollOptionVO.php" />
         <option value="$PROJECT_DIR$/app/models/modelVOs/PollOptionModelVO.php" />
@@ -212,6 +211,7 @@
         <option value="$PROJECT_DIR$/app/views/createNewPoll/createNewPollView.php" />
         <option value="$PROJECT_DIR$/app/controllers/formbeans/CreateNewPollFormBean.php" />
         <option value="$PROJECT_DIR$/app/controllers/CreateNewPollController.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -446,7 +446,7 @@
       <workItem from="1528667696594" duration="9638000" />
       <workItem from="1528682696752" duration="3352000" />
       <workItem from="1528686140800" duration="6773000" />
-      <workItem from="1528696554854" duration="59627000" />
+      <workItem from="1528696554854" duration="60589000" />
     </task>
     <task id="LOCAL-00001" summary="poll result">
       <created>1528806581420</created>
@@ -459,7 +459,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161067000" />
+    <option name="totallyTimeSpent" value="162029000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -747,14 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/post.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -906,16 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/PollRstController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="88" column="67" selection-start-line="88" selection-start-column="67" selection-end-line="88" selection-end-column="67" />
-          <folding>
-            <element signature="e#122#149#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/createNewPoll/createNewPollView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -934,6 +916,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/PollRstController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="88" column="67" selection-start-line="88" selection-start-column="67" selection-end-line="88" selection-end-column="67" />
+          <folding>
+            <element signature="e#122#149#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
