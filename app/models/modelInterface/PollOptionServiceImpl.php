@@ -61,4 +61,25 @@ class PollOptionServiceImpl implements PollOptionService
         return $rst;
 
     }
+
+    public function searchPollOptionsVotedPercentageByID($pollOptionID)
+    {
+        // TODO: Implement searchPollOptionsVotedPercentageByID() method.
+        $rst = new RstBean();
+
+        $pollOptionModel = new PollOptionModel();
+
+        $result = $pollOptionModel->searchPollOptionsVotedPercentageByID($pollOptionID);
+
+        $votedPercentage = (new ModelUtil())->getPollOptionVotedPercentage($result);
+
+        if(is_null($result) || !$result){
+            $rst->setIsSuccess(false);
+        }else{
+            $rst->setIsSuccess(true);
+            $rst->setResult($votedPercentage);
+        }
+
+        return $rst;
+    }
 }

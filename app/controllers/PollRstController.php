@@ -61,10 +61,10 @@ class PollRstController extends Controller
         $this->render();
     }
 
-    private function displayPollDetail(PollAndOptionsUnionService $pollModelService,$pollID){
+    private function displayPollDetail(PollAndOptionsUnionService $pollAndOptionsUnionService,$pollID){
 
 
-        $rslt = $pollModelService->searchPollWithOptionByID($pollID);
+        $rslt = $pollAndOptionsUnionService->searchPollWithOptionByID($pollID);
 
         if(is_null($rslt)){
             $this->formBean->setWarning('Fail to find the result');
@@ -74,6 +74,8 @@ class PollRstController extends Controller
         //var_dump($rslt);
 
         $result = $rslt->getResult();
+
+        //var_dump($rslt);
 
         $this->pollRstBean = $result[0];
         $this->pollOptionRstBeanCollection = $result[1];

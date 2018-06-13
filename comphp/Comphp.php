@@ -18,6 +18,7 @@ class Comphp
         $this->setReporting();
         $this->removeXssQuotes();
         $this->removeMagicQuotes();
+        $this->unregisterGlobals();
         $this->defenseSQLInjection();
         $this->setDbConfig();
         $this->route();
@@ -218,7 +219,20 @@ class Comphp
 
     }
 
-
+    //http://php.net/manual/zh/faq.using.php#faq.register-globals
+    public function unregisterGlobals()
+    {
+        if (ini_get('register_globals')) {
+            $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
+            foreach ($array as $value) {
+                foreach ($GLOBALS[$value] as $key => $var) {
+                    if ($var === $GLOBALS[$key]) {
+                        unset($GLOBALS[$key]);
+                    }
+                }
+            }
+        }
+    }
 
 
     public function setDbConfig()

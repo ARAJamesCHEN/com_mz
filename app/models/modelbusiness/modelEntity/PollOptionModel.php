@@ -58,4 +58,42 @@ class PollOptionModel extends Model
 
     }
 
+    public function searchPollOptionsVotedPercentageByID($pollOptionID){
+
+        if(!is_null($pollOptionID)){
+            $whereArray = ['pollOptionID=?'];
+            $paramArray = [$pollOptionID];
+            $this->where($whereArray, $paramArray);
+
+            $fields1=['pollOptionID','votedNum','T.TotalVote', 'FORMAT((votedNum/T.TotalVote) * 100,2)'];
+            $as1 = ['','','','PercentageOfVote'];
+            $selectField1 = $this->selectFields($fields1,$as1);
+
+            //echo $selectField1;
+
+            $sql1 = $this->getSelectScript($selectField1);
+
+            //echo 'sql1:'.$sql1.'<br>';
+
+            $fields2=['pollID','sum(votedNum)'];
+            $as2 = ['','TotalVote'];
+            $selectField2 = $this->selectFields($fields2,$as2);
+            $sql2 = $this->getSelectScript($selectField2);
+            $group = ['pollID'];
+            $sql2 = $this->group($sql2,$group);
+            //echo 'sql2:'.$sql2.'<br>';
+
+            $sqls = [$sql1,$sql2];
+            $as3 = ['','T'];
+            $on = ['PollOption.pollID','T.pollID'];
+
+            $querySql = $this->innerJoin($sqls, $as3, $on);
+            //echo '$querySql:'.$querySql.'<br>';
+
+            $result = $this->model = $this->fetchInnerJoinQuery($querySql);
+            return $result;
+        }
+
+    }
+
 }

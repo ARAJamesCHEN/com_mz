@@ -38,4 +38,5 @@ class PollAndOptionUnionServiceImpl implements PollAndOptionsUnionService
 
         return $rslt;
     }
+
 }

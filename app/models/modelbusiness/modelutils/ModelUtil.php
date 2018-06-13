@@ -74,11 +74,9 @@ class ModelUtil
 
     public function getPollOptionRstBean($result){
         if(!is_null($result)){
-            $rows = $result->fetchAll();
-
             $pollOptionRstBeanCollection = array();
 
-            foreach ($rows as $key=>$aRow){
+            while ($aRow = $result->fetch()) {
                 $pollOptionRstBean = new PollOptionsRstBean();
                 $pollOptionRstBean->setPollID($aRow['pollID']);
                 $pollOptionRstBean->setPollOptionID($aRow['pollOptionID']);
@@ -90,6 +88,24 @@ class ModelUtil
             }
 
             return $pollOptionRstBeanCollection;
+        }
+    }
+
+    public function getPollOptionVotedPercentage($result){
+        if(!is_null($result)){
+            $votedPercentage = 0;
+            $totalVotedNum =0;
+            while ($aRow = $result->fetch()) {
+                $votedPercentage = $aRow['PercentageOfVote'];
+                $totalVotedNum =  $aRow['TotalVote'];
+            }
+
+            //var_dump($votedPercentage);
+
+            $rst['PercentageOfVote'] =  intval($votedPercentage);
+            $rst['TotalVote'] =  intval($totalVotedNum);
+
+            return $rst;
         }
     }
 
@@ -122,5 +138,6 @@ class ModelUtil
             return $boardRstBean;
         }
     }
+
 
 }

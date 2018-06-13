@@ -59,7 +59,7 @@
 															<i class="icon icon-align-left"></i>
                                                              Poll:
 														</span>
-                                                        <?php echo $pollRstBean->getQuestion()?> (<?php echo $pollRstBean->getViewNum() ?> votes)
+                                                        <?php echo $pollRstBean->getQuestion()?> (<?php echo $pollRstBean->getTotalVotedNum() ?> votes)
 													</h3>
 												</div>
 												<form class="js-poll-form" data-ajaxform="true">
@@ -71,12 +71,10 @@
                                                         foreach($pollOptionRstBeanCollection as $optionValue => $option){
 
                                                             //var_dump($option);
-
                                                             $optionName = $option->getOptionName();
                                                             $votePercentage = $option->getVotedPercentage();
 
-                                                            $votePercentage = 50;
-
+                                                            //$votePercentage = 50;
                                                             echo "<div>$optionName  $votePercentage</div>";
 
                                                             if($count%2 == 0){

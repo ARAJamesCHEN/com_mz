@@ -102,9 +102,6 @@ class PollandOptionModelHandler extends Handler
         //poll result
         $pollRst = $this->callPollModelServiceForSearch(new PollModelServiceImpl(), $pollID);
 
-        //poll option result
-        $pollOptionRst = $this->callPollOptionModelServiceForSearch(new PollOptionServiceImpl(), $pollID);
-
         $pollRstBean = $pollRst->getResult();
 
         //var_dump($pollRstBean);
@@ -120,8 +117,30 @@ class PollandOptionModelHandler extends Handler
         $usrRst = $this->callUsrModelServiceForSearch(new UsrModelServiceImpl(), $pollRstBean->getUserID());
         $pollRstBean->setUserName($usrRst->getUsrName());
 
-        $rsltArray = [$pollRstBean, $pollOptionRst->getResult()];
+        //poll option result
+        $pollOptionRst = $this->callPollOptionModelServiceForSearch(new PollOptionServiceImpl(), $pollID);
 
+        //var_dump($pollOptionRst);
+
+        $pollOptionRstCollection = $pollOptionRst->getResult();
+
+        foreach ($pollOptionRstCollection as $key=>$pollOptionRst){
+
+            $optionID = $pollOptionRst->getPollOptionID();
+
+            $rst = $this->callPollOptionModelServiceForVotedPercentage(new PollOptionServiceImpl(), $optionID);
+
+            $theArray = $rst->getResult();
+
+            $pollOptionRst->setVotedPercentage(intval($theArray['PercentageOfVote']));
+            $pollRstBean->setTotalVotedNum(intval($theArray['TotalVote']));
+            $pollOptionRstCollection[$key] = $pollOptionRst;
+
+            //var_dump($pollOptionRst);
+
+        }
+
+        $rsltArray = [$pollRstBean, $pollOptionRstCollection];
 
         //var_dump($rsltArray);
 

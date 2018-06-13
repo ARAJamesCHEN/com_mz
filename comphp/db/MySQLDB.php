@@ -133,19 +133,6 @@ class MySQL
 			echo "$table was not added<br>";
 		}
    }
-   
-
-	function query( $sql )
-	{
-		 mysqli_query( $this->dbConn, "set character_set_results='utf8'");
-		 if (!$queryResource = mysqli_query($this->dbConn, $sql ))
-		 {
-			trigger_error ( 'Query Failed: <br>' . mysqli_error($this->dbConn ) . '<br> SQL: ' . $sql );
-			return false;
-		 }
-	 
-		 return new MySQLResult( $this, $queryResource ); 
-   }
 
     /**
      * defense SQL injection
@@ -153,6 +140,8 @@ class MySQL
      * @return mixed
      */
    public function prepare($sql){
+
+       //echo $sql;
 
        $stmt = false;
 

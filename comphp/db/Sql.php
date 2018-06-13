@@ -12,6 +12,10 @@ class Sql
 {
     protected $table;
 
+    protected $selectedFields;
+
+    protected $joinFields;
+
     protected $primary = 'id';
 
     private $filter = '';
@@ -42,12 +46,38 @@ class Sql
         return $this;
     }
 
+    public function selectFields($fields = array(), $as = array()){
+
+        if($as){
+            $fields = $this->dealAs($fields, $as);
+        }
+
+        //var_dump($fields);
+
+        if($fields){
+            $this->selectedFields = implode(',', $fields);
+        }
+
+        //echo $this->selectedFields;
+
+        return $this->selectedFields;
+
+    }
+
+    public function getSelectScript($selectFields){
+        //echo $selectFields;
+        //echo $this->table;
+        $sql = sprintf("select %s from `%s`", $selectFields, $this->table);
+        //echo $sql;
+        return $sql;
+    }
+
+
     /**
-     * 拼装排序条件，使用方式：
      *
      * $this->order(['id DESC', 'title ASC', ...])->fetch();
      *
-     * @param array $order 排序条件
+     * @param array $order
      * @return $this
      */
     public function order($order = array())
@@ -60,6 +90,57 @@ class Sql
         return $this;
     }
 
+    public function group($sql, $group = array()){
+
+        if($group){
+            $sql .= ' GROUP BY ';
+            $sql .= implode(',', $group);
+        }
+
+        return $sql;
+
+    }
+
+    public function dealAs($join = array(), $as =array()){
+        $joinAndas = array_combine($join,$as);
+
+        $join = array();
+
+        foreach ($joinAndas as $joinKey => $as){
+            if(!empty($as)){
+                array_push($join, '('.$joinKey.') AS  '. $as);
+            }else{
+                array_push($join, $joinKey);
+            }
+        }
+
+        return $join;
+    }
+
+    /**
+     * @param array $join = [table1, table2]
+     * @param $as
+     * @param array $on = [on1, on2]
+     * table1 inner join table2 on on1 = on2
+     */
+    public function innerJoin ($join = array(), $as =array(), $on = array()){
+
+        if($join){
+
+            if($as){
+
+                $join = $this->dealAs($join,$as);
+
+            }
+
+            $this->joinFields =  implode(' inner join ', $join);
+            $this->joinFields .= ' on '.implode('= ', $on);
+
+            return $this->joinFields;
+        }
+
+    }
+
     /**
      * @return mixed
      */
@@ -68,6 +149,23 @@ class Sql
         $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
         $sth = Db::getDB()->prepareBindQuery($sql, $this->param);
         return $sth;
+    }
+
+    public function fetchInnerJoinQuery($querySql){
+        $sql = sprintf("$querySql %s", $this->filter);
+
+        //echo $querySql;
+
+        $sth = Db::getDB()->prepareBindQuery($sql, $this->param);
+        return $sth;
+    }
+
+    public function fetchByQuery(){
+        $sql = sprintf("select %s from `%s` %s",$this->selectedFields, $this->table, $this->filter);
+
+        $sth = Db::getDB()->query($sql, $this->param);
+
+
     }
 
     /**

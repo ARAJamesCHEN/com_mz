@@ -17,4 +17,6 @@ interface PollOptionService
 
     public function searchPollOptionsByPollID($pollID);
 
+    public function searchPollOptionsVotedPercentageByID($pollOptionID);
+
 }
