@@ -32,7 +32,7 @@ class Sql
      */
     public function where($where = array(), $param = array())
     {
-        $this->filter .= ' WHERE ';
+        $this->filter = ' WHERE ';
 
         $sysFiller = empty($where) ? 'sys' : 'and sys';
         $sysFiller .= ' = ?';
@@ -176,11 +176,22 @@ class Sql
     {
         $sql = sprintf("update `%s` set %s %s", $this->table, $this->formatUpdate($data), $this->filter);
 
+        //echo  $this->filter;
+
+            // echo $sql;
+
         $sth = Db::getDB()->prepare($sql);
 
-        $paras = array_merge($data, $this->param);
+        if(!array_key_exists(0, $data)){
+            $paras = array_merge($data, $this->param);
+        }else{
+            $paras = $this->param;
+        }
+        //var_dump($paras);
 
         $sth = Db::getDB()->bindParams($sth, $paras);
+
+        //var_dump($sth);
 
         $sth->execute();
 
@@ -255,9 +266,17 @@ class Sql
     private function formatUpdate($data)
     {
         $fields = array();
+
         foreach ($data as $key => $value) {
-            $fields[] = sprintf("`%s` = ?", $key);
+            if (is_numeric($key)){
+                $fields[] = sprintf("%s", $value);
+            }else{
+                $fields[] = sprintf("`%s` = ?", $key);
+            }
+
         }
+
+        //echo implode(',', $fields);
 
         return implode(',', $fields);
     }

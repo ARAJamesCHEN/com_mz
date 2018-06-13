@@ -34,22 +34,38 @@
 	    </div>
 		<nav class="col">
 		    <ul>
-			    <li id="navHome"><a href="temp.html" rel="nofollow">Home</a></li>
-			    <li id="navPost"><a href="post.php" rel="nofollow">Forms</a></li>
-			    <li id="navSign">
+			    <li id="navHome" class="nav-item"><a class="nav-link" href="temp.html" rel="nofollow">Home</a></li>
+			    <!--li id="navPost"><a href="post.php" rel="nofollow">Forms</a></li-->
+                <li id="navPost" class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Forms
+                    </a>
+                    <div class="dropdown-menu">
+                        <?php
+                           $boards =  $_fromBean->getBoards();
+
+                           if(is_array($boards) && !empty($boards)){
+                              foreach ($boards as $key => $value){
+                                  echo " <a class=\"dropdown-item\" href=\"post.php?doboard_$key\">$value</a>";
+                            }
+                          }
+                        ?>
+                    </div>
+                </li>
+			    <li id="navSign" class="nav-item">
 				    <?php
 					   $theUsrName = null;
 
 					   if(isset($_SESSION[ 'theUsrName' ]) && !empty($_SESSION[ 'theUsrName' ]) ){
 						   $theUsrName = $_SESSION['theUsrName'];
-						   echo "<a href='#'  rel='nofollow'>User:$theUsrName /</a>
+						   echo "<a href='#'   rel='nofollow'>User:$theUsrName</a> /
                                  <a href='logout.php'  rel='nofollow'>LogOut</a>
                                 </li>";
 					   }else{
-						   echo '<a href="login.php"  rel="nofollow">Sign in/Join</a></li>';
+						   echo '<a href="login.php" class="nav-link"  rel="nofollow">Sign in/Join</a></li>';
 					   }
 				    ?>
-			    <li id="navAboutUs"><a href="temp.html" rel="nofollow">About us</a></li>
+			    <li id="navAboutUs" class="nav-item"><a href="temp.html" class="nav-link" rel="nofollow">About us</a></li>
 		    </ul>
 		    <input id="searchbox" type="text" name="search" placeholder="Search..">
 	    </nav>

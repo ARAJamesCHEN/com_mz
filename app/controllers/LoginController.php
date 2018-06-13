@@ -35,6 +35,8 @@ class LoginController extends Controller
      */
     public function init(){
 
+        parent::init();
+
         $this->formBean = LoginFormBeanFactory::create();
 
         if($this->_actionName == LOGIN_ACTION_LOGIN){

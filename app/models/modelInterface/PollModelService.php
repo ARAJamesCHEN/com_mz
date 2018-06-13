@@ -15,4 +15,6 @@ interface PollModelService
 
    public function searchPollByID($pollID);
 
+   public function searchPollByBoardID($boardID);
+
 }

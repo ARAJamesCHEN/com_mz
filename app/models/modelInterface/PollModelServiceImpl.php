@@ -65,4 +65,29 @@ class PollModelServiceImpl implements PollModelService
         return $rst;
 
     }
+
+    public function searchPollByBoardID($boardID)
+    {
+
+        $resultForReturn = new RstBean();
+
+        $pollModel = new PollModel();
+
+        //var_dump($boardID);
+
+        $result = $pollModel->searchPollByBoardID($boardID);
+
+        //var_dump($result);
+
+        $rst = (new ModelUtil())->getAllPollRstBean($result);
+
+        if(is_null($result) || !$result){
+            $resultForReturn->setIsSuccess(false);
+        }else{
+            $resultForReturn->setIsSuccess(true);
+            $resultForReturn->setResult($rst);
+        }
+
+        return $resultForReturn;
+    }
 }

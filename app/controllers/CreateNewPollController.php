@@ -42,7 +42,7 @@ class CreateNewPollController extends Controller
 
         $this->formBean = CreateNewPollFormBeanFactory::create();
 
-        $this->initViewParasFunction(new BoardModelServiceImpl());
+        $this->boards = $this->_formbean->getBoards();
 
         if ($this->_actionName == NEWPOLL_ACTION_ADD){
 
@@ -53,39 +53,6 @@ class CreateNewPollController extends Controller
         $this->assign('boards', $this->boards);
         $this->assign('formBean', $this->formBean);
         $this->render();
-
-    }
-
-    /**
-     * @param BoardModelService $boardModelService
-     */
-    private function initViewParasFunction(BoardModelService $boardModelService){
-
-        $rslt = $boardModelService->searchAllBoard();
-
-        $boardInfos = $rslt->getResult();
-
-        if ( $boardInfos  && $boardInfos->size()>0 ){
-
-            $boardArray = array();
-
-            $rows = $boardInfos->fetchAll();
-
-            //var_dump($rows);
-
-            foreach ($rows as $key=>$aRow){
-
-                $boardKey = $aRow['boardID'];
-                $boardValue = $aRow['boardName'];
-
-                $boardArray[$boardKey] = $boardValue;
-
-            }
-
-            $this->boards = $boardArray;
-            $this->formBean->setBoards($boardArray);
-
-        }
 
     }
 

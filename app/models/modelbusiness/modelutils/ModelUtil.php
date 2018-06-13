@@ -48,6 +48,32 @@ class ModelUtil
 
     }
 
+    public function getAllPollRstBean($result){
+        if (!is_null($result)) {
+
+            $pollRstBeanCollection = array();
+            $rows = $result->fetchAll();
+
+            if(!is_null($rows) && $rows){
+                foreach ($rows as $aRow) {
+                    $pollRstBean = new PollRstBean();
+                    $pollRstBean->setPollID($aRow['pollID']);
+                    $pollRstBean->setBoardID($aRow['boardID']);
+                    $pollRstBean->setContent($aRow['content']);
+                    $pollRstBean->setOptionType($aRow['optionType']);
+                    $pollRstBean->setPostDate($aRow['postDate']);
+                    $pollRstBean->setPostNum($aRow['postNum']);
+                    $pollRstBean->setViewNum($aRow['viewNum']);
+                    $pollRstBean->setUserID($aRow['userID']);
+                    $pollRstBean->setQuestion($aRow['question']);
+                    array_push($pollRstBeanCollection, $pollRstBean);
+                }
+            }
+
+            return $pollRstBeanCollection;
+        }
+    }
+
     public function getPollRstBean($result)
     {
 

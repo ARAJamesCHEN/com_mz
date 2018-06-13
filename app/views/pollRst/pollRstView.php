@@ -62,31 +62,62 @@
                                                         <?php echo $pollRstBean->getQuestion()?> (<?php echo $pollRstBean->getTotalVotedNum() ?> votes)
 													</h3>
 												</div>
-												<form class="js-poll-form" data-ajaxform="true">
+												<form class="js-poll-form" data-ajaxform="true" action = "pollRst.php?submit_vote" method="POST">
+
+                                                    <input type="hidden" name="pollID" value="<?php echo $formBean->getPollId() ?>">
 
                                                     <?php
 
-                                                        $count = 0;
+                                                       if($formBean->getPageStatus() != "POLL"){
+                                                           $count = 0;
 
-                                                        foreach($pollOptionRstBeanCollection as $optionValue => $option){
+                                                           foreach($pollOptionRstBeanCollection as $optionValue => $option){
 
-                                                            //var_dump($option);
-                                                            $optionName = $option->getOptionName();
-                                                            $votePercentage = $option->getVotedPercentage();
+                                                               //var_dump($option);
+                                                               $optionName = $option->getOptionName();
+                                                               $votePercentage = $option->getVotedPercentage();
 
-                                                            //$votePercentage = 50;
-                                                            echo "<div>$optionName  $votePercentage</div>";
+                                                               //$votePercentage = 50;
+                                                               echo "<div>$optionName  $votePercentage</div>";
 
-                                                            if($count%2 == 0){
-                                                                echo "<div class='progress progress-success'>";
-                                                                $count++;
-                                                            }else{
-                                                                echo "<div class='progress'>";
-                                                                $count--;
-                                                            }
-                                                            echo "<div class='bar' style='width: $votePercentage%'>";
-                                                            echo "</div></div>";
-                                                        }
+                                                               if($count%2 == 0){
+                                                                   echo "<div class='progress progress-success'>";
+                                                                   $count++;
+                                                               }else{
+                                                                   echo "<div class='progress'>";
+                                                                   $count--;
+                                                               }
+                                                               echo "<div class='bar' style='width: $votePercentage%'>";
+                                                               echo "</div></div>";
+                                                           }
+                                                       }else{
+                                                           echo "<ul class=\"poll-options\">";
+                                                           foreach($pollOptionRstBeanCollection as $optionValue => $option){
+
+                                                               $optionID = $option->getPollOptionID();
+
+                                                               echo "    <li class=\"poll-option\">";
+                                                               echo "         <label class=\"radio form__radio\">";
+                                                               if($pollRstBean->getOptionType() == 'S'){
+                                                                   echo "<input type=\"radio\" name=\"poll_option\" value=\"$optionID\">";
+                                                               }elseif ($pollRstBean->getOptionType() == 'M'){
+                                                                   echo "<input type=\"checkbox\" name=\"poll_option$optionValue\" value=\"$optionID\" class=\"content-layout-input\">";
+                                                               }else{
+                                                                   echo "Cannot get options";
+                                                               }
+                                                               $optionName = $option->getOptionName();
+                                                               echo "$optionName";
+                                                               echo "</label></li></ul>";
+
+                                                           }
+
+                                                           echo "<div class=\"poll-footer\"> 
+													                      <input type=\"submit\" value=\"Cast your vote\" class=\"btn btn-mini btn-primary \">
+													                  </div></br>";
+
+                                                       }
+
+
 
                                                     ?>
 												</form>

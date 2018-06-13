@@ -46,6 +46,10 @@ class PollOptionModel extends Model
 
     }
 
+    /**
+     * @param $pollID
+     * @return mixed
+     */
     public function searchPollOptionsByPollID($pollID){
 
         if(!is_null($pollID)){
@@ -58,6 +62,10 @@ class PollOptionModel extends Model
 
     }
 
+    /**
+     * @param $pollOptionID
+     * @return mixed
+     */
     public function searchPollOptionsVotedPercentageByID($pollOptionID){
 
         if(!is_null($pollOptionID)){
@@ -93,6 +101,42 @@ class PollOptionModel extends Model
             $result = $this->model = $this->fetchInnerJoinQuery($querySql);
             return $result;
         }
+
+    }
+
+    public function searchPollOptionsByID($pollOptionID){
+        $whereArray = ['pollOptionID=?'];
+        $paramArray = [$pollOptionID];
+        $this->where($whereArray, $paramArray);
+
+        $result = $this->model = $this->fetchByStmt();
+
+        return $result;
+    }
+
+    public function updatePollOptionsVotedNumByID($pollOptionID){
+        $origNum = 0;
+
+        $result = $this->searchPollOptionsByID($pollOptionID);
+
+        while($aRow = $result->fetch() ){
+            $origNum = $aRow['votedNum'];
+
+            if(is_null($origNum)){
+                $origNum = 0;
+            }
+        }
+
+        $data = array('votedNum'=> (++$origNum));
+
+        $whereArray = ['pollOptionID=?'];
+        $paramArray = [$pollOptionID];
+        $this->where($whereArray, $paramArray);
+
+        $result = $this->model = $this->update($data);
+
+        return $result;
+
 
     }
 

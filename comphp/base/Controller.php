@@ -7,8 +7,8 @@
  */
 namespace comphp\base;
 
-use app\models\modelInterface\PollModelServiceImpl;
-
+use app\models\modelInterface\BoardModelService;
+use app\models\modelInterface\BoardModelServiceImpl;
 /**
  * Class Controller
  * @package comphp\base
@@ -20,7 +20,7 @@ class Controller
     protected $_actionName;
     protected $_view;
     protected $_usrId;
-
+    protected $_formbean;
 
     public function __construct($controller, $viewName, $actionName)
     {
@@ -34,7 +34,11 @@ class Controller
 
     }
 
-    public function init(){}
+    public function init(){
+        $this->_formbean = new FormBean();
+        $this->initViewParasFunction(new BoardModelServiceImpl());
+        $this->assign('_fromBean', $this->_formbean);
+    }
 
     public function forwardToLogin(){
         if(isset($_SESSION[ 'userID' ]) && !empty($_SESSION[ 'userID' ])){
@@ -51,6 +55,35 @@ class Controller
 
             return true;
         }
+    }
+
+    private function initViewParasFunction(BoardModelService $boardModelService){
+
+        $rslt = $boardModelService->searchAllBoard();
+
+        $boardInfos = $rslt->getResult();
+
+        if ( $boardInfos  && $boardInfos->size()>0 ){
+
+            $boardArray = array();
+
+            $rows = $boardInfos->fetchAll();
+
+            //var_dump($rows);
+
+            foreach ($rows as $key=>$aRow){
+
+                $boardKey = $aRow['boardID'];
+                $boardValue = $aRow['boardName'];
+
+                $boardArray[$boardKey] = $boardValue;
+
+            }
+
+            $this->_formbean->setBoards($boardArray);
+
+        }
+
     }
 
     public function assign($name, $value)

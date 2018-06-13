@@ -16,7 +16,7 @@ define('APP_DEBUG', true);
 session_save_path( './' );
 session_start();
 
-$_SESSION[ 'thePageName' ] = 'pollRst';
+$_SESSION[ 'thePageName' ] = 'Poll';
 
 require(APP_PATH . 'comphp/Comphp.php');
 

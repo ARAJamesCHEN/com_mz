@@ -11,13 +11,19 @@ namespace app\controllers;
 
 use comphp\base\Controller;
 use app\controllers\formbeans\PollRstFormBeanFactory;
-use app\models\modelInterface\PollModelServiceImpl;
 use app\models\modelInterface\PollAndOptionsUnionService;
 use app\models\modelInterface\PollAndOptionUnionServiceImpl;
+use app\models\modelInterface\PollOptionService;
+use app\models\modelInterface\PollOptionServiceImpl;
 
 include(APP_PATH . 'app/controllers/formbeans/'.'PollRstFormBean.php');
 
-CONST POLL_RST_INIT = "init";
+CONST POLL_INIT = "doinit";
+const POLL_RST_INIT = 'inti_rst';
+const POLL_SUBMIT_VOTE = 'submit_vote';
+
+const POLL_PAGE = "POLL";
+CONST POLL_RST_PAGE = "RST";
 
 class PollRstController extends Controller
 {
@@ -34,13 +40,25 @@ class PollRstController extends Controller
 
         $this->formBean = PollRstFormBeanFactory::create();
 
-        if(POLL_RST_INIT == $this->_actionName){
+        $pollID = 1;
 
+        if(strrpos($this->_actionName,"pollinit")>0){
+
+            //echo 'haha';
+
+            $begin = strrpos($this->_actionName,"_") + 1;
+
+            $pollID = intval(substr($this->_actionName,$begin));
+
+            $this->formBean->setPageStatus(POLL_PAGE);
+            $this->formBean->setPollId($pollID);
+            $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $pollID);
+
+        }elseif(POLL_RST_INIT == $this->_actionName){
+            $this->formBean->setPageStatus(POLL_RST_PAGE);
             if(isset($_SESSION['PollId'])){
                 $pollID = $_SESSION['PollId'];
             }
-
-            $pollID = 1;
 
             if(!empty($pollID)){
 
@@ -52,6 +70,21 @@ class PollRstController extends Controller
             }else{
                 throw new \Exception("Cannot get PollID!");
             }
+        }elseif (POLL_SUBMIT_VOTE == $this->_actionName){
+            $this->formBean->setPageStatus(POLL_PAGE);
+
+            if($this->isValidate()){
+                return false;
+            }
+
+            $result = $this->submitVote(new PollOptionServiceImpl(), $this->formBean->getPollOptionId());
+
+            if($result){
+                $this->formBean->setPageStatus(POLL_RST_PAGE);
+            }
+
+            $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $pollID);
+
         }
 
 
@@ -59,6 +92,19 @@ class PollRstController extends Controller
         $this->assign("pollRstBean", $this->pollRstBean);
         $this->assign("pollOptionRstBeanCollection", $this->pollOptionRstBeanCollection);
         $this->render();
+    }
+
+    private function submitVote(PollOptionService $pollOptionService,$pollOptionID ){
+
+        $rst = $pollOptionService->updatePollOptionsVotedNumByID($pollOptionID);
+
+        if(!$rst->isSuccess()){
+            $this->formBean->setWarning('Fail to update the vote!');
+        }
+
+        return $rst->isSuccess();
+
+
     }
 
     private function displayPollDetail(PollAndOptionsUnionService $pollAndOptionsUnionService,$pollID){
@@ -82,6 +128,54 @@ class PollRstController extends Controller
 
 
 
+    }
+
+    private function isValidate(){
+
+        $hasIssue = false;
+
+        $pollID = null;
+
+        if(isset($_POST["pollID"])){
+            $pollID = $_POST["pollID"];
+        }
+
+        //var_dump($_POST);
+
+        if(is_null($pollID) || empty($pollID)){
+            $this->formBean->setWarning("Lost PollID!");
+        }else{
+
+            if(!is_numeric($pollID)){
+                $this->formBean->setWarning("Not a right poll id!");
+                $hasIssue = true;
+            }
+
+            $this->formBean->setPollId(intval($pollID));
+        }
+
+        $pollOption = null;
+
+        if(isset($_POST["poll_option"])){
+            $pollOption = $_POST["poll_option"];
+        }
+
+        //var_dump($_POST);
+
+        if(is_null($pollOption) || empty($pollOption)){
+            $this->formBean->setWarning("Please select the option!");
+            $hasIssue = true;
+        }else{
+
+            if(!is_numeric($pollOption)){
+                $this->formBean->setWarning("Not a right option!");
+                $hasIssue = true;
+            }
+
+            $this->formBean->setPollOptionId(intval($pollOption));
+        }
+
+        return $hasIssue;
     }
 }
 

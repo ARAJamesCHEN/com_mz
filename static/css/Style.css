@@ -838,6 +838,7 @@ input, textarea, select{
     font-size: 0.875rem !important;
     line-height: 1.3rem !important;
     padding: 2px 10px !important;
+    max-width: 10em;
 }
 
 .btn-small {

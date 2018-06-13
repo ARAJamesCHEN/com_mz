@@ -18,6 +18,26 @@ class FormBean
 
     private $warning;
 
+    private $_boards;
+
+    /**
+     * @return mixed
+     */
+    public function getBoards()
+    {
+        return $this->_boards;
+    }
+
+    /**
+     * @param mixed $boards
+     */
+    public function setBoards($boards): void
+    {
+        $this->_boards = $boards;
+    }
+
+
+
     /**
      * @return mixed
      */

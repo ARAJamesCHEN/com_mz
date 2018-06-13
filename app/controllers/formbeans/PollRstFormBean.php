@@ -14,6 +14,8 @@ use comphp\base\FormBean;
 class PollRstFormBean extends FormBean
 {
 
+    private $pageStatus;
+
     private $pollId;
 
     private $boardName;
@@ -29,6 +31,42 @@ class PollRstFormBean extends FormBean
     private $votedNum;
 
     private $options;
+
+    private $pollOptionId;
+
+    /**
+     * @return mixed
+     */
+    public function getPollOptionId()
+    {
+        return $this->pollOptionId;
+    }
+
+    /**
+     * @param mixed $pollOptionId
+     */
+    public function setPollOptionId($pollOptionId): void
+    {
+        $this->pollOptionId = $pollOptionId;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getPageStatus()
+    {
+        return $this->pageStatus;
+    }
+
+    /**
+     * @param mixed $pageStatus
+     */
+    public function setPageStatus($pageStatus): void
+    {
+        $this->pageStatus = $pageStatus;
+    }
 
     /**
      * @return mixed

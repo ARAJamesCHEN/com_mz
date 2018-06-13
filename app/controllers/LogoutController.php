@@ -14,6 +14,8 @@ class LogoutController extends Controller
 {
 
     public function init(){
+        parent::init();
+
         $this->logoutFuntion();
     }
 

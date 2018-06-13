@@ -70,5 +70,18 @@ class PollModel extends Model
 
     }
 
+    public function searchPollByBoardID($boardID){
+        if(!empty($boardID) && is_numeric($boardID)){
+
+            $whereArray = ['boardID=?'];
+            $paramArray = [$boardID];
+            $this->where($whereArray, $paramArray);
+            $this->order(['pollID']);
+            $result = $this->model = $this->fetchByStmt();
+            return $result;
+
+        }
+    }
+
 
 }

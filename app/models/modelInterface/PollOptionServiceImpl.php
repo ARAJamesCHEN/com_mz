@@ -82,4 +82,28 @@ class PollOptionServiceImpl implements PollOptionService
 
         return $rst;
     }
+
+    public function updatePollOptionsVotedNumByID($pollOptionID)
+    {
+        // TODO: Implement updatePollOptionsVotedNumByID() method.
+        $rst = new RstBean();
+
+        $pollOptionModel = new PollOptionModel();
+
+        $result = $pollOptionModel->updatePollOptionsVotedNumByID($pollOptionID);
+
+        //var_dump($result);
+
+        if(is_null($result) || !$result || $result<0){
+            $rst->setIsSuccess(false);
+        }else{
+            $rst->setIsSuccess(true);
+        }
+
+        return $rst;
+
+
+
+
+    }
 }
