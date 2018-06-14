@@ -50,7 +50,7 @@ class PollandOptionModelHandler extends Handler
             $mysqliCon->begin_transaction();
 
             try {
-                $rst = $this->callAddPollService(new PollModelServiceImpl() ,$pollModelVO);
+                $rst = $this->callPollModelService(new PollModelServiceImpl())->addNewPoll($pollModelVO);
             } catch (\Exception $e) {
                 var_dump($pollModelVO);
                 throw new \Exception('insert a poll failure!'. $e->getMessage());
@@ -66,7 +66,7 @@ class PollandOptionModelHandler extends Handler
                 $pollOptionModelVO = (new ModelUtil())->getPollOptionModelVO($key, $value, $insertID);
                 //var_dump($pollOptionModelVO);
 
-                $rst = $this->callAddPollOptionService(new PollOptionServiceImpl(), $pollOptionModelVO);
+                $rst = $this->callPollOptionService(new PollOptionServiceImpl())->addNewPollOptions($pollOptionModelVO);
 
                 if(!$rst->isSuccess()){
                     var_dump($pollOptionModelVO);
@@ -113,19 +113,19 @@ class PollandOptionModelHandler extends Handler
         //var_dump($pollRstBean);
 
         // board Rst
-        $boardRstBean = $this->callBoardModelServiceForSearch(new BoardModelServiceImpl(), $pollRstBean->getBoardID());
+        $boardRstBean = $this->callBoardModelService(new BoardModelServiceImpl())->searchBoardByID($pollRstBean->getBoardID());
 
         //var_dump($boardRstBean);
 
         $pollRstBean->setBoardName($boardRstBean->getBoardName());
 
         //user name rst
-        $usrRst = $this->callUsrModelServiceForSearch(new UsrModelServiceImpl(), $pollRstBean->getUserID());
+        $usrRst = $this->callUsrModelService(new UsrModelServiceImpl())->searchUsrInfoByID($pollRstBean->getUserID());
         $pollRstBean->setUserName($usrRst->getUsrName());
         $pollRstBean->setPostDateDisplay((new DateUtil())->getFormatDate($pollRstBean->getPostDate()));
 
         //poll option result
-        $pollOptionRst = $this->callPollOptionModelServiceForSearch(new PollOptionServiceImpl(), $pollID);
+        $pollOptionRst = $this->callPollOptionService(new PollOptionServiceImpl())->searchPollOptionsByPollID($pollID);
 
         //var_dump($pollOptionRst);
 
@@ -135,7 +135,7 @@ class PollandOptionModelHandler extends Handler
 
             $optionID = $pollOptionRst->getPollOptionID();
 
-            $rst = $this->callPollOptionModelServiceForVotedPercentage(new PollOptionServiceImpl(), $optionID);
+            $rst = $this->callPollOptionService(new PollOptionServiceImpl())->searchPollOptionsVotedPercentageByID($optionID);
 
             $theArray = $rst->getResult();
 
