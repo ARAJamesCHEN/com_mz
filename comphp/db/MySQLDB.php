@@ -73,36 +73,6 @@ class MySQL
 		
 	}
 
-    function dropDatabase()
-    {
-		$sql = "drop database $this->dbName";
-        echo "<br> $sql  <br>";
-		if ( $this->query($sql) )
-		{
-			echo "<br> the $this->dbName database was dropped<br>";
-		}
-		else
-		{
-			echo "the $this->dbName database was not dropped<br>";
-		}
-    }
-
-
-    function createDatabase()
-    {
-		$sql = "create database if not exists $this->dbName ";
-		echo "<br> $sql  <br>";
-		if ( $this->query($sql) )
-		   {
-				echo "the $this->dbName database was created<br>";
-		   }
-			else
-		   {
-				echo "the $this->dbName database was not created<br>";
-		   }
-    }
-
-
    function isError()
    {
       if  ( $this->dbConnectError )
@@ -120,20 +90,6 @@ class MySQL
       }
    }
 
-   
-   	function createTable($table, $sql )
-	{
-		$result = $db->query($sql);
-		if ( $result == True )
-		{
-			echo "$table was added<br>";
-		}
-		else
-		{
-			echo "$table was not added<br>";
-		}
-   }
-
     /**
      * defense SQL injection
      * @param $sql
@@ -142,6 +98,7 @@ class MySQL
    public function prepare($sql){
 
        //echo $sql.'<br>';
+       $this->myLog->log_msg(MyLog::TYPE_NOTICE,'sql:'.$sql);
 
        $stmt = false;
 
@@ -167,6 +124,7 @@ class MySQL
    public function bindParams ($stmt, array $paras){
 
        //var_dump($paras);
+       $this->myLog->log_msg(MyLog::TYPE_NOTICE,'paras:'.implode(',',$paras));
 
        $params = array_merge(array(str_repeat('s', count($paras))), $paras);
 

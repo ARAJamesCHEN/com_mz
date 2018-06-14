@@ -1926,3 +1926,165 @@ Thu, 14 Jun 18 11:28:55 +0000 : MySQLDB.php : 5b2251774ae8a : notice : connected
 Thu, 14 Jun 18 11:28:55 +0000 : MySQLDB.php : 5b2251774ae8a : notice : Closing log
 Thu, 14 Jun 18 11:28:57 +0000 : MySQLDB.php : 5b22517901b0b : notice : connected to server
 Thu, 14 Jun 18 11:28:57 +0000 : MySQLDB.php : 5b22517901b0b : notice : Closing log
+Thu, 14 Jun 18 11:30:23 +0000 : MySQLDB.php : 5b2251cf64cc1 : notice : connected to server
+Thu, 14 Jun 18 11:30:23 +0000 : MySQLDB.php : 5b2251cf64cc1 : notice : Closing log
+Thu, 14 Jun 18 11:30:25 +0000 : MySQLDB.php : 5b2251d17146f : notice : connected to server
+Thu, 14 Jun 18 11:30:25 +0000 : MySQLDB.php : 5b2251d17146f : notice : Closing log
+Thu, 14 Jun 18 11:30:28 +0000 : MySQLDB.php : 5b2251d3f3320 : notice : connected to server
+Thu, 14 Jun 18 11:30:28 +0000 : MySQLDB.php : 5b2251d3f3320 : notice : Closing log
+Thu, 14 Jun 18 11:30:35 +0000 : MySQLDB.php : 5b2251db50b33 : notice : connected to server
+Thu, 14 Jun 18 11:30:35 +0000 : MySQLDB.php : 5b2251db50b33 : notice : Closing log
+Thu, 14 Jun 18 11:30:36 +0000 : MySQLDB.php : 5b2251dc9be9e : notice : connected to server
+Thu, 14 Jun 18 11:30:36 +0000 : MySQLDB.php : 5b2251dc9be9e : notice : Closing log
+Thu, 14 Jun 18 11:30:52 +0000 : MySQLDB.php : 5b2251ec7ab01 : notice : connected to server
+Thu, 14 Jun 18 11:30:52 +0000 : MySQLDB.php : 5b2251ec7ab01 : notice : Closing log
+Thu, 14 Jun 18 11:30:52 +0000 : MySQLDB.php : 5b2251ecc71bb : notice : connected to server
+Thu, 14 Jun 18 11:30:52 +0000 : MySQLDB.php : 5b2251ecc71bb : notice : Closing log
+Thu, 14 Jun 18 11:30:56 +0000 : MySQLDB.php : 5b2251f0922ec : notice : connected to server
+Thu, 14 Jun 18 11:30:56 +0000 : MySQLDB.php : 5b2251f0922ec : notice : Closing log
+Thu, 14 Jun 18 11:31:03 +0000 : MySQLDB.php : 5b2251f7524fd : notice : connected to server
+Thu, 14 Jun 18 11:31:03 +0000 : MySQLDB.php : 5b2251f7524fd : notice : Closing log
+Thu, 14 Jun 18 11:31:20 +0000 : MySQLDB.php : 5b22520868c47 : notice : connected to server
+Thu, 14 Jun 18 11:31:20 +0000 : MySQLDB.php : 5b22520868c47 : notice : Closing log
+Thu, 14 Jun 18 11:31:23 +0000 : MySQLDB.php : 5b22520b40479 : notice : connected to server
+Thu, 14 Jun 18 11:31:23 +0000 : MySQLDB.php : 5b22520b40479 : notice : Closing log
+Thu, 14 Jun 18 11:35:17 +0000 : MySQLDB.php : 5b2252f5c3ba7 : notice : connected to server
+Thu, 14 Jun 18 11:35:17 +0000 : MySQLDB.php : 5b2252f5c3ba7 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:35:17 +0000 : MySQLDB.php : 5b2252f5c3ba7 : notice : paras:G
+Thu, 14 Jun 18 11:35:17 +0000 : MySQLDB.php : 5b2252f5c3ba7 : notice : Closing log
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : connected to server
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : paras:G
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:21 +0000 : MySQLDB.php : 5b2252f918e04 : notice : Closing log
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : connected to server
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : paras:G
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : sql:select * from `Poll`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : sql:select * from `UserInfo`  WHERE userID=? and sys = ?
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : sql:select * from `PollOption`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : paras:2,G
+Thu, 14 Jun 18 11:35:23 +0000 : MySQLDB.php : 5b2252faf0f78 : notice : Closing log
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : connected to server
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select * from `PollOption`  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:update `PollOption` set `votedNum` = ?  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:14,1,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select * from `Poll`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select * from `UserInfo`  WHERE userID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select * from `PollOption`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:1,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : paras:2,G
+Thu, 14 Jun 18 11:35:25 +0000 : MySQLDB.php : 5b2252fd9d820 : notice : Closing log
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : connected to server
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : paras:G
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : paras:1,G
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : paras:1,G
+Thu, 14 Jun 18 11:36:21 +0000 : MySQLDB.php : 5b225334bb161 : notice : Closing log
+Thu, 14 Jun 18 11:36:22 +0000 : MySQLDB.php : 5b22533653d63 : notice : connected to server
+Thu, 14 Jun 18 11:36:22 +0000 : MySQLDB.php : 5b22533653d63 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:36:22 +0000 : MySQLDB.php : 5b22533653d63 : notice : paras:G
+Thu, 14 Jun 18 11:36:22 +0000 : MySQLDB.php : 5b22533653d63 : notice : Closing log
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : connected to server
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : paras:G
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : sql:insert into `Poll` (`question`,`content`,`optionType`,`postNum`,`viewNum`,`postDate`,`boardID`,`userID`,`sys`) values (?,?,?,?,?,?,?,?,?)
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : paras:test,dsdsad,M,0,0,2018-06-14,3,1,G
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : sql:insert into `PollOption` (`optionName`,`optionValue`,`votedNum`,`pollID`,`sys`) values (?,?,?,?,?)
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : paras:1q,0,0,35,G
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : sql:insert into `PollOption` (`optionName`,`optionValue`,`votedNum`,`pollID`,`sys`) values (?,?,?,?,?)
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : paras:02,1,0,35,G
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : sql:insert into `PollOption` (`optionName`,`optionValue`,`votedNum`,`pollID`,`sys`) values (?,?,?,?,?)
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : paras:3e,2,0,35,G
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : sql:insert into `PollOption` (`optionName`,`optionValue`,`votedNum`,`pollID`,`sys`) values (?,?,?,?,?)
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : paras:4r,3,0,35,G
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : sql:insert into `PollOption` (`optionName`,`optionValue`,`votedNum`,`pollID`,`sys`) values (?,?,?,?,?)
+Thu, 14 Jun 18 11:36:35 +0000 : MySQLDB.php : 5b22534371129 : notice : paras:5t,4,0,35,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b22534371129 : notice : Closing log
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : connected to server
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select * from `Poll`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:35,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:3,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select * from `UserInfo`  WHERE userID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:1,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select * from `PollOption`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:35,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:44,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:45,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:46,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:47,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : paras:48,G
+Thu, 14 Jun 18 11:36:36 +0000 : MySQLDB.php : 5b2253440db73 : notice : Closing log
+Thu, 14 Jun 18 11:37:02 +0000 : MySQLDB.php : 5b22535eeb86e : notice : connected to server
+Thu, 14 Jun 18 11:37:02 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `PollOption`  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:44,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:update `PollOption` set `votedNum` = ?  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:1,44,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `PollOption`  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:46,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:update `PollOption` set `votedNum` = ?  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:1,46,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `PollOption`  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:47,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:update `PollOption` set `votedNum` = ?  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:1,47,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `Poll`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:35,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:3,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `UserInfo`  WHERE userID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:1,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select * from `PollOption`  WHERE pollID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:35,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:44,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:45,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:46,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:47,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : sql:select pollOptionID,votedNum,T.TotalVote,(FORMAT((votedNum/T.TotalVote) * 100,2)) AS  PercentageOfVote from `PollOption` inner join (select pollID,(sum(votedNum)) AS  TotalVote from `PollOption` GROUP BY pollID) AS  T on PollOption.pollID= T.pollID  WHERE pollOptionID=? and sys = ?
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : paras:48,G
+Thu, 14 Jun 18 11:37:03 +0000 : MySQLDB.php : 5b22535eeb86e : notice : Closing log
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : connected to server
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : paras:G
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : paras:1,G
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : paras:1,G
+Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : Closing log
