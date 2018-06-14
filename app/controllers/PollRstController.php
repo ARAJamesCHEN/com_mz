@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 
+use app\controllers\forward\ForwardController;
 use comphp\base\Controller;
 use app\controllers\formbeans\PollRstFormBeanFactory;
 use app\models\modelInterface\PollAndOptionsUnionService;
@@ -27,7 +28,7 @@ const POLL_SUBMIT_VOTE = 'submit_vote';
 const POLL_PAGE = "POLL";
 CONST POLL_RST_PAGE = "RST";
 
-class PollRstController extends Controller
+class PollRstController extends ForwardController
 {
 
     private $formBean;

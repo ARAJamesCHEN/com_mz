@@ -7,15 +7,17 @@
  */
 namespace app\controllers;
 
+use app\models\modelInterface\BoardModelServiceImpl;
+use app\models\modelInterface\PollAndOptionUnionServiceImpl;
 use comphp\base\Controller;
-use app\models\modelInterface\PollModelService;
-use app\models\modelInterface\PollModelServiceImpl;
 use comphp\base\Handler;
 
 const POST_QUERY_INIT = 'query';
 
 class PostController extends Controller
 {
+
+    private $boardName;
 
     private $pollRstBeanCollection;
 
@@ -36,10 +38,12 @@ class PostController extends Controller
             $begin = strrpos($this->_actionName,"_") + 1;
 
             $boardId = intval(substr($this->_actionName,$begin));
+
         }
 
         $this->displayAllPost($boardId);
 
+        $this->assign('boardName',$this->boardName);
 
         $this->assign('pollRstBeanCollection',$this->pollRstBeanCollection);
 
@@ -50,13 +54,23 @@ class PostController extends Controller
 
         //var_dump($boardId);
 
-        $rst = (new Handler())->callPollModelService(new PollModelServiceImpl())->searchPollByBoardID($boardId);
+        $boardRstBean = (new Handler())->callBoardModelService(new BoardModelServiceImpl())->searchBoardByID($boardId);
+
+        if($boardRstBean->isSuccess()){
+
+            $this->boardName = $boardRstBean->getBoardName();
+
+        }
+
+        $rst = (new Handler())->callPollAndOptionsUnionService(new PollAndOptionUnionServiceImpl())->searchPollUsrBoardUnionByBoardID($boardId);
 
         //var_dump($rst);
 
         if($rst->isSuccess()){
 
             $this->pollRstBeanCollection = $rst->getResult();
+
+            //var_dump($this->pollRstBeanCollection);
 
         }else{
 

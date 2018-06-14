@@ -6,13 +6,13 @@
         <section class="breadcrumbs">
             <ul class="display-flex">
                 <li><a href="#" rel="nofollow">Forums</a></li>
-                <li><a href="post.html" rel="nofollow">Games Discussion</a></li>
+                <li><a href="#" rel="nofollow"><?php echo $boardName?></a></li>
             </ul>
         </section>
         <section class="post-content">
             <div class="forum-section__top">
                 <div class="forum-head-one">
-                    <h1>  Recent topics on Games Discussion</h1>
+                    <h1>  Recent topics on <?php echo $boardName?></h1>
                 </div>
             </div>
             <div>
@@ -81,11 +81,15 @@
                                             </i> Poll
                                         </span></td>";
 
-                             echo "<td>James</td>";
+                             $useName = $pollRstBean->getUserName();
+                             $postNum =  $pollRstBean->getPostNum();
+                             $viewNum = $pollRstBean->getViewNum();
 
-                             echo "<td>202</td>";
+                             echo "<td>$useName</td>";
 
-                             echo "<td>1001</td>";
+                             echo "<td>$postNum</td>";
+
+                             echo "<td>$viewNum</td>";
 
                              echo '</tr>';
                      }

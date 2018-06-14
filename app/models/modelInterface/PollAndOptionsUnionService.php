@@ -23,5 +23,6 @@ interface PollAndOptionsUnionService
 
     public function searchPollWithOptionByID($pollID);
 
+    public function searchPollUsrBoardUnionByBoardID($boardID);
 
 }

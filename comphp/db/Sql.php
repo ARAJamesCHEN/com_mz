@@ -134,7 +134,10 @@ class Sql
             }
 
             $this->joinFields =  implode(' inner join ', $join);
-            $this->joinFields .= ' on '.implode('= ', $on);
+
+            if($on){
+                $this->joinFields .= ' on '.implode('= ', $on);
+            }
 
             return $this->joinFields;
         }
@@ -167,7 +170,14 @@ class Sql
 
         $sth = Db::getDB()->query($sql, $this->param);
 
+        return $sth;
 
+    }
+
+    public function fetchByCustom($sql, $param = array()){
+        $sth = Db::getDB()->prepareBindQuery($sql, $param);
+
+        return $sth;
     }
 
     /**

@@ -8,6 +8,7 @@
 
 namespace app\models\modelbusiness\modelHandler;
 
+use app\models\modelbusiness\modelRstBean\PollRstBean;
 use app\models\modelbusiness\modelutils\DateUtil;
 use app\models\modelInterface\BoardModelServiceImpl;
 use app\models\modelInterface\PollModelServiceImpl;
@@ -166,6 +167,27 @@ class PollandOptionModelHandler extends Handler
         }
 
         return $rslt;
+    }
+
+
+    public function getPollUsrBoardUnionByBoardID($boardID){
+
+        $rstBean = new RstBean();
+
+        $pollModel = new PollModel();
+
+        $rst = $pollModel->getPollUsrBoardUnionByBoardID($boardID);
+
+        if(is_null($rst) || !$rst){
+            $rstBean->setIsSuccess(false);
+        }else{
+            $rstBean->setIsSuccess(true);
+            $resultBeanCollection = (new ModelUtil())->getPollUsrBoardUnionRstBean($rst);
+            $rstBean->setResult($resultBeanCollection);
+        }
+
+        return $rstBean;
+
     }
 
 

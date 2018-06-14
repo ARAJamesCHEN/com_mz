@@ -40,23 +40,6 @@ class Controller
         $this->assign('_fromBean', $this->_formbean);
     }
 
-    public function forwardToLogin(){
-        if(isset($_SESSION[ 'userID' ]) && !empty($_SESSION[ 'userID' ])){
-
-            $this->_usrId = $_SESSION[ 'userID' ];
-
-            return false;
-
-        }else{
-
-            if(!strrpos(strtolower($this->_viewName), 'login')){
-                header( 'Location:Login.php?forward' ) ;
-            }
-
-            return true;
-        }
-    }
-
     private function initViewParasFunction(BoardModelService $boardModelService){
 
         $rslt = $boardModelService->searchAllBoard();

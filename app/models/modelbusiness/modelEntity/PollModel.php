@@ -85,4 +85,46 @@ class PollModel extends Model
     }
 
 
+    /**
+     * select
+     *  UserInfo.userID,loginName,
+     *  Poll.pollID,postNum,viewNum,postDate,question,
+     *  boardName
+     *  from UserInfo inner join Poll on UserInfo.userID = Poll.userID
+     *   inner join Board on Poll.boardID = Board.boardID
+     *   where Board.boardID = 1 and poll.sys='G' order by UserInfo.userID,Poll.pollID Limit 20;
+     * @param $boardID
+     * @return mixed
+     */
+    public function getPollUsrBoardUnionByBoardID($boardID){
+
+        $whereArray = ['Board.boardID=?', 'and Poll.sys=?'];
+
+        $paramArray = [$boardID, DB_SYS];
+
+        $selectedFields = ['UserInfo.userID', 'loginName','Poll.pollID','postNum','viewNum','postDate','question','content','optionType',
+            'Poll.boardID','boardName'];
+
+        $tables = ['UserInfo', 'Poll on UserInfo.userID = Poll.userID','Board on Poll.boardID = Board.boardID'];
+
+        $selectedFieldsSql = implode(',' , $selectedFields);
+
+        $joinFiledSql = $this->innerJoin($tables, null, null);
+
+        $whereSql = ' where '.implode(' ', $whereArray);
+
+        $orderBy = implode(',', [' UserInfo.userID','Poll.pollID']);
+
+        $sql = sprintf("select %s from %s %s ORDER BY %s Limit %d",$selectedFieldsSql, $joinFiledSql, $whereSql,$orderBy,20 );
+
+        //var_dump($sql);
+        //var_dump($paramArray);
+
+        $result = $this->fetchByCustom($sql, $paramArray);
+
+        return $result;
+
+    }
+
+
 }

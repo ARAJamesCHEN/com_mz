@@ -9,6 +9,7 @@
 namespace app\controllers;
 use app\controllers\formbeans\CreateNewPollFormBean;
 use app\controllers\formbeans\CreateNewPollFormBeanFactory;
+use app\controllers\forward\ForwardController;
 use app\models\modelbusiness\modelutils\ModelUtil;
 use app\models\modelInterface\PollAndOptionUnionServiceImpl;
 use app\models\modelInterface\PollModelService;
@@ -27,7 +28,7 @@ define('NEWPOLL_ACTION_ADD', "add" );
  * Class CreateNewPollController
  * @package app\controllers
  */
-class CreateNewPollController extends Controller
+class CreateNewPollController extends ForwardController
 {
     private $boards;
 

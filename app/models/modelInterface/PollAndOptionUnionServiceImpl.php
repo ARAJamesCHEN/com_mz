@@ -39,4 +39,12 @@ class PollAndOptionUnionServiceImpl implements PollAndOptionsUnionService
         return $rslt;
     }
 
+    public function searchPollUsrBoardUnionByBoardID($boardID)
+    {
+
+        $rst = (new PollandOptionModelHandler())->getPollUsrBoardUnionByBoardID($boardID);
+
+        return $rst;
+
+    }
 }
