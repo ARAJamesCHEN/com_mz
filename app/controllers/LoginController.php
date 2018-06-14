@@ -46,6 +46,7 @@ class LoginController extends Controller
             $this->loginFunction();
 
         }elseif ($this->_actionName == LOGIN_ACTION_FORWARD){
+            $_SESSION = array();
             $this->formBean->setWarning("Please login first!");
         }
 

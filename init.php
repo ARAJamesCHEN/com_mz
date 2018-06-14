@@ -50,7 +50,7 @@ function update(){
     }
 
     if($count){
-        header( 'Location:login.php' ) ;
+        header( 'Location:login.php?forward' ) ;
     }
 
 }

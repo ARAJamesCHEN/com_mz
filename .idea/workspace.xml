@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849605aa-e7da-4d87-a070-1c5f397a70a9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/comphp/db/MySQLDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/comphp/db/MySQLDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comphp/Comphp.php" beforeDir="false" afterPath="$PROJECT_DIR$/comphp/Comphp.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comphp/log/Logger.phpMySQL.log" beforeDir="false" afterPath="$PROJECT_DIR$/comphp/log/Logger.phpMySQL.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/init.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,11 +42,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardModelService.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/modelInterface/BoardModelService.php">
+      <file leaf-file-name="Logger.phpMySQL.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comphp/log/Logger.phpMySQL.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6443">
+              <caret line="2090" lean-forward="true" selection-start-line="2090" selection-end-line="2090" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Comphp.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comphp/Comphp.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+              <caret line="92" column="34" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="16" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -56,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQLDB.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MySQLDB.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comphp/db/MySQLDB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="125" column="26" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
+            <state relative-caret-position="178">
+              <caret line="126" column="78" lean-forward="true" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -74,44 +96,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="postView.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/post/postView.php">
+      <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="71" lean-forward="true" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1034">
-              <caret line="48" column="84" selection-start-line="48" selection-start-column="84" selection-end-line="48" selection-end-column="96" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModelUtil.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/modelbusiness/modelutils/ModelUtil.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2903">
-              <caret line="168" column="20" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
+            <state relative-caret-position="128">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="39" />
               <folding>
-                <element signature="e#142#194#0#PHP" expanded="true" />
+                <element signature="e#120#171#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PollandOptionModelHandler.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/modelbusiness/modelHandler/PollandOptionModelHandler.php">
+      <file leaf-file-name="init.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="184" column="74" selection-start-line="184" selection-start-column="74" selection-end-line="184" selection-end-column="74" />
-              <folding>
-                <element signature="e#138#192#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -173,7 +174,6 @@
         <option value="$PROJECT_DIR$/app/models/modelbusiness/modelRstBean/BoardRstBean.php" />
         <option value="$PROJECT_DIR$/app/models/modelInterface/BoardModelServiceImpl.php" />
         <option value="$PROJECT_DIR$/app/models/modelInterface/UsrModelServiceImpl.php" />
-        <option value="$PROJECT_DIR$/comphp/Comphp.php" />
         <option value="$PROJECT_DIR$/app/models/modelbusiness/modelRstBean/PollOptionsRstBean.php" />
         <option value="$PROJECT_DIR$/app/models/modelbusiness/modelRstBean/PollRstBean.php" />
         <option value="$PROJECT_DIR$/app/models/modelbusiness/modelutils/DateUtil.php" />
@@ -185,15 +185,12 @@
         <option value="$PROJECT_DIR$/app/controllers/LogoutController.php" />
         <option value="$PROJECT_DIR$/app/views/createNewPoll/createNewPollView.php" />
         <option value="$PROJECT_DIR$/app/controllers/formbeans/CreateNewPollFormBean.php" />
-        <option value="$PROJECT_DIR$/init.php" />
         <option value="$PROJECT_DIR$/app/views/header.php" />
         <option value="$PROJECT_DIR$/app/controllers/formbeans/PollRstFormBean.php" />
         <option value="$PROJECT_DIR$/app/models/modelInterface/PollOptionService.php" />
         <option value="$PROJECT_DIR$/app/models/modelInterface/PollOptionServiceImpl.php" />
         <option value="$PROJECT_DIR$/app/models/modelbusiness/modelEntity/PollOptionModel.php" />
         <option value="$PROJECT_DIR$/app/views/pollRst/pollRstView.php" />
-        <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/comphp/base/Handler.php" />
         <option value="$PROJECT_DIR$/app/controllers/forward/ForwardController.php" />
         <option value="$PROJECT_DIR$/app/controllers/CreateNewPollController.php" />
@@ -209,6 +206,10 @@
         <option value="$PROJECT_DIR$/app/views/post/postView.php" />
         <option value="$PROJECT_DIR$/app/models/modelbusiness/modelHandler/PollOptionTransactionHandler.php" />
         <option value="$PROJECT_DIR$/comphp/db/MySQLDB.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/comphp/Comphp.php" />
+        <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
+        <option value="$PROJECT_DIR$/init.php" />
       </list>
     </option>
   </component>
@@ -377,13 +378,13 @@
             <path>
               <item name="com_mz" type="b2602c69:ProjectViewProjectNode" />
               <item name="com_mz" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="comphp" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="com_mz" type="b2602c69:ProjectViewProjectNode" />
               <item name="com_mz" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -455,7 +456,7 @@
       <workItem from="1528923629746" duration="7139000" />
       <workItem from="1528935174495" duration="2187000" />
       <workItem from="1528940660747" duration="2984000" />
-      <workItem from="1528969116000" duration="6876000" />
+      <workItem from="1528969116000" duration="8042000" />
     </task>
     <task id="LOCAL-00001" summary="poll result">
       <created>1528806581420</created>
@@ -492,17 +493,24 @@
       <option name="project" value="LOCAL" />
       <updated>1528975779969</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add log to query">
+      <created>1528976283426</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1528976283426</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181215000" />
+    <option name="totallyTimeSpent" value="182381000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.334375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.334375" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.013615734" />
@@ -524,29 +532,6 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.03154574" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="3" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.334375" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.03154574" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" order="4" side_tool="true" weight="0.3296875" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.08832808" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.013615734" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Messages" order="0" visible="true" weight="0.32912722" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -585,7 +570,8 @@
     <MESSAGE value="poll rst support mutiple chocie" />
     <MESSAGE value="optimize Handler" />
     <MESSAGE value="complex query" />
-    <option name="LAST_COMMIT_MESSAGE" value="complex query" />
+    <MESSAGE value="add log to query" />
+    <option name="LAST_COMMIT_MESSAGE" value="add log to query" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -593,21 +579,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/modelHandler/PollandOptionModelHandler.php" />
-    <entry file="file://$PROJECT_DIR$/app/models/modelInterface/UsrModelService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/modelbusiness/modelRstBean/UsrRstBean.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/modelbusiness/modelutils/DateUtil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -674,16 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/formbeans/CreateNewPollFormBean.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -719,16 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="66">
-            <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pollRst/pollRstView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -747,16 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
-          <folding>
-            <element signature="e#120#171#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -784,13 +725,6 @@
           <folding>
             <element signature="e#115#167#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comphp/Comphp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="244" column="20" selection-start-line="244" selection-start-column="20" selection-end-line="244" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -924,23 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/modelInterface/PollOptionService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/modelInterface/PollOptionServiceImpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="114" column="63" selection-start-line="114" selection-start-column="63" selection-end-line="114" selection-end-column="63" />
-          <folding>
-            <element signature="e#132#189#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/modelInterface/BoardModelServiceImpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -955,6 +872,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/modelInterface/PollOptionServiceImpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="114" column="63" selection-start-line="114" selection-start-column="63" selection-end-line="114" selection-end-column="63" />
+          <folding>
+            <element signature="e#132#189#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comphp/log/Logger.phplogs.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comphp/log/Logger.phpMySQL.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6443">
+          <caret line="2090" lean-forward="true" selection-start-line="2090" selection-end-line="2090" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/modelInterface/PollOptionService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comphp/db/MySQLDB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="126" column="78" lean-forward="true" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="50">
+            <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comphp/Comphp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="92" column="34" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/modelbusiness/modelHandler/PollOptionTransactionHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -962,10 +933,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comphp/db/MySQLDB.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="125" column="26" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
+        <state relative-caret-position="25">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="39" />
+          <folding>
+            <element signature="e#120#171#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
         </state>
       </provider>
     </entry>

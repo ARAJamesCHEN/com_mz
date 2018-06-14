@@ -2088,3 +2088,197 @@ Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : paras:1,G
 Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
 Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : paras:1,G
 Thu, 14 Jun 18 11:37:14 +0000 : MySQLDB.php : 5b22536a79eb2 : notice : Closing log
+Thu, 14 Jun 18 11:45:59 +0000 : MySQLDB.php : 5b225577e8870 : notice : connected to server
+Thu, 14 Jun 18 11:45:59 +0000 : MySQLDB.php : 5b225577e8870 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:45:59 +0000 : MySQLDB.php : 5b225577e8870 : notice : paras:G
+Thu, 14 Jun 18 11:45:59 +0000 : MySQLDB.php : 5b225577e8870 : notice : Closing log
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561f0de9e : notice : connected to server
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561f0de9e : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561f0de9e : notice : paras:G
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561f0de9e : notice : sql:select * from `UserInfo`  WHERE loginName=? and sys = ?
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561f0de9e : notice : paras:James001,G
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561f0de9e : notice : Closing log
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : connected to server
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : paras:G
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : paras:1,G
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : paras:1,G
+Thu, 14 Jun 18 11:48:47 +0000 : MySQLDB.php : 5b22561fdbfaf : notice : Closing log
+Thu, 14 Jun 18 11:50:29 +0000 : MySQLDB.php : 5b225685ca9ac : notice : connected to server
+Thu, 14 Jun 18 11:50:29 +0000 : MySQLDB.php : 5b225685ca9ac : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:29 +0000 : MySQLDB.php : 5b225685ca9ac : notice : paras:$2y$10$VGdnfKoPYVr2vdgS99SuZ.FyFZQJf9AmEvZw7BQ4khqZ.X7Yam2mC,James001,G
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : paras:$2y$10$79.rcruz6YcD.DTpc1POFed4fFm7McbWxvlFFANHBCL1MFdEQRd8.,newOne001,G
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : paras:$2y$10$tXVkOFzVlIOJnlM8fzINjObkP9gxyZNTLnAObSM/aNQxsXwkSwMR6,newTwo002,G
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : paras:$2y$10$FvmbGH6hqJnVaMl5xlN/f.2UVasl2TOZXlkCyjW889QDgIur65UAq,James002,G
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : paras:$2y$10$gt13TYarOfOxttaU74Is6uM54FVq0QOeEu34lcwLyLQyJA8IAZ6cS,Amit002,G
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : paras:$2y$10$Kj9e/FrTnRI4Ow8EJRgJ/ONJqjD4T8Ey6LJEKpTd/vrYxWVrA16ES,Mate002,G
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225685ca9ac : notice : Closing log
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225686dbb5a : notice : connected to server
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225686dbb5a : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225686dbb5a : notice : paras:G
+Thu, 14 Jun 18 11:50:30 +0000 : MySQLDB.php : 5b225686dbb5a : notice : Closing log
+Thu, 14 Jun 18 11:50:35 +0000 : MySQLDB.php : 5b22568b632ab : notice : connected to server
+Thu, 14 Jun 18 11:50:35 +0000 : MySQLDB.php : 5b22568b632ab : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:35 +0000 : MySQLDB.php : 5b22568b632ab : notice : paras:$2y$10$Cmy7vq0JIUeAPLXGfyR55Oz1ZPUWpJzcDRIiC.r7CqzTHB/WrMpMe,James001,G
+Thu, 14 Jun 18 11:50:35 +0000 : MySQLDB.php : 5b22568b632ab : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:35 +0000 : MySQLDB.php : 5b22568b632ab : notice : paras:$2y$10$GNjT5oCPyxb4riyGtQd.se/nw074Jt/fw0yCz8OLiNQBFLVMNQhpK,newOne001,G
+Thu, 14 Jun 18 11:50:35 +0000 : MySQLDB.php : 5b22568b632ab : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:35 +0000 : MySQLDB.php : 5b22568b632ab : notice : paras:$2y$10$go/CkuKzeXw4v4ngGWwVe.sCRMGn0AOsjX2tO.JCIvJFRuR0FccOW,newTwo002,G
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568b632ab : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568b632ab : notice : paras:$2y$10$5tFKWQzMl0YTOAunlZEIWetbhj1/Em9Tfz0bchleShMlYlAI8ankO,James002,G
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568b632ab : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568b632ab : notice : paras:$2y$10$39yYCnQpmXqr39IGnXpJQus7BRRrbZg.A3XGR6YIyILV7Tl9pI6fa,Amit002,G
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568b632ab : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568b632ab : notice : paras:$2y$10$G9AcDaTw0ZxIiI.i9gMeZO4xPsMoOwJGh3XXrOedmoZ9wvwfsxQha,Mate002,G
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568b632ab : notice : Closing log
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568c8b776 : notice : connected to server
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568c8b776 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568c8b776 : notice : paras:G
+Thu, 14 Jun 18 11:50:36 +0000 : MySQLDB.php : 5b22568c8b776 : notice : Closing log
+Thu, 14 Jun 18 11:50:48 +0000 : MySQLDB.php : 5b2256983d042 : notice : connected to server
+Thu, 14 Jun 18 11:50:48 +0000 : MySQLDB.php : 5b2256983d042 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:48 +0000 : MySQLDB.php : 5b2256983d042 : notice : paras:$2y$10$7gtDYO0hhqvm27ReErX/j.ELTKMCtenY1p6y77AW36oxieDBqYLSW,James001,G
+Thu, 14 Jun 18 11:50:49 +0000 : MySQLDB.php : 5b2256983d042 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:49 +0000 : MySQLDB.php : 5b2256983d042 : notice : paras:$2y$10$SgqPjWIoqKBtv5k3.Y52COov4zRe8yU8AO7TEEVExIRX2rKLZgPj6,newOne001,G
+Thu, 14 Jun 18 11:50:49 +0000 : MySQLDB.php : 5b2256983d042 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:49 +0000 : MySQLDB.php : 5b2256983d042 : notice : paras:$2y$10$t8WWLFQvFAEAHXifGDsItelvwlXHusf8lrQV6OThTU2/kAX09XeZW,newTwo002,G
+Thu, 14 Jun 18 11:50:50 +0000 : MySQLDB.php : 5b2256983d042 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:50 +0000 : MySQLDB.php : 5b2256983d042 : notice : paras:$2y$10$chikECzVZEzYgwQ2CcUzourZeQHd0i.okelc8STWS4oo4whyDH0XO,James002,G
+Thu, 14 Jun 18 11:50:50 +0000 : MySQLDB.php : 5b2256983d042 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:50 +0000 : MySQLDB.php : 5b2256983d042 : notice : paras:$2y$10$I0HRYgBmUgH4rW/6iwuq7./0UZW.NESm2aCqOzK9s4yFlb3jxGeoe,Amit002,G
+Thu, 14 Jun 18 11:50:50 +0000 : MySQLDB.php : 5b2256983d042 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:50:50 +0000 : MySQLDB.php : 5b2256983d042 : notice : paras:$2y$10$RQgfOwMEAkYCv1XTnqgH5ewPwNeWukYrSgLz6potdk3x6YNVCFF3S,Mate002,G
+Thu, 14 Jun 18 11:50:51 +0000 : MySQLDB.php : 5b2256983d042 : notice : Closing log
+Thu, 14 Jun 18 11:50:51 +0000 : MySQLDB.php : 5b22569b0a462 : notice : connected to server
+Thu, 14 Jun 18 11:50:51 +0000 : MySQLDB.php : 5b22569b0a462 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:50:51 +0000 : MySQLDB.php : 5b22569b0a462 : notice : paras:G
+Thu, 14 Jun 18 11:50:51 +0000 : MySQLDB.php : 5b22569b0a462 : notice : Closing log
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a070e38 : notice : connected to server
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a070e38 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a070e38 : notice : paras:G
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a070e38 : notice : sql:select * from `UserInfo`  WHERE loginName=? and sys = ?
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a070e38 : notice : paras:James001,G
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a070e38 : notice : Closing log
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a0de069 : notice : connected to server
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a0de069 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a0de069 : notice : paras:G
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a0de069 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a0de069 : notice : paras:1,G
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a0de069 : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:50:56 +0000 : MySQLDB.php : 5b2256a0de069 : notice : paras:1,G
+Thu, 14 Jun 18 11:50:57 +0000 : MySQLDB.php : 5b2256a0de069 : notice : Closing log
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : connected to server
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : paras:G
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : paras:1,G
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : paras:1,G
+Thu, 14 Jun 18 11:51:09 +0000 : MySQLDB.php : 5b2256ad8b706 : notice : Closing log
+Thu, 14 Jun 18 11:51:15 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : connected to server
+Thu, 14 Jun 18 11:51:15 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:51:15 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : paras:$2y$10$t8wMYvpUj0LZWk/0eGBe5ug7TL5OUfKrIw1qC79p/yO0d4X7MaIsG,James001,G
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : paras:$2y$10$A0axUYs6UV7b1e3Kgi0Fe.qHYG70OqjyPtCkWk8awUSQ1GSHWeygy,newOne001,G
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : paras:$2y$10$x3g0wqoDVg/bPRwEJ9GtqeV9N5SsluNlgqsCdsGeJ4tpacm9KpIga,newTwo002,G
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : paras:$2y$10$uDVEpGbUPiTP4RLPXNvCUuyBG.Ieh6Rg3QLrsy8PXKCp6KpXdZyvS,James002,G
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : paras:$2y$10$F6v1M.MdFWeDav/I14ySTOgeniKIUJlkdvcD1ia2mIeIqtkHq4E7m,Amit002,G
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : paras:$2y$10$DXw7KyJcyAIL2WHuhLf3xuO4Dp4ElnDujPqYURtyPTjafafpuvTDy,Mate002,G
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b3bb608 : notice : Closing log
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b4b7f90 : notice : connected to server
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b4b7f90 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b4b7f90 : notice : paras:G
+Thu, 14 Jun 18 11:51:16 +0000 : MySQLDB.php : 5b2256b4b7f90 : notice : Closing log
+Thu, 14 Jun 18 11:53:59 +0000 : MySQLDB.php : 5b225757bcef5 : notice : connected to server
+Thu, 14 Jun 18 11:53:59 +0000 : MySQLDB.php : 5b225757bcef5 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:53:59 +0000 : MySQLDB.php : 5b225757bcef5 : notice : paras:$2y$10$zk1kgWE0zowlJyKmfoUth.ncJebRJGV9BEmIGyD83Aw8CGUZwsALO,James001,G
+Thu, 14 Jun 18 11:54:00 +0000 : MySQLDB.php : 5b225757bcef5 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:00 +0000 : MySQLDB.php : 5b225757bcef5 : notice : paras:$2y$10$ROPYgInkB0AW5qr2whgN7.7XJsO4bouIQELzU7R.nHK0bm9uRb2PO,newOne001,G
+Thu, 14 Jun 18 11:54:01 +0000 : MySQLDB.php : 5b225757bcef5 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:01 +0000 : MySQLDB.php : 5b225757bcef5 : notice : paras:$2y$10$J6sa8HGY/vMuZe8E8ZHOa.upUYRVz2pNoCxdWF7SAJVTN9HjI6ZmC,newTwo002,G
+Thu, 14 Jun 18 11:54:01 +0000 : MySQLDB.php : 5b225757bcef5 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:01 +0000 : MySQLDB.php : 5b225757bcef5 : notice : paras:$2y$10$xCgKdWtHairNcdV.KezQMu8f1dyLNpivNxTRjTGvci9KLt9zz458y,James002,G
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b225757bcef5 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b225757bcef5 : notice : paras:$2y$10$VtP.13qsnKD6YDGznOLKte7DmcNdqrEd.RXJsjxEqGXhKiGRHkrUm,Amit002,G
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b225757bcef5 : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b225757bcef5 : notice : paras:$2y$10$mlhElwyuM3Qe1iOeTIoZZOcdEktnjjP69VPHqN11/omP78MLWGSIm,Mate002,G
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b225757bcef5 : notice : Closing log
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b22575aad59d : notice : connected to server
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b22575aad59d : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b22575aad59d : notice : paras:G
+Thu, 14 Jun 18 11:54:02 +0000 : MySQLDB.php : 5b22575aad59d : notice : Closing log
+Thu, 14 Jun 18 11:54:03 +0000 : MySQLDB.php : 5b22575b11981 : notice : connected to server
+Thu, 14 Jun 18 11:54:03 +0000 : MySQLDB.php : 5b22575b11981 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:03 +0000 : MySQLDB.php : 5b22575b11981 : notice : paras:G
+Thu, 14 Jun 18 11:54:03 +0000 : MySQLDB.php : 5b22575b11981 : notice : Closing log
+Thu, 14 Jun 18 11:54:29 +0000 : MySQLDB.php : 5b225775d3d0e : notice : connected to server
+Thu, 14 Jun 18 11:54:29 +0000 : MySQLDB.php : 5b225775d3d0e : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:29 +0000 : MySQLDB.php : 5b225775d3d0e : notice : paras:$2y$10$lTb/hsVk3/PTo6TPN3FVIOCplk0v8c6KxIrWHQ1RQ1XQYSxCXrWem,James001,G
+Thu, 14 Jun 18 11:54:30 +0000 : MySQLDB.php : 5b225775d3d0e : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:30 +0000 : MySQLDB.php : 5b225775d3d0e : notice : paras:$2y$10$3Dgy.gqgQjbpuGB5d00iAOWZ3m7YJk/3qI931.UpFXQlzHlIXoyii,newOne001,G
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : paras:$2y$10$ZdQSmf6hac32O7yuP79hs.xzdoHzELK/uOGdPE6xrY2JkyuLrTOeS,newTwo002,G
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : paras:$2y$10$pixSemDYn2WfzM7D1uXd9ePWjyPEWoeovRdjbaFaI7W2CquezupKC,James002,G
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : paras:$2y$10$nh2TdaB6vKpz9.5vj.Sdhe/ECyXSXSOhyWDUouT.euamyQGtMij9m,Amit002,G
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : sql:update `UserInfo` set `loginPwd` = ?  WHERE loginName = ? or sys='H' and sys = ?
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : paras:$2y$10$eqWjHtkXoC7COzTPSisw9ejnYC9/q0HrzO5MZwj5u/6Se/NRbamym,Mate002,G
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225775d3d0e : notice : Closing log
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777d4168 : notice : connected to server
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777d4168 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777d4168 : notice : paras:G
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777d4168 : notice : Closing log
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777de963 : notice : connected to server
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777de963 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777de963 : notice : paras:G
+Thu, 14 Jun 18 11:54:31 +0000 : MySQLDB.php : 5b225777de963 : notice : Closing log
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257812c3fd : notice : connected to server
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257812c3fd : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257812c3fd : notice : paras:G
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257812c3fd : notice : sql:select * from `UserInfo`  WHERE loginName=? and sys = ?
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257812c3fd : notice : paras:James001,G
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257812c3fd : notice : Closing log
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : connected to server
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : paras:G
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : paras:1,G
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : paras:1,G
+Thu, 14 Jun 18 11:54:41 +0000 : MySQLDB.php : 5b2257816e2bc : notice : Closing log
+Thu, 14 Jun 18 11:54:45 +0000 : MySQLDB.php : 5b225785e9c4e : notice : connected to server
+Thu, 14 Jun 18 11:54:45 +0000 : MySQLDB.php : 5b225785e9c4e : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:45 +0000 : MySQLDB.php : 5b225785e9c4e : notice : paras:G
+Thu, 14 Jun 18 11:54:46 +0000 : MySQLDB.php : 5b225785e9c4e : notice : Closing log
+Thu, 14 Jun 18 11:54:46 +0000 : MySQLDB.php : 5b2257866ff33 : notice : connected to server
+Thu, 14 Jun 18 11:54:46 +0000 : MySQLDB.php : 5b2257866ff33 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:46 +0000 : MySQLDB.php : 5b2257866ff33 : notice : paras:G
+Thu, 14 Jun 18 11:54:46 +0000 : MySQLDB.php : 5b2257866ff33 : notice : Closing log
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : connected to server
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : paras:G
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : sql:select * from `Board`  WHERE boardID=? and sys = ?
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : paras:1,G
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : sql:select UserInfo.userID,loginName,Poll.pollID,postNum,viewNum,postDate,question,content,optionType,Poll.boardID,boardName from UserInfo inner join Poll on UserInfo.userID = Poll.userID inner join Board on Poll.boardID = Board.boardID  where Board.boardID=? and Poll.sys=? ORDER BY  UserInfo.userID,Poll.pollID Limit 20
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : paras:1,G
+Thu, 14 Jun 18 11:54:49 +0000 : MySQLDB.php : 5b225789346b0 : notice : Closing log
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b01e7f : notice : connected to server
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b01e7f : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b01e7f : notice : paras:G
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b01e7f : notice : Closing log
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b4f0f1 : notice : connected to server
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b4f0f1 : notice : sql:select * from `Board`  WHERE sys = ?
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b4f0f1 : notice : paras:G
+Thu, 14 Jun 18 11:54:51 +0000 : MySQLDB.php : 5b22578b4f0f1 : notice : Closing log

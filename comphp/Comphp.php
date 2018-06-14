@@ -89,11 +89,11 @@ class Comphp
         $controller = 'app\\controllers\\'. $controllerName . 'Controller';
 
         if (!class_exists($controller)) {
-            exit($controller . ' [Controller is not exist!]');
+            //exit($controller . ' [Controller is not exist!]');
+            header( "Location:init.php" ) ;
+        }else{
+            new $controller($controllerName, $viewName, $actionName);
         }
-
-        new $controller($controllerName, $viewName, $actionName);
-
 
     }
 
