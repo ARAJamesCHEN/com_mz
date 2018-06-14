@@ -22,6 +22,11 @@ use comphp\base\RstBean;
 
 use comphp\base\Handler;
 
+/**
+ * back-end business workflow handler
+ * Class PollandOptionModelHandler
+ * @package app\models\modelbusiness\modelHandler
+ */
 class PollandOptionModelHandler extends Handler
 {
 
