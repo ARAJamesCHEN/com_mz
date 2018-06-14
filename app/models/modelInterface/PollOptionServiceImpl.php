@@ -10,6 +10,7 @@ namespace app\models\modelInterface;
 
 
 use app\models\modelbusiness\modelEntity\PollOptionModel;
+use app\models\modelbusiness\modelHandler\PollOptionTransactionHandler;
 use app\models\modelbusiness\modelVOs\PollOptionModelVO;
 use comphp\base\RstBean;
 use app\models\modelbusiness\modelRstBean\PollOptionsRstBean;
@@ -90,6 +91,8 @@ class PollOptionServiceImpl implements PollOptionService
 
         $pollOptionModel = new PollOptionModel();
 
+        //var_dump($pollOptionID);
+
         $result = $pollOptionModel->updatePollOptionsVotedNumByID($pollOptionID);
 
         //var_dump($result);
@@ -104,6 +107,14 @@ class PollOptionServiceImpl implements PollOptionService
 
 
 
+
+    }
+
+    public function updatePollOptionsVotedNumByIDWithCollection($pollOptionIDCollection)
+    {
+        $rslt = (new PollOptionTransactionHandler())->updatePollOptionsVotedNumByIDWithCollectionHandler($pollOptionIDCollection);
+
+        return $rslt;
 
     }
 }

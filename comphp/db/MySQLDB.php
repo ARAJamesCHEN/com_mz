@@ -141,7 +141,7 @@ class MySQL
      */
    public function prepare($sql){
 
-       //echo $sql;
+       //echo $sql.'<br>';
 
        $stmt = false;
 
@@ -149,6 +149,10 @@ class MySQL
            $stmt = $this->dbConnForStmt->prepare($sql);
        } catch (\Exception $e) {
            echo $e->getMessage();
+       }
+
+       if ($stmt === FALSE) {
+           die($this->dbConnForStmt->error);
        }
 
        return $stmt;
@@ -171,6 +175,8 @@ class MySQL
        foreach($params as $k => $v){
            $paramsRef[$k] = &$params[$k];
        }
+
+       //var_dump($paramsRef);
 
        call_user_func_array(array($stmt, 'bind_param'), $paramsRef);
 

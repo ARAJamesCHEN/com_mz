@@ -37,6 +37,8 @@ function update(){
         'Mate002' => 'Mate0102'
     );
 
+    $count = 0;
+
     foreach($passWordArray as $usrName => $usrPwd){
         $hash = password_hash($usrPwd, PASSWORD_BCRYPT);
 
@@ -45,6 +47,10 @@ function update(){
         $count = (new UserModel)->where(['loginName = ?', "or sys='H'"], [$usrName])->update($data);
 
         echo "$count rows has been updated!<br>";
+    }
+
+    if($count){
+        header( 'Location:login.php' ) ;
     }
 
 }

@@ -118,10 +118,10 @@ class Sql
     }
 
     /**
-     * @param array $join = [table1, table2]
-     * @param $as
-     * @param array $on = [on1, on2]
-     * table1 inner join table2 on on1 = on2
+     * @param array $join
+     * @param array $as
+     * @param array $on
+     * @return string
      */
     public function innerJoin ($join = array(), $as =array(), $on = array()){
 
@@ -147,6 +147,8 @@ class Sql
 	public function fetchByStmt()
     {
         $sql = sprintf("select * from `%s` %s", $this->table, $this->filter);
+        //var_dump($sql);
+        //var_dump($this->param);
         $sth = Db::getDB()->prepareBindQuery($sql, $this->param);
         return $sth;
     }
@@ -178,7 +180,7 @@ class Sql
 
         //echo  $this->filter;
 
-            // echo $sql;
+             //echo $sql;
 
         $sth = Db::getDB()->prepare($sql);
 

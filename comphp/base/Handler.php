@@ -18,6 +18,18 @@ use app\models\modelInterface\UsrModelService;
 class Handler
 {
 
+    protected function callPollOptionService(PollOptionService $pollOptionService){
+        return $pollOptionService;
+    }
+
+    protected function  callPollModelService(PollModelService $pollModelService){
+
+        return $pollModelService;
+
+
+    }
+
+
     protected function  callAddPollService(PollModelService $pollModelService, PollModelVO $pollModelVO){
 
         return $pollModelService->addNewPoll($pollModelVO);
@@ -25,18 +37,14 @@ class Handler
 
     }
 
+
+
     protected function callAddPollOptionService(PollOptionService $pollOptionService,PollOptionModelVO $pollOptionModelVO){
 
         return $pollOptionService->addNewPollOptions($pollOptionModelVO);
 
     }
 
-    protected function  callPollModelServiceForSearch(PollModelService $pollModelService, $pollID){
-
-        return $pollModelService->searchPollByID($pollID);
-
-
-    }
 
     protected function  callPollOptionModelServiceForSearch(PollOptionService $pollOptionService, $pollID){
 

@@ -21,4 +21,6 @@ interface PollOptionService
 
     public function updatePollOptionsVotedNumByID($pollOptionID);
 
+    public function updatePollOptionsVotedNumByIDWithCollection($pollOptionIDCollection);
+
 }

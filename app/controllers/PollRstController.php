@@ -15,6 +15,7 @@ use app\models\modelInterface\PollAndOptionsUnionService;
 use app\models\modelInterface\PollAndOptionUnionServiceImpl;
 use app\models\modelInterface\PollOptionService;
 use app\models\modelInterface\PollOptionServiceImpl;
+use comphp\base\RstBean;
 
 include(APP_PATH . 'app/controllers/formbeans/'.'PollRstFormBean.php');
 
@@ -40,7 +41,7 @@ class PollRstController extends Controller
 
         $this->formBean = PollRstFormBeanFactory::create();
 
-        $pollID = 1;
+        //$pollID = 1;
 
         if(strrpos($this->_actionName,"pollinit")>0){
 
@@ -48,7 +49,7 @@ class PollRstController extends Controller
 
             $begin = strrpos($this->_actionName,"_") + 1;
 
-            $pollID = intval(substr($this->_actionName,$begin));
+            $pollID = substr($this->_actionName,$begin);
 
             $this->formBean->setPageStatus(POLL_PAGE);
             $this->formBean->setPollId($pollID);
@@ -73,17 +74,16 @@ class PollRstController extends Controller
         }elseif (POLL_SUBMIT_VOTE == $this->_actionName){
             $this->formBean->setPageStatus(POLL_PAGE);
 
-            if($this->isValidate()){
-                return false;
+            if(!$this->isValidate()){
+                $result = $this->submitVote(new PollOptionServiceImpl(), $this->formBean);
+
+                if($result){
+                    $this->formBean->setPageStatus(POLL_RST_PAGE);
+                }
             }
 
-            $result = $this->submitVote(new PollOptionServiceImpl(), $this->formBean->getPollOptionId());
 
-            if($result){
-                $this->formBean->setPageStatus(POLL_RST_PAGE);
-            }
-
-            $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $pollID);
+            $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $this->formBean->getPollId());
 
         }else{
             $this->formBean->setWarning('Please select a poll first!');
@@ -96,12 +96,31 @@ class PollRstController extends Controller
         $this->render();
     }
 
-    private function submitVote(PollOptionService $pollOptionService,$pollOptionID ){
+    private function submitVote(PollOptionService $pollOptionService,&$formBean){
 
-        $rst = $pollOptionService->updatePollOptionsVotedNumByID($pollOptionID);
+        $rst = new RstBean();
+
+        if($formBean->getOptionType() == 'S'){
+            $rst = $pollOptionService->updatePollOptionsVotedNumByID($formBean->getPollOptionId());
+        }elseif ($formBean->getOptionType() == 'M'){
+
+            $optionSelected = $formBean->getOptionSelected();
+
+
+            try {
+                $rst = $pollOptionService->updatePollOptionsVotedNumByIDWithCollection($optionSelected);
+            } catch (\Exception $e) {
+
+                $formBean->setWarning($e->getMessage());
+
+            }
+
+        }
+
+
 
         if(!$rst->isSuccess()){
-            $this->formBean->setWarning('Fail to update the vote!');
+            $formBean->setWarning('Fail to update the vote!');
         }
 
         return $rst->isSuccess();
@@ -111,6 +130,7 @@ class PollRstController extends Controller
 
     private function displayPollDetail(PollAndOptionsUnionService $pollAndOptionsUnionService,$pollID){
 
+        //var_dump($pollID);
 
         $rslt = $pollAndOptionsUnionService->searchPollWithOptionByID($pollID);
 
@@ -127,7 +147,7 @@ class PollRstController extends Controller
 
         $this->pollRstBean = $result[0];
         $this->pollOptionRstBeanCollection = $result[1];
-
+        $this->formBean->setOptionType($this->pollRstBean->getOptionType());
 
 
     }
@@ -153,29 +173,104 @@ class PollRstController extends Controller
                 $hasIssue = true;
             }
 
-            $this->formBean->setPollId(intval($pollID));
+            $this->formBean->setPollId($pollID);
         }
 
-        $pollOption = null;
+        $optionType = null;
 
-        if(isset($_POST["poll_option"])){
-            $pollOption = $_POST["poll_option"];
+        if(isset($_POST["optionType"])){
+            $optionType = $_POST["optionType"];
         }
 
         //var_dump($_POST);
 
-        if(is_null($pollOption) || empty($pollOption)){
-            $this->formBean->setWarning("Please select the option!");
+        if(is_null($optionType) || empty($optionType)){
+            $this->formBean->setWarning("Cannot get option type!");
             $hasIssue = true;
         }else{
 
-            if(!is_numeric($pollOption)){
-                $this->formBean->setWarning("Not a right option!");
+            if(!is_string($optionType)){
+                $this->formBean->setWarning("Not a right option type!");
                 $hasIssue = true;
+            }else{
+
+                $this->formBean->setOptionType($optionType);
+
             }
 
-            $this->formBean->setPollOptionId(intval($pollOption));
+
         }
+
+
+        if($optionType == 'M'){
+
+            $optionCollectionPost = null;
+
+            if(isset($_POST["optionCollection"])){
+                $optionCollectionPost = $_POST["optionCollection"];
+            }
+
+            if(!is_null($optionCollectionPost)){
+
+                $optionCollectionPostArray = explode(",",$optionCollectionPost);
+
+                $optionSelected = array();
+
+                //var_dump($optionCollectionPostArray);
+
+                foreach ($optionCollectionPostArray as $optionName){
+
+                    if(isset($_POST["$optionName"]) && !empty($_POST["$optionName"])){
+
+                        $selectedOptionID = $_POST["$optionName"];
+
+                        array_push($optionSelected, $selectedOptionID);
+
+                    }
+                }
+
+                //var_dump($optionSelected);
+
+                if(count($optionSelected)>0){
+                    $this->formBean->setOptionSelected($optionSelected);
+                }else{
+                    $hasIssue = true;
+                    $this->formBean->setWarning("Please select at least one option!");
+                }
+
+
+            }else{
+                $hasIssue = true;
+                $this->formBean->setWarning("Cannot get option collection!");
+            }
+
+
+
+        }else{
+            $pollOption = null;
+
+            if(isset($_POST["poll_option"])){
+                $pollOption = $_POST["poll_option"];
+            }
+
+            //var_dump($_POST);
+
+            if(is_null($pollOption) || empty($pollOption)){
+                $this->formBean->setWarning("Please select the option!");
+                $hasIssue = true;
+            }else{
+
+                if(!is_numeric($pollOption)){
+                    $this->formBean->setWarning("Not a right option!");
+                    $hasIssue = true;
+                }
+
+                $this->formBean->setPollOptionId($pollOption);
+            }
+        }
+
+
+
 
         return $hasIssue;
     }

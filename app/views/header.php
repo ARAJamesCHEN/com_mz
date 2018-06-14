@@ -52,13 +52,13 @@
                         ?>
                     </div>
                 </li>
-			    <li id="navSign" class="nav-item">
+			    <li id="navSign" class="nav-item" style="padding-top: 0.5em;">
 				    <?php
 					   $theUsrName = null;
 
 					   if(isset($_SESSION[ 'theUsrName' ]) && !empty($_SESSION[ 'theUsrName' ]) ){
 						   $theUsrName = $_SESSION['theUsrName'];
-						   echo "<a href='#'   rel='nofollow'>User:$theUsrName</a> /
+						   echo "<a href='#'  rel='nofollow'>User:$theUsrName</a> /
                                  <a href='logout.php'  rel='nofollow'>LogOut</a>
                                 </li>";
 					   }else{

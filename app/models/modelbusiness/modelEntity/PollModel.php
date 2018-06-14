@@ -63,6 +63,7 @@ class PollModel extends Model
             $whereArray = ['pollID=?'];
             $paramArray = [$pollID];
             $this->where($whereArray, $paramArray);
+            //var_dump($paramArray);
             $result = $this->model = $this->fetchByStmt();
             return $result;
 

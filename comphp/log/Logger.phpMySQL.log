@@ -1290,3 +1290,348 @@ Wed, 13 Jun 18 08:35:10 +0000 : MySQLDB.php : 5b20d73e6be63 : notice : connected
 Wed, 13 Jun 18 08:35:10 +0000 : MySQLDB.php : 5b20d73e6be63 : notice : Closing log
 Wed, 13 Jun 18 08:35:14 +0000 : MySQLDB.php : 5b20d7424ac00 : notice : connected to server
 Wed, 13 Jun 18 08:35:14 +0000 : MySQLDB.php : 5b20d7424ac00 : notice : Closing log
+Wed, 13 Jun 18 21:01:37 +0000 : MySQLDB.php : 5b21863119362 : notice : connected to server
+Wed, 13 Jun 18 21:01:37 +0000 : MySQLDB.php : 5b21863119362 : notice : Closing log
+Wed, 13 Jun 18 21:02:41 +0000 : MySQLDB.php : 5b2186713d3ee : notice : connected to server
+Wed, 13 Jun 18 21:02:41 +0000 : MySQLDB.php : 5b2186713d3ee : notice : Closing log
+Wed, 13 Jun 18 21:02:42 +0000 : MySQLDB.php : 5b218672024ef : notice : connected to server
+Wed, 13 Jun 18 21:02:42 +0000 : MySQLDB.php : 5b218672024ef : notice : Closing log
+Wed, 13 Jun 18 21:02:59 +0000 : MySQLDB.php : 5b2186838c672 : notice : connected to server
+Wed, 13 Jun 18 21:02:59 +0000 : MySQLDB.php : 5b2186838c672 : notice : Closing log
+Wed, 13 Jun 18 21:02:59 +0000 : MySQLDB.php : 5b218683c9178 : notice : connected to server
+Wed, 13 Jun 18 21:02:59 +0000 : MySQLDB.php : 5b218683c9178 : notice : Closing log
+Wed, 13 Jun 18 21:03:40 +0000 : MySQLDB.php : 5b2186ac07283 : notice : connected to server
+Wed, 13 Jun 18 21:03:40 +0000 : MySQLDB.php : 5b2186ac07283 : notice : Closing log
+Wed, 13 Jun 18 21:04:05 +0000 : MySQLDB.php : 5b2186c4f1dd1 : notice : connected to server
+Wed, 13 Jun 18 21:04:05 +0000 : MySQLDB.php : 5b2186c4f1dd1 : notice : Closing log
+Wed, 13 Jun 18 21:04:07 +0000 : MySQLDB.php : 5b2186c77150c : notice : connected to server
+Wed, 13 Jun 18 21:04:07 +0000 : MySQLDB.php : 5b2186c77150c : notice : Closing log
+Wed, 13 Jun 18 21:04:13 +0000 : MySQLDB.php : 5b2186cdc4a63 : notice : connected to server
+Wed, 13 Jun 18 21:04:13 +0000 : MySQLDB.php : 5b2186cdc4a63 : notice : Closing log
+Wed, 13 Jun 18 21:04:15 +0000 : MySQLDB.php : 5b2186cef20e2 : notice : connected to server
+Wed, 13 Jun 18 21:04:15 +0000 : MySQLDB.php : 5b2186cef20e2 : notice : Closing log
+Wed, 13 Jun 18 21:04:25 +0000 : MySQLDB.php : 5b2186d9cafc3 : notice : connected to server
+Wed, 13 Jun 18 21:04:25 +0000 : MySQLDB.php : 5b2186d9cafc3 : notice : Closing log
+Wed, 13 Jun 18 21:04:33 +0000 : MySQLDB.php : 5b2186e1d918a : notice : connected to server
+Wed, 13 Jun 18 21:04:33 +0000 : MySQLDB.php : 5b2186e1d918a : notice : Closing log
+Wed, 13 Jun 18 21:04:53 +0000 : MySQLDB.php : 5b2186f55f4ab : notice : connected to server
+Wed, 13 Jun 18 21:04:53 +0000 : MySQLDB.php : 5b2186f55f4ab : notice : Closing log
+Wed, 13 Jun 18 21:05:00 +0000 : MySQLDB.php : 5b2186fc78381 : notice : connected to server
+Wed, 13 Jun 18 21:05:00 +0000 : MySQLDB.php : 5b2186fc78381 : notice : Closing log
+Wed, 13 Jun 18 21:05:07 +0000 : MySQLDB.php : 5b218703624a2 : notice : connected to server
+Wed, 13 Jun 18 21:05:07 +0000 : MySQLDB.php : 5b218703624a2 : notice : Closing log
+Wed, 13 Jun 18 21:05:10 +0000 : MySQLDB.php : 5b2187069cba1 : notice : connected to server
+Wed, 13 Jun 18 21:05:10 +0000 : MySQLDB.php : 5b2187069cba1 : notice : Closing log
+Wed, 13 Jun 18 21:05:18 +0000 : MySQLDB.php : 5b21870e1f17a : notice : connected to server
+Wed, 13 Jun 18 21:05:18 +0000 : MySQLDB.php : 5b21870e1f17a : notice : Closing log
+Wed, 13 Jun 18 21:05:20 +0000 : MySQLDB.php : 5b21871044b49 : notice : connected to server
+Wed, 13 Jun 18 21:05:20 +0000 : MySQLDB.php : 5b21871044b49 : notice : Closing log
+Wed, 13 Jun 18 21:05:22 +0000 : MySQLDB.php : 5b218712a4138 : notice : connected to server
+Wed, 13 Jun 18 21:05:22 +0000 : MySQLDB.php : 5b218712a4138 : notice : Closing log
+Wed, 13 Jun 18 21:05:25 +0000 : MySQLDB.php : 5b218715289e2 : notice : connected to server
+Wed, 13 Jun 18 21:05:25 +0000 : MySQLDB.php : 5b218715289e2 : notice : Closing log
+Wed, 13 Jun 18 21:05:26 +0000 : MySQLDB.php : 5b2187169642a : notice : connected to server
+Wed, 13 Jun 18 21:05:26 +0000 : MySQLDB.php : 5b2187169642a : notice : Closing log
+Wed, 13 Jun 18 21:05:28 +0000 : MySQLDB.php : 5b218718747d2 : notice : connected to server
+Wed, 13 Jun 18 21:05:28 +0000 : MySQLDB.php : 5b218718747d2 : notice : Closing log
+Wed, 13 Jun 18 21:05:29 +0000 : MySQLDB.php : 5b2187199f853 : notice : connected to server
+Wed, 13 Jun 18 21:05:29 +0000 : MySQLDB.php : 5b2187199f853 : notice : Closing log
+Wed, 13 Jun 18 21:05:31 +0000 : MySQLDB.php : 5b21871bc0bbd : notice : connected to server
+Wed, 13 Jun 18 21:05:31 +0000 : MySQLDB.php : 5b21871bc0bbd : notice : Closing log
+Wed, 13 Jun 18 21:10:10 +0000 : MySQLDB.php : 5b218832c7d3a : notice : connected to server
+Wed, 13 Jun 18 21:10:11 +0000 : MySQLDB.php : 5b218832c7d3a : notice : Closing log
+Wed, 13 Jun 18 21:20:27 +0000 : MySQLDB.php : 5b218a9b24495 : notice : connected to server
+Wed, 13 Jun 18 21:20:27 +0000 : MySQLDB.php : 5b218a9b24495 : notice : Closing log
+Wed, 13 Jun 18 21:20:29 +0000 : MySQLDB.php : 5b218a9dac685 : notice : connected to server
+Wed, 13 Jun 18 21:20:29 +0000 : MySQLDB.php : 5b218a9dac685 : notice : Closing log
+Wed, 13 Jun 18 21:20:55 +0000 : MySQLDB.php : 5b218ab75a564 : notice : connected to server
+Wed, 13 Jun 18 21:20:55 +0000 : MySQLDB.php : 5b218ab75a564 : notice : Closing log
+Wed, 13 Jun 18 21:20:55 +0000 : MySQLDB.php : 5b218ab7b18bd : notice : connected to server
+Wed, 13 Jun 18 21:20:55 +0000 : MySQLDB.php : 5b218ab7b18bd : notice : Closing log
+Wed, 13 Jun 18 21:25:20 +0000 : MySQLDB.php : 5b218bc0a908e : notice : connected to server
+Wed, 13 Jun 18 21:25:20 +0000 : MySQLDB.php : 5b218bc0a908e : notice : Closing log
+Wed, 13 Jun 18 21:28:04 +0000 : MySQLDB.php : 5b218c648d71c : notice : connected to server
+Wed, 13 Jun 18 21:28:04 +0000 : MySQLDB.php : 5b218c648d71c : notice : Closing log
+Wed, 13 Jun 18 21:28:59 +0000 : MySQLDB.php : 5b218c9b2e2b4 : notice : connected to server
+Wed, 13 Jun 18 21:28:59 +0000 : MySQLDB.php : 5b218c9b2e2b4 : notice : Closing log
+Wed, 13 Jun 18 21:29:02 +0000 : MySQLDB.php : 5b218c9e357bb : notice : connected to server
+Wed, 13 Jun 18 21:29:02 +0000 : MySQLDB.php : 5b218c9e357bb : notice : Closing log
+Wed, 13 Jun 18 21:29:06 +0000 : MySQLDB.php : 5b218ca2a41c5 : notice : connected to server
+Wed, 13 Jun 18 21:29:06 +0000 : MySQLDB.php : 5b218ca2a41c5 : notice : Closing log
+Wed, 13 Jun 18 21:34:17 +0000 : MySQLDB.php : 5b218dd9daf91 : notice : connected to server
+Wed, 13 Jun 18 21:34:17 +0000 : MySQLDB.php : 5b218dd9daf91 : notice : Closing log
+Wed, 13 Jun 18 21:34:19 +0000 : MySQLDB.php : 5b218ddb70a19 : notice : connected to server
+Wed, 13 Jun 18 21:34:19 +0000 : MySQLDB.php : 5b218ddb70a19 : notice : Closing log
+Wed, 13 Jun 18 21:34:38 +0000 : MySQLDB.php : 5b218dee5b640 : notice : connected to server
+Wed, 13 Jun 18 21:34:38 +0000 : MySQLDB.php : 5b218dee5b640 : notice : Closing log
+Wed, 13 Jun 18 21:34:38 +0000 : MySQLDB.php : 5b218deeaaabd : notice : connected to server
+Wed, 13 Jun 18 21:34:38 +0000 : MySQLDB.php : 5b218deeaaabd : notice : Closing log
+Wed, 13 Jun 18 22:00:11 +0000 : MySQLDB.php : 5b2193eb85fd7 : notice : connected to server
+Wed, 13 Jun 18 22:00:11 +0000 : MySQLDB.php : 5b2193eb85fd7 : notice : Closing log
+Wed, 13 Jun 18 22:00:15 +0000 : MySQLDB.php : 5b2193ef87db3 : notice : connected to server
+Wed, 13 Jun 18 22:00:15 +0000 : MySQLDB.php : 5b2193ef87db3 : notice : Closing log
+Wed, 13 Jun 18 22:01:15 +0000 : MySQLDB.php : 5b21942b2a181 : notice : connected to server
+Wed, 13 Jun 18 22:01:15 +0000 : MySQLDB.php : 5b21942b2a181 : notice : Closing log
+Wed, 13 Jun 18 22:02:54 +0000 : MySQLDB.php : 5b21948e93f71 : notice : connected to server
+Wed, 13 Jun 18 22:02:54 +0000 : MySQLDB.php : 5b21948e93f71 : notice : Closing log
+Wed, 13 Jun 18 22:03:10 +0000 : MySQLDB.php : 5b21949e995a6 : notice : connected to server
+Wed, 13 Jun 18 22:03:10 +0000 : MySQLDB.php : 5b21949e995a6 : notice : Closing log
+Wed, 13 Jun 18 22:08:17 +0000 : MySQLDB.php : 5b2195d1c3de6 : notice : connected to server
+Wed, 13 Jun 18 22:08:17 +0000 : MySQLDB.php : 5b2195d1c3de6 : notice : Closing log
+Wed, 13 Jun 18 22:08:21 +0000 : MySQLDB.php : 5b2195d5c62c1 : notice : connected to server
+Wed, 13 Jun 18 22:08:21 +0000 : MySQLDB.php : 5b2195d5c62c1 : notice : Closing log
+Wed, 13 Jun 18 22:08:23 +0000 : MySQLDB.php : 5b2195d783deb : notice : connected to server
+Wed, 13 Jun 18 22:08:23 +0000 : MySQLDB.php : 5b2195d783deb : notice : Closing log
+Wed, 13 Jun 18 22:09:39 +0000 : MySQLDB.php : 5b219623234f5 : notice : connected to server
+Wed, 13 Jun 18 22:09:39 +0000 : MySQLDB.php : 5b219623234f5 : notice : Closing log
+Wed, 13 Jun 18 22:10:46 +0000 : MySQLDB.php : 5b219666d3622 : notice : connected to server
+Wed, 13 Jun 18 22:10:47 +0000 : MySQLDB.php : 5b219666d3622 : notice : Closing log
+Wed, 13 Jun 18 22:11:05 +0000 : MySQLDB.php : 5b21967933b1a : notice : connected to server
+Wed, 13 Jun 18 22:11:05 +0000 : MySQLDB.php : 5b21967933b1a : notice : Closing log
+Wed, 13 Jun 18 22:11:17 +0000 : MySQLDB.php : 5b2196850241e : notice : connected to server
+Wed, 13 Jun 18 22:11:17 +0000 : MySQLDB.php : 5b2196850241e : notice : Closing log
+Wed, 13 Jun 18 22:11:23 +0000 : MySQLDB.php : 5b21968b19f2d : notice : connected to server
+Wed, 13 Jun 18 22:11:43 +0000 : MySQLDB.php : 5b21969feccbc : notice : connected to server
+Wed, 13 Jun 18 22:11:44 +0000 : MySQLDB.php : 5b21969feccbc : notice : Closing log
+Wed, 13 Jun 18 22:17:05 +0000 : MySQLDB.php : 5b2197e11e04e : notice : connected to server
+Wed, 13 Jun 18 22:17:05 +0000 : MySQLDB.php : 5b2197e11e04e : notice : Closing log
+Wed, 13 Jun 18 22:17:39 +0000 : MySQLDB.php : 5b219803e235d : notice : connected to server
+Wed, 13 Jun 18 22:17:40 +0000 : MySQLDB.php : 5b219803e235d : notice : Closing log
+Wed, 13 Jun 18 22:19:00 +0000 : MySQLDB.php : 5b21985466244 : notice : connected to server
+Wed, 13 Jun 18 22:19:00 +0000 : MySQLDB.php : 5b21985466244 : notice : Closing log
+Wed, 13 Jun 18 22:19:02 +0000 : MySQLDB.php : 5b21985683c48 : notice : connected to server
+Wed, 13 Jun 18 22:21:11 +0000 : MySQLDB.php : 5b2198d7bc8e1 : notice : connected to server
+Wed, 13 Jun 18 22:21:11 +0000 : MySQLDB.php : 5b2198d7bc8e1 : notice : Closing log
+Wed, 13 Jun 18 22:21:34 +0000 : MySQLDB.php : 5b2198ee7a4a7 : notice : connected to server
+Wed, 13 Jun 18 22:21:34 +0000 : MySQLDB.php : 5b2198ee7a4a7 : notice : Closing log
+Wed, 13 Jun 18 22:23:11 +0000 : MySQLDB.php : 5b21994f097d5 : notice : connected to server
+Wed, 13 Jun 18 22:23:11 +0000 : MySQLDB.php : 5b21994f097d5 : notice : Closing log
+Wed, 13 Jun 18 22:23:14 +0000 : MySQLDB.php : 5b219952596e3 : notice : connected to server
+Wed, 13 Jun 18 22:23:33 +0000 : MySQLDB.php : 5b219965b0635 : notice : connected to server
+Wed, 13 Jun 18 22:23:33 +0000 : MySQLDB.php : 5b219965b0635 : notice : Closing log
+Wed, 13 Jun 18 22:25:10 +0000 : MySQLDB.php : 5b2199c68b419 : notice : connected to server
+Wed, 13 Jun 18 22:25:10 +0000 : MySQLDB.php : 5b2199c68b419 : notice : Closing log
+Wed, 13 Jun 18 22:25:13 +0000 : MySQLDB.php : 5b2199c9197b2 : notice : connected to server
+Wed, 13 Jun 18 22:25:36 +0000 : MySQLDB.php : 5b2199e0c2f7a : notice : connected to server
+Wed, 13 Jun 18 22:26:23 +0000 : MySQLDB.php : 5b219a0f90434 : notice : connected to server
+Wed, 13 Jun 18 22:26:35 +0000 : MySQLDB.php : 5b219a1b0869d : notice : connected to server
+Wed, 13 Jun 18 22:26:42 +0000 : MySQLDB.php : 5b219a223122d : notice : connected to server
+Wed, 13 Jun 18 22:26:42 +0000 : MySQLDB.php : 5b219a223122d : notice : Closing log
+Wed, 13 Jun 18 22:26:49 +0000 : MySQLDB.php : 5b219a29381f4 : notice : connected to server
+Wed, 13 Jun 18 22:26:49 +0000 : MySQLDB.php : 5b219a29381f4 : notice : Closing log
+Wed, 13 Jun 18 22:26:50 +0000 : MySQLDB.php : 5b219a2aebfae : notice : connected to server
+Wed, 13 Jun 18 22:26:51 +0000 : MySQLDB.php : 5b219a2aebfae : notice : Closing log
+Wed, 13 Jun 18 22:26:52 +0000 : MySQLDB.php : 5b219a2cd685b : notice : connected to server
+Wed, 13 Jun 18 22:26:52 +0000 : MySQLDB.php : 5b219a2cd685b : notice : Closing log
+Wed, 13 Jun 18 22:26:56 +0000 : MySQLDB.php : 5b219a300d579 : notice : connected to server
+Wed, 13 Jun 18 22:26:56 +0000 : MySQLDB.php : 5b219a300d579 : notice : Closing log
+Wed, 13 Jun 18 22:26:57 +0000 : MySQLDB.php : 5b219a312b69f : notice : connected to server
+Wed, 13 Jun 18 22:26:57 +0000 : MySQLDB.php : 5b219a312b69f : notice : Closing log
+Wed, 13 Jun 18 22:26:59 +0000 : MySQLDB.php : 5b219a33ef0c3 : notice : connected to server
+Wed, 13 Jun 18 22:27:34 +0000 : MySQLDB.php : 5b219a569319b : notice : connected to server
+Wed, 13 Jun 18 22:27:34 +0000 : MySQLDB.php : 5b219a569319b : notice : Closing log
+Wed, 13 Jun 18 22:27:38 +0000 : MySQLDB.php : 5b219a5a63027 : notice : connected to server
+Wed, 13 Jun 18 22:27:38 +0000 : MySQLDB.php : 5b219a5a63027 : notice : Closing log
+Wed, 13 Jun 18 22:27:40 +0000 : MySQLDB.php : 5b219a5c089d9 : notice : connected to server
+Wed, 13 Jun 18 22:27:40 +0000 : MySQLDB.php : 5b219a5c089d9 : notice : Closing log
+Wed, 13 Jun 18 22:27:55 +0000 : MySQLDB.php : 5b219a6b8b191 : notice : connected to server
+Wed, 13 Jun 18 22:29:07 +0000 : MySQLDB.php : 5b219ab33e2d6 : notice : connected to server
+Wed, 13 Jun 18 22:29:07 +0000 : MySQLDB.php : 5b219ab33e2d6 : notice : Closing log
+Wed, 13 Jun 18 22:29:09 +0000 : MySQLDB.php : 5b219ab5080aa : notice : connected to server
+Wed, 13 Jun 18 22:29:41 +0000 : MySQLDB.php : 5b219ad58ec64 : notice : connected to server
+Wed, 13 Jun 18 22:29:41 +0000 : MySQLDB.php : 5b219ad58ec64 : notice : Closing log
+Wed, 13 Jun 18 22:29:43 +0000 : MySQLDB.php : 5b219ad72303d : notice : connected to server
+Wed, 13 Jun 18 22:30:49 +0000 : MySQLDB.php : 5b219b19ba9bc : notice : connected to server
+Wed, 13 Jun 18 22:30:49 +0000 : MySQLDB.php : 5b219b19ba9bc : notice : Closing log
+Wed, 13 Jun 18 22:30:51 +0000 : MySQLDB.php : 5b219b1b6657e : notice : connected to server
+Wed, 13 Jun 18 22:32:01 +0000 : MySQLDB.php : 5b219b61a14c3 : notice : connected to server
+Wed, 13 Jun 18 22:32:01 +0000 : MySQLDB.php : 5b219b61a14c3 : notice : Closing log
+Wed, 13 Jun 18 22:32:04 +0000 : MySQLDB.php : 5b219b644c177 : notice : connected to server
+Wed, 13 Jun 18 22:32:04 +0000 : MySQLDB.php : 5b219b644c177 : notice : Closing log
+Wed, 13 Jun 18 22:32:05 +0000 : MySQLDB.php : 5b219b654b827 : notice : connected to server
+Wed, 13 Jun 18 22:32:05 +0000 : MySQLDB.php : 5b219b654b827 : notice : Closing log
+Wed, 13 Jun 18 22:32:07 +0000 : MySQLDB.php : 5b219b67246d5 : notice : connected to server
+Wed, 13 Jun 18 22:32:07 +0000 : MySQLDB.php : 5b219b67246d5 : notice : Closing log
+Wed, 13 Jun 18 22:32:29 +0000 : MySQLDB.php : 5b219b7d31239 : notice : connected to server
+Wed, 13 Jun 18 22:32:29 +0000 : MySQLDB.php : 5b219b7d31239 : notice : Closing log
+Wed, 13 Jun 18 22:32:30 +0000 : MySQLDB.php : 5b219b7ec60e1 : notice : connected to server
+Wed, 13 Jun 18 22:32:30 +0000 : MySQLDB.php : 5b219b7ec60e1 : notice : Closing log
+Wed, 13 Jun 18 22:32:32 +0000 : MySQLDB.php : 5b219b80104e9 : notice : connected to server
+Wed, 13 Jun 18 22:32:32 +0000 : MySQLDB.php : 5b219b80104e9 : notice : Closing log
+Wed, 13 Jun 18 22:32:33 +0000 : MySQLDB.php : 5b219b814704d : notice : connected to server
+Wed, 13 Jun 18 22:32:33 +0000 : MySQLDB.php : 5b219b814704d : notice : Closing log
+Wed, 13 Jun 18 22:32:34 +0000 : MySQLDB.php : 5b219b826ac0c : notice : connected to server
+Wed, 13 Jun 18 22:32:34 +0000 : MySQLDB.php : 5b219b826ac0c : notice : Closing log
+Wed, 13 Jun 18 22:32:36 +0000 : MySQLDB.php : 5b219b84cb9cc : notice : connected to server
+Wed, 13 Jun 18 22:33:39 +0000 : MySQLDB.php : 5b219bc3d16a2 : notice : connected to server
+Wed, 13 Jun 18 22:36:04 +0000 : MySQLDB.php : 5b219c5450a91 : notice : connected to server
+Wed, 13 Jun 18 22:36:41 +0000 : MySQLDB.php : 5b219c794fa4d : notice : connected to server
+Wed, 13 Jun 18 22:37:24 +0000 : MySQLDB.php : 5b219ca4d6560 : notice : connected to server
+Wed, 13 Jun 18 22:39:09 +0000 : MySQLDB.php : 5b219d0d86b19 : notice : connected to server
+Wed, 13 Jun 18 22:39:09 +0000 : MySQLDB.php : 5b219d0d86b19 : notice : Closing log
+Wed, 13 Jun 18 22:41:16 +0000 : MySQLDB.php : 5b219d8cad9ff : notice : connected to server
+Wed, 13 Jun 18 22:41:44 +0000 : MySQLDB.php : 5b219da8ac091 : notice : connected to server
+Wed, 13 Jun 18 22:44:34 +0000 : MySQLDB.php : 5b219e52c91a7 : notice : connected to server
+Wed, 13 Jun 18 22:46:26 +0000 : MySQLDB.php : 5b219ec290818 : notice : connected to server
+Wed, 13 Jun 18 22:48:00 +0000 : MySQLDB.php : 5b219f2061961 : notice : connected to server
+Wed, 13 Jun 18 22:49:47 +0000 : MySQLDB.php : 5b219f8b253ef : notice : connected to server
+Wed, 13 Jun 18 22:50:53 +0000 : MySQLDB.php : 5b219fcdc8868 : notice : connected to server
+Wed, 13 Jun 18 22:53:03 +0000 : MySQLDB.php : 5b21a04fe2e14 : notice : connected to server
+Wed, 13 Jun 18 22:53:44 +0000 : MySQLDB.php : 5b21a0784d54d : notice : connected to server
+Wed, 13 Jun 18 22:54:39 +0000 : MySQLDB.php : 5b21a0af89fe4 : notice : connected to server
+Wed, 13 Jun 18 22:55:09 +0000 : MySQLDB.php : 5b21a0cd94da5 : notice : connected to server
+Wed, 13 Jun 18 22:55:36 +0000 : MySQLDB.php : 5b21a0e839861 : notice : connected to server
+Wed, 13 Jun 18 22:56:53 +0000 : MySQLDB.php : 5b21a135d479b : notice : connected to server
+Wed, 13 Jun 18 22:58:46 +0000 : MySQLDB.php : 5b21a1a62d0bc : notice : connected to server
+Wed, 13 Jun 18 22:58:55 +0000 : MySQLDB.php : 5b21a1afc0591 : notice : connected to server
+Wed, 13 Jun 18 22:59:04 +0000 : MySQLDB.php : 5b21a1b8c2d36 : notice : connected to server
+Thu, 14 Jun 18 00:17:49 +0000 : MySQLDB.php : 5b21b42cf1e88 : notice : connected to server
+Thu, 14 Jun 18 00:17:49 +0000 : MySQLDB.php : 5b21b42cf1e88 : notice : Closing log
+Thu, 14 Jun 18 00:18:02 +0000 : MySQLDB.php : 5b21b43ace122 : notice : connected to server
+Thu, 14 Jun 18 00:18:03 +0000 : MySQLDB.php : 5b21b43ace122 : notice : Closing log
+Thu, 14 Jun 18 00:18:04 +0000 : MySQLDB.php : 5b21b43ceb820 : notice : connected to server
+Thu, 14 Jun 18 00:18:05 +0000 : MySQLDB.php : 5b21b43ceb820 : notice : Closing log
+Thu, 14 Jun 18 00:18:07 +0000 : MySQLDB.php : 5b21b43f10a88 : notice : connected to server
+Thu, 14 Jun 18 00:18:07 +0000 : MySQLDB.php : 5b21b43f10a88 : notice : Closing log
+Thu, 14 Jun 18 00:18:09 +0000 : MySQLDB.php : 5b21b441e3770 : notice : connected to server
+Thu, 14 Jun 18 00:18:09 +0000 : MySQLDB.php : 5b21b441e3770 : notice : Closing log
+Thu, 14 Jun 18 00:18:13 +0000 : MySQLDB.php : 5b21b445cdf57 : notice : connected to server
+Thu, 14 Jun 18 00:18:13 +0000 : MySQLDB.php : 5b21b445cdf57 : notice : Closing log
+Thu, 14 Jun 18 00:18:13 +0000 : MySQLDB.php : 5b21b445edcb4 : notice : connected to server
+Thu, 14 Jun 18 00:18:14 +0000 : MySQLDB.php : 5b21b445edcb4 : notice : Closing log
+Thu, 14 Jun 18 00:18:20 +0000 : MySQLDB.php : 5b21b44c4e16b : notice : connected to server
+Thu, 14 Jun 18 00:18:21 +0000 : MySQLDB.php : 5b21b44c4e16b : notice : Closing log
+Thu, 14 Jun 18 00:18:21 +0000 : MySQLDB.php : 5b21b44d4f5ac : notice : connected to server
+Thu, 14 Jun 18 00:18:21 +0000 : MySQLDB.php : 5b21b44d4f5ac : notice : Closing log
+Thu, 14 Jun 18 00:18:22 +0000 : MySQLDB.php : 5b21b44e8b0f7 : notice : connected to server
+Thu, 14 Jun 18 00:18:22 +0000 : MySQLDB.php : 5b21b44e8b0f7 : notice : Closing log
+Thu, 14 Jun 18 00:18:34 +0000 : MySQLDB.php : 5b21b45adf080 : notice : connected to server
+Thu, 14 Jun 18 00:18:35 +0000 : MySQLDB.php : 5b21b45adf080 : notice : Closing log
+Thu, 14 Jun 18 00:18:35 +0000 : MySQLDB.php : 5b21b45b40092 : notice : connected to server
+Thu, 14 Jun 18 00:18:35 +0000 : MySQLDB.php : 5b21b45b40092 : notice : Closing log
+Thu, 14 Jun 18 00:18:40 +0000 : MySQLDB.php : 5b21b46004e81 : notice : connected to server
+Thu, 14 Jun 18 00:20:34 +0000 : MySQLDB.php : 5b21b4d21ce9e : notice : connected to server
+Thu, 14 Jun 18 00:20:34 +0000 : MySQLDB.php : 5b21b4d21ce9e : notice : Closing log
+Thu, 14 Jun 18 00:20:35 +0000 : MySQLDB.php : 5b21b4d3d9a97 : notice : connected to server
+Thu, 14 Jun 18 00:20:35 +0000 : MySQLDB.php : 5b21b4d3d9a97 : notice : Closing log
+Thu, 14 Jun 18 00:20:40 +0000 : MySQLDB.php : 5b21b4d84ecfc : notice : connected to server
+Thu, 14 Jun 18 00:20:40 +0000 : MySQLDB.php : 5b21b4d84ecfc : notice : Closing log
+Thu, 14 Jun 18 00:21:38 +0000 : MySQLDB.php : 5b21b512b96d1 : notice : connected to server
+Thu, 14 Jun 18 00:21:39 +0000 : MySQLDB.php : 5b21b512b96d1 : notice : Closing log
+Thu, 14 Jun 18 00:21:47 +0000 : MySQLDB.php : 5b21b51af3d13 : notice : connected to server
+Thu, 14 Jun 18 00:21:47 +0000 : MySQLDB.php : 5b21b51af3d13 : notice : Closing log
+Thu, 14 Jun 18 00:21:50 +0000 : MySQLDB.php : 5b21b51ed44d8 : notice : connected to server
+Thu, 14 Jun 18 00:21:50 +0000 : MySQLDB.php : 5b21b51ed44d8 : notice : Closing log
+Thu, 14 Jun 18 00:21:56 +0000 : MySQLDB.php : 5b21b524adff8 : notice : connected to server
+Thu, 14 Jun 18 00:21:56 +0000 : MySQLDB.php : 5b21b524adff8 : notice : Closing log
+Thu, 14 Jun 18 00:22:02 +0000 : MySQLDB.php : 5b21b52a6dd6a : notice : connected to server
+Thu, 14 Jun 18 00:22:02 +0000 : MySQLDB.php : 5b21b52a6dd6a : notice : Closing log
+Thu, 14 Jun 18 00:22:08 +0000 : MySQLDB.php : 5b21b530da5cc : notice : connected to server
+Thu, 14 Jun 18 00:22:09 +0000 : MySQLDB.php : 5b21b530da5cc : notice : Closing log
+Thu, 14 Jun 18 00:24:46 +0000 : MySQLDB.php : 5b21b5ced822f : notice : connected to server
+Thu, 14 Jun 18 00:24:47 +0000 : MySQLDB.php : 5b21b5ced822f : notice : Closing log
+Thu, 14 Jun 18 00:25:00 +0000 : MySQLDB.php : 5b21b5dc06370 : notice : connected to server
+Thu, 14 Jun 18 00:25:00 +0000 : MySQLDB.php : 5b21b5dc06370 : notice : Closing log
+Thu, 14 Jun 18 00:25:21 +0000 : MySQLDB.php : 5b21b5f1b0c56 : notice : connected to server
+Thu, 14 Jun 18 00:25:21 +0000 : MySQLDB.php : 5b21b5f1b0c56 : notice : Closing log
+Thu, 14 Jun 18 00:25:34 +0000 : MySQLDB.php : 5b21b5feb492e : notice : connected to server
+Thu, 14 Jun 18 00:25:34 +0000 : MySQLDB.php : 5b21b5feb492e : notice : Closing log
+Thu, 14 Jun 18 00:25:48 +0000 : MySQLDB.php : 5b21b60c86f51 : notice : connected to server
+Thu, 14 Jun 18 00:25:48 +0000 : MySQLDB.php : 5b21b60c86f51 : notice : Closing log
+Thu, 14 Jun 18 00:25:51 +0000 : MySQLDB.php : 5b21b60fce7dc : notice : connected to server
+Thu, 14 Jun 18 00:25:52 +0000 : MySQLDB.php : 5b21b60fce7dc : notice : Closing log
+Thu, 14 Jun 18 00:25:53 +0000 : MySQLDB.php : 5b21b611afe38 : notice : connected to server
+Thu, 14 Jun 18 00:25:53 +0000 : MySQLDB.php : 5b21b611afe38 : notice : Closing log
+Thu, 14 Jun 18 00:26:14 +0000 : MySQLDB.php : 5b21b6263c531 : notice : connected to server
+Thu, 14 Jun 18 00:26:14 +0000 : MySQLDB.php : 5b21b6263c531 : notice : Closing log
+Thu, 14 Jun 18 00:26:45 +0000 : MySQLDB.php : 5b21b64545986 : notice : connected to server
+Thu, 14 Jun 18 00:26:45 +0000 : MySQLDB.php : 5b21b64545986 : notice : Closing log
+Thu, 14 Jun 18 00:26:47 +0000 : MySQLDB.php : 5b21b647c7402 : notice : connected to server
+Thu, 14 Jun 18 00:26:47 +0000 : MySQLDB.php : 5b21b647c7402 : notice : Closing log
+Thu, 14 Jun 18 00:26:55 +0000 : MySQLDB.php : 5b21b64fea0bb : notice : connected to server
+Thu, 14 Jun 18 00:26:56 +0000 : MySQLDB.php : 5b21b64fea0bb : notice : Closing log
+Thu, 14 Jun 18 00:27:02 +0000 : MySQLDB.php : 5b21b6564957d : notice : connected to server
+Thu, 14 Jun 18 00:27:02 +0000 : MySQLDB.php : 5b21b6564957d : notice : Closing log
+Thu, 14 Jun 18 00:27:05 +0000 : MySQLDB.php : 5b21b659c9768 : notice : connected to server
+Thu, 14 Jun 18 00:27:05 +0000 : MySQLDB.php : 5b21b659c9768 : notice : Closing log
+Thu, 14 Jun 18 00:27:07 +0000 : MySQLDB.php : 5b21b65bce9aa : notice : connected to server
+Thu, 14 Jun 18 00:27:07 +0000 : MySQLDB.php : 5b21b65bce9aa : notice : Closing log
+Thu, 14 Jun 18 00:27:10 +0000 : MySQLDB.php : 5b21b65e2f448 : notice : connected to server
+Thu, 14 Jun 18 00:27:10 +0000 : MySQLDB.php : 5b21b65e2f448 : notice : Closing log
+Thu, 14 Jun 18 00:27:12 +0000 : MySQLDB.php : 5b21b660907c1 : notice : connected to server
+Thu, 14 Jun 18 00:27:12 +0000 : MySQLDB.php : 5b21b660907c1 : notice : Closing log
+Thu, 14 Jun 18 00:27:14 +0000 : MySQLDB.php : 5b21b66220213 : notice : connected to server
+Thu, 14 Jun 18 00:27:14 +0000 : MySQLDB.php : 5b21b66220213 : notice : Closing log
+Thu, 14 Jun 18 00:27:17 +0000 : MySQLDB.php : 5b21b665e7b52 : notice : connected to server
+Thu, 14 Jun 18 00:27:18 +0000 : MySQLDB.php : 5b21b665e7b52 : notice : Closing log
+Thu, 14 Jun 18 00:28:26 +0000 : MySQLDB.php : 5b21b6aab80d4 : notice : connected to server
+Thu, 14 Jun 18 00:28:26 +0000 : MySQLDB.php : 5b21b6aab80d4 : notice : Closing log
+Thu, 14 Jun 18 00:28:28 +0000 : MySQLDB.php : 5b21b6ac9d695 : notice : connected to server
+Thu, 14 Jun 18 00:28:28 +0000 : MySQLDB.php : 5b21b6ac9d695 : notice : Closing log
+Thu, 14 Jun 18 00:29:27 +0000 : MySQLDB.php : 5b21b6e759a59 : notice : connected to server
+Thu, 14 Jun 18 00:29:27 +0000 : MySQLDB.php : 5b21b6e759a59 : notice : Closing log
+Thu, 14 Jun 18 00:29:29 +0000 : MySQLDB.php : 5b21b6e96cb1c : notice : connected to server
+Thu, 14 Jun 18 00:29:29 +0000 : MySQLDB.php : 5b21b6e96cb1c : notice : Closing log
+Thu, 14 Jun 18 00:29:38 +0000 : MySQLDB.php : 5b21b6f228425 : notice : connected to server
+Thu, 14 Jun 18 00:29:38 +0000 : MySQLDB.php : 5b21b6f228425 : notice : Closing log
+Thu, 14 Jun 18 00:30:13 +0000 : MySQLDB.php : 5b21b7157bff6 : notice : connected to server
+Thu, 14 Jun 18 00:30:13 +0000 : MySQLDB.php : 5b21b7157bff6 : notice : Closing log
+Thu, 14 Jun 18 00:30:19 +0000 : MySQLDB.php : 5b21b71b3702c : notice : connected to server
+Thu, 14 Jun 18 00:30:19 +0000 : MySQLDB.php : 5b21b71b3702c : notice : Closing log
+Thu, 14 Jun 18 00:30:21 +0000 : MySQLDB.php : 5b21b71d32bcb : notice : connected to server
+Thu, 14 Jun 18 00:30:21 +0000 : MySQLDB.php : 5b21b71d32bcb : notice : Closing log
+Thu, 14 Jun 18 00:30:23 +0000 : MySQLDB.php : 5b21b71f5cbaa : notice : connected to server
+Thu, 14 Jun 18 00:30:23 +0000 : MySQLDB.php : 5b21b71f5cbaa : notice : Closing log
+Thu, 14 Jun 18 00:30:25 +0000 : MySQLDB.php : 5b21b7215d2e8 : notice : connected to server
+Thu, 14 Jun 18 00:30:25 +0000 : MySQLDB.php : 5b21b7215d2e8 : notice : Closing log
+Thu, 14 Jun 18 00:30:42 +0000 : MySQLDB.php : 5b21b732753a9 : notice : connected to server
+Thu, 14 Jun 18 00:30:42 +0000 : MySQLDB.php : 5b21b732753a9 : notice : Closing log
+Thu, 14 Jun 18 00:30:44 +0000 : MySQLDB.php : 5b21b734b2b3b : notice : connected to server
+Thu, 14 Jun 18 00:30:44 +0000 : MySQLDB.php : 5b21b734b2b3b : notice : Closing log
+Thu, 14 Jun 18 00:30:46 +0000 : MySQLDB.php : 5b21b736aa9e5 : notice : connected to server
+Thu, 14 Jun 18 00:30:46 +0000 : MySQLDB.php : 5b21b736aa9e5 : notice : Closing log
+Thu, 14 Jun 18 00:32:47 +0000 : MySQLDB.php : 5b21b7af6e4ff : notice : connected to server
+Thu, 14 Jun 18 00:32:47 +0000 : MySQLDB.php : 5b21b7af6e4ff : notice : Closing log
+Thu, 14 Jun 18 00:32:53 +0000 : MySQLDB.php : 5b21b7b505036 : notice : connected to server
+Thu, 14 Jun 18 00:32:53 +0000 : MySQLDB.php : 5b21b7b505036 : notice : Closing log
+Thu, 14 Jun 18 00:32:57 +0000 : MySQLDB.php : 5b21b7b927af9 : notice : connected to server
+Thu, 14 Jun 18 00:32:57 +0000 : MySQLDB.php : 5b21b7b927af9 : notice : Closing log
+Thu, 14 Jun 18 00:33:10 +0000 : MySQLDB.php : 5b21b7c6e7c14 : notice : connected to server
+Thu, 14 Jun 18 00:33:11 +0000 : MySQLDB.php : 5b21b7c6e7c14 : notice : Closing log
+Thu, 14 Jun 18 00:33:12 +0000 : MySQLDB.php : 5b21b7c809a53 : notice : connected to server
+Thu, 14 Jun 18 00:33:12 +0000 : MySQLDB.php : 5b21b7c809a53 : notice : Closing log
+Thu, 14 Jun 18 00:33:22 +0000 : MySQLDB.php : 5b21b7d268058 : notice : connected to server
+Thu, 14 Jun 18 00:33:22 +0000 : MySQLDB.php : 5b21b7d268058 : notice : Closing log
+Thu, 14 Jun 18 00:33:23 +0000 : MySQLDB.php : 5b21b7d3b4d98 : notice : connected to server
+Thu, 14 Jun 18 00:34:15 +0000 : MySQLDB.php : 5b21b8078156a : notice : connected to server
+Thu, 14 Jun 18 00:34:15 +0000 : MySQLDB.php : 5b21b8078156a : notice : Closing log
+Thu, 14 Jun 18 00:34:18 +0000 : MySQLDB.php : 5b21b80a4ee3b : notice : connected to server
+Thu, 14 Jun 18 00:34:18 +0000 : MySQLDB.php : 5b21b80a4ee3b : notice : Closing log
+Thu, 14 Jun 18 00:34:21 +0000 : MySQLDB.php : 5b21b80d28b26 : notice : connected to server
+Thu, 14 Jun 18 00:34:21 +0000 : MySQLDB.php : 5b21b80d28b26 : notice : Closing log
+Thu, 14 Jun 18 00:34:23 +0000 : MySQLDB.php : 5b21b80f7852c : notice : connected to server
+Thu, 14 Jun 18 00:34:23 +0000 : MySQLDB.php : 5b21b80f7852c : notice : Closing log
+Thu, 14 Jun 18 00:34:32 +0000 : MySQLDB.php : 5b21b818717b4 : notice : connected to server
+Thu, 14 Jun 18 00:34:32 +0000 : MySQLDB.php : 5b21b818717b4 : notice : Closing log
+Thu, 14 Jun 18 00:34:32 +0000 : MySQLDB.php : 5b21b818a55d8 : notice : connected to server
+Thu, 14 Jun 18 00:34:32 +0000 : MySQLDB.php : 5b21b818a55d8 : notice : Closing log
+Thu, 14 Jun 18 00:34:37 +0000 : MySQLDB.php : 5b21b81d9232b : notice : connected to server
+Thu, 14 Jun 18 00:34:37 +0000 : MySQLDB.php : 5b21b81d9232b : notice : Closing log
+Thu, 14 Jun 18 00:34:39 +0000 : MySQLDB.php : 5b21b81fc51b4 : notice : connected to server
+Thu, 14 Jun 18 00:34:39 +0000 : MySQLDB.php : 5b21b81fc51b4 : notice : Closing log
+Thu, 14 Jun 18 00:34:43 +0000 : MySQLDB.php : 5b21b8238df9d : notice : connected to server
+Thu, 14 Jun 18 00:34:43 +0000 : MySQLDB.php : 5b21b8238df9d : notice : Closing log
+Thu, 14 Jun 18 00:36:54 +0000 : MySQLDB.php : 5b21b8a62a30a : notice : connected to server
+Thu, 14 Jun 18 00:36:54 +0000 : MySQLDB.php : 5b21b8a62a30a : notice : Closing log
+Thu, 14 Jun 18 00:36:56 +0000 : MySQLDB.php : 5b21b8a8a6f17 : notice : connected to server
+Thu, 14 Jun 18 00:36:56 +0000 : MySQLDB.php : 5b21b8a8a6f17 : notice : Closing log
+Thu, 14 Jun 18 00:36:58 +0000 : MySQLDB.php : 5b21b8aabfd30 : notice : connected to server
+Thu, 14 Jun 18 00:36:58 +0000 : MySQLDB.php : 5b21b8aabfd30 : notice : Closing log
+Thu, 14 Jun 18 00:37:01 +0000 : MySQLDB.php : 5b21b8ad64223 : notice : connected to server
+Thu, 14 Jun 18 00:37:01 +0000 : MySQLDB.php : 5b21b8ad64223 : notice : Closing log
+Thu, 14 Jun 18 00:37:22 +0000 : MySQLDB.php : 5b21b8c21f124 : notice : connected to server
+Thu, 14 Jun 18 00:37:22 +0000 : MySQLDB.php : 5b21b8c21f124 : notice : Closing log
+Thu, 14 Jun 18 00:37:23 +0000 : MySQLDB.php : 5b21b8c3daf60 : notice : connected to server
+Thu, 14 Jun 18 00:37:24 +0000 : MySQLDB.php : 5b21b8c3daf60 : notice : Closing log
+Thu, 14 Jun 18 00:37:25 +0000 : MySQLDB.php : 5b21b8c5bfbae : notice : connected to server
+Thu, 14 Jun 18 00:37:26 +0000 : MySQLDB.php : 5b21b8c5bfbae : notice : Closing log

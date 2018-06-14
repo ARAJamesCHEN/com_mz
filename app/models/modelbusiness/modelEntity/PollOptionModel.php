@@ -127,6 +127,8 @@ class PollOptionModel extends Model
             }
         }
 
+        //var_dump($origNum);
+
         $data = array('votedNum'=> (++$origNum));
 
         $whereArray = ['pollOptionID=?'];

@@ -2,8 +2,10 @@
      <p class='bg-danger text-white'><?php echo $formBean->getWarning();?></p>
        <section class="breadcrumbs">
 			<ul class="display-flex">
-				<li><a href="#" rel="nofollow">Forums</a></li>
-				<li><a href="post.html" rel="nofollow"><?php echo $pollRstBean->getBoardName() ?></a></li>
+				<li><a href="#" rel="nofollow">Forums1</a></li>
+				<li><a href="<?php
+                    $boardID =  $pollRstBean->getBoardID();
+                    echo "post.php?doboard_$boardID"?>" rel="nofollow"><?php echo $pollRstBean->getBoardName() ?></a></li>
 			</ul>
 		</section>
 		<section class="post-content">
@@ -65,8 +67,11 @@
 												<form class="js-poll-form" data-ajaxform="true" action = "pollRst.php?submit_vote" method="POST">
 
                                                     <input type="hidden" name="pollID" value="<?php echo $formBean->getPollId() ?>">
+                                                    <input type="hidden" name="optionType" value="<?php echo $formBean->getOptionType() ?>">
 
                                                     <?php
+
+                                                       $optionIDs = '';
 
                                                        if($formBean->getPageStatus() != "POLL"){
                                                            $count = 0;
@@ -78,7 +83,8 @@
                                                                $votePercentage = $option->getVotedPercentage();
 
                                                                //$votePercentage = 50;
-                                                               echo "<div>$optionName  $votePercentage</div>";
+                                                               echo "<div>$optionName    $votePercentage%</div>";
+
 
                                                                if($count%2 == 0){
                                                                    echo "<div class='progress progress-success'>";
@@ -101,7 +107,12 @@
                                                                if($pollRstBean->getOptionType() == 'S'){
                                                                    echo "<input type=\"radio\" name=\"poll_option\" value=\"$optionID\">";
                                                                }elseif ($pollRstBean->getOptionType() == 'M'){
-                                                                   echo "<input type=\"checkbox\" name=\"poll_option$optionValue\" value=\"$optionID\" class=\"content-layout-input\">";
+                                                                   echo "<input type=\"checkbox\" name=\"pollOption_$optionValue\" value=\"$optionID\" class=\"content-layout-input\">";
+                                                                   if(empty($optionIDs)){
+                                                                       $optionIDs.= "pollOption_$optionValue";
+                                                                   }else{
+                                                                       $optionIDs.= ",pollOption_$optionValue";
+                                                                   }
                                                                }else{
                                                                    echo "Cannot get options";
                                                                }
@@ -110,6 +121,9 @@
                                                                echo "</label></li></ul>";
 
                                                            }
+
+                                                           echo "<input type=\"hidden\" name=\"optionCollection\"
+                                                            value=\"$optionIDs\">";
 
                                                            echo "<div class=\"poll-footer\"> 
 													                      <input type=\"submit\" value=\"Cast your vote\" class=\"btn btn-mini btn-primary \">

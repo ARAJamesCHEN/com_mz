@@ -87,6 +87,8 @@ class PollandOptionModelHandler extends Handler
         $rslt->setResult($insertID);
         $rslt->setIsSuccess(true);
 
+
+
         return $rslt;
 
 
@@ -100,8 +102,11 @@ class PollandOptionModelHandler extends Handler
 
         $rslt = new RstBean();
 
+
         //poll result
-        $pollRst = $this->callPollModelServiceForSearch(new PollModelServiceImpl(), $pollID);
+        $pollRst = $this->callPollModelService(new PollModelServiceImpl())->searchPollByID($pollID);
+        //var_dump("here");
+
 
         $pollRstBean = $pollRst->getResult();
 

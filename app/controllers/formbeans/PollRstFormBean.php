@@ -34,6 +34,46 @@ class PollRstFormBean extends FormBean
 
     private $pollOptionId;
 
+    private $optionType;
+
+    private $optionSelected;
+
+    /**
+     * @return mixed
+     */
+    public function getOptionSelected()
+    {
+        return $this->optionSelected;
+    }
+
+    /**
+     * @param mixed $optionSelected
+     */
+    public function setOptionSelected($optionSelected): void
+    {
+        $this->optionSelected = $optionSelected;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getOptionType()
+    {
+        return $this->optionType;
+    }
+
+    /**
+     * @param mixed $optionType
+     */
+    public function setOptionType($optionType): void
+    {
+        $this->optionType = $optionType;
+    }
+
+
+
     /**
      * @return mixed
      */
