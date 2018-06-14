@@ -16,6 +16,7 @@ use app\models\modelInterface\PollAndOptionUnionServiceImpl;
 use app\models\modelInterface\PollOptionService;
 use app\models\modelInterface\PollOptionServiceImpl;
 use comphp\base\RstBean;
+use comphp\base\Handler;
 
 include(APP_PATH . 'app/controllers/formbeans/'.'PollRstFormBean.php');
 
@@ -53,7 +54,7 @@ class PollRstController extends Controller
 
             $this->formBean->setPageStatus(POLL_PAGE);
             $this->formBean->setPollId($pollID);
-            $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $pollID);
+            $this->displayPollDetail($pollID);
 
         }elseif(POLL_RST_INIT == $this->_actionName){
             $this->formBean->setPageStatus(POLL_RST_PAGE);
@@ -65,13 +66,16 @@ class PollRstController extends Controller
 
                 $this->formBean->setPollId($pollID);
 
-                $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $pollID);
+                $this->displayPollDetail($pollID);
 
 
             }else{
                 throw new \Exception("Cannot get PollID!");
             }
         }elseif (POLL_SUBMIT_VOTE == $this->_actionName){
+
+            if($this->forwardToLogin()){return;}
+
             $this->formBean->setPageStatus(POLL_PAGE);
 
             if(!$this->isValidate()){
@@ -83,7 +87,7 @@ class PollRstController extends Controller
             }
 
 
-            $this->displayPollDetail(new PollAndOptionUnionServiceImpl(), $this->formBean->getPollId());
+            $this->displayPollDetail($this->formBean->getPollId());
 
         }else{
             $this->formBean->setWarning('Please select a poll first!');
@@ -101,14 +105,14 @@ class PollRstController extends Controller
         $rst = new RstBean();
 
         if($formBean->getOptionType() == 'S'){
-            $rst = $pollOptionService->updatePollOptionsVotedNumByID($formBean->getPollOptionId());
+            $rst = (new Handler())->callPollOptionService(new PollOptionServiceImpl())->updatePollOptionsVotedNumByID($formBean->getPollOptionId());
         }elseif ($formBean->getOptionType() == 'M'){
 
             $optionSelected = $formBean->getOptionSelected();
 
 
             try {
-                $rst = $pollOptionService->updatePollOptionsVotedNumByIDWithCollection($optionSelected);
+                $rst = (new Handler())->callPollOptionService(new PollOptionServiceImpl())->updatePollOptionsVotedNumByIDWithCollection($optionSelected);
             } catch (\Exception $e) {
 
                 $formBean->setWarning($e->getMessage());
@@ -128,11 +132,11 @@ class PollRstController extends Controller
 
     }
 
-    private function displayPollDetail(PollAndOptionsUnionService $pollAndOptionsUnionService,$pollID){
+    private function displayPollDetail($pollID){
 
         //var_dump($pollID);
 
-        $rslt = $pollAndOptionsUnionService->searchPollWithOptionByID($pollID);
+        $rslt = (new Handler())->callPollAndOptionsUnionService(new PollAndOptionUnionServiceImpl())->searchPollWithOptionByID($pollID);
 
         if(is_null($rslt)){
             $this->formBean->setWarning('Fail to find the result');

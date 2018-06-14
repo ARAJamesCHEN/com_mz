@@ -12,10 +12,9 @@ use app\controllers\formbeans\CreateNewPollFormBeanFactory;
 use app\models\modelbusiness\modelutils\ModelUtil;
 use app\models\modelInterface\PollAndOptionUnionServiceImpl;
 use app\models\modelInterface\PollModelService;
-use app\models\modelInterface\BoardModelService;
-use app\models\modelInterface\BoardModelServiceImpl;
 use comphp\base\Controller;
 use app\models\modelInterface\PollAndOptionsUnionService;
+use comphp\base\Handler;
 
 
 include(APP_PATH . 'app/controllers/formbeans/'.'CreateNewPollFormBean.php');
@@ -46,7 +45,7 @@ class CreateNewPollController extends Controller
 
         if ($this->_actionName == NEWPOLL_ACTION_ADD){
 
-            $this->addNewPollFunction(new PollAndOptionUnionServiceImpl());
+            $this->addNewPollFunction();
 
         }
 
@@ -57,9 +56,9 @@ class CreateNewPollController extends Controller
     }
 
     /**
-     * @param PollModelService $comModelIntService
+     *
      */
-    private function addNewPollFunction(PollAndOptionsUnionService $comModelIntService){
+    private function addNewPollFunction(){
 
         if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
 
@@ -78,7 +77,7 @@ class CreateNewPollController extends Controller
             $options = $this->formBean->getOptions();
 
             try {
-                $rslt = $comModelIntService->addNewPollWithOption($pollModelVO, $options);
+                $rslt = (new Handler())->callPollAndOptionsUnionService(new PollAndOptionUnionServiceImpl())->addNewPollWithOption($pollModelVO, $options);
             } catch (\Exception $e) {
 
                 $this->formBean->setWarning("Insert Failure!".$e->getMessage());

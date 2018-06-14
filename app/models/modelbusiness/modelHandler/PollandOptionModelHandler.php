@@ -108,6 +108,8 @@ class PollandOptionModelHandler extends Handler
         $rslt = new RstBean();
 
 
+        //var_dump($pollID);
+
         //poll result
         $pollRst = $this->callPollModelService(new PollModelServiceImpl())->searchPollByID($pollID);
         //var_dump("here");

@@ -10,6 +10,7 @@ namespace app\controllers;
 use comphp\base\Controller;
 use app\models\modelInterface\PollModelService;
 use app\models\modelInterface\PollModelServiceImpl;
+use comphp\base\Handler;
 
 const POST_QUERY_INIT = 'query';
 
@@ -37,7 +38,7 @@ class PostController extends Controller
             $boardId = intval(substr($this->_actionName,$begin));
         }
 
-        $this->displayAllPost(new PollModelServiceImpl(), $boardId);
+        $this->displayAllPost($boardId);
 
 
         $this->assign('pollRstBeanCollection',$this->pollRstBeanCollection);
@@ -45,11 +46,11 @@ class PostController extends Controller
         $this->render();
     }
 
-    public function displayAllPost(PollModelService $pollModelService, $boardId){
+    public function displayAllPost($boardId){
 
         //var_dump($boardId);
 
-        $rst = $pollModelService->searchPollByBoardID($boardId);
+        $rst = (new Handler())->callPollModelService(new PollModelServiceImpl())->searchPollByBoardID($boardId);
 
         //var_dump($rst);
 

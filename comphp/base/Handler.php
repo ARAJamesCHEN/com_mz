@@ -12,30 +12,60 @@ use app\models\modelInterface\BoardModelService;
 use app\models\modelInterface\PollModelService;
 use app\models\modelInterface\PollOptionService;
 use app\models\modelInterface\UsrModelService;
+use app\models\modelInterface\PollAndOptionsUnionService;
 
+/**
+ * Class Handler
+ * @package comphp\base
+ */
 class Handler
 {
 
-    protected function callPollOptionService(PollOptionService $pollOptionService){
+    /**
+     * @param PollOptionService $pollOptionService
+     * @return PollOptionService
+     */
+    public function callPollOptionService(PollOptionService $pollOptionService){
         return $pollOptionService;
     }
 
-    protected function  callPollModelService(PollModelService $pollModelService){
+    /**
+     * @param PollModelService $pollModelService
+     * @return PollModelService
+     */
+    public function  callPollModelService(PollModelService $pollModelService){
 
         return $pollModelService;
 
     }
 
-    protected  function  callBoardModelService(BoardModelService $boardModelService){
+    /**
+     * @param BoardModelService $boardModelService
+     * @return BoardModelService
+     */
+    public  function  callBoardModelService(BoardModelService $boardModelService){
 
         return $boardModelService;
 
     }
 
-    protected  function  callUsrModelService(UsrModelService $usrModelService){
+    /**
+     * @param UsrModelService $usrModelService
+     * @return UsrModelService
+     */
+    public  function  callUsrModelService(UsrModelService $usrModelService){
 
         return $usrModelService;
 
     }
 
+    /**
+     * @param PollAndOptionsUnionService $pollAndOptionsUnionService
+     * @return PollAndOptionsUnionService
+     */
+    public  function  callPollAndOptionsUnionService(PollAndOptionsUnionService $pollAndOptionsUnionService){
+
+        return $pollAndOptionsUnionService;
+
+    }
 }

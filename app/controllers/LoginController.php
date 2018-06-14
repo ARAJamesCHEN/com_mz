@@ -13,6 +13,8 @@ use app\models\modelInterface\UsrModelService;
 use app\models\modelInterface\UsrModelServiceImpl;
 use comphp\base\Controller;
 use app\controllers\util\ValidateUtil;
+use comphp\base\Handler;
+
 include(APP_PATH. 'app/controllers/util/' .'ValidateUtil.php');
 include(APP_PATH . 'app/controllers/formbeans/'.'LoginFormBean.php');
 
@@ -41,9 +43,7 @@ class LoginController extends Controller
 
         if($this->_actionName == LOGIN_ACTION_LOGIN){
 
-            $usrModelService = new UsrModelServiceImpl();
-
-            $this->loginFunction($usrModelService);
+            $this->loginFunction();
 
         }elseif ($this->_actionName == LOGIN_ACTION_FORWARD){
             $this->formBean->setWarning("Please login first!");
@@ -56,13 +56,13 @@ class LoginController extends Controller
     /**
      *
      */
-    public function loginFunction(UsrModelService $usrModelService){
+    public function loginFunction(){
 
         if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
             //valid
             if($this->isValidLogin()){
 
-				$rst = $usrModelService->searchUsrInfoByLoginName($this->formBean->getFormUsrName());
+                $rst = (new Handler())->callUsrModelService(new UsrModelServiceImpl())->searchUsrInfoByLoginName($this->formBean->getFormUsrName());
 
                 $userInfo = $rst->getResult();
 
