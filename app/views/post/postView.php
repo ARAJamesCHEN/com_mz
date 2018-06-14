@@ -81,7 +81,7 @@
                                             </i> Poll
                                         </span></td>";
 
-                             $useName = $pollRstBean->getUserName();
+                             $useName = $pollRstBean->getUsrRstBean()->getUsrName();
                              $postNum =  $pollRstBean->getPostNum();
                              $viewNum = $pollRstBean->getViewNum();
 

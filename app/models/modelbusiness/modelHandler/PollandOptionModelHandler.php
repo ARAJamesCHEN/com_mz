@@ -9,6 +9,7 @@
 namespace app\models\modelbusiness\modelHandler;
 
 use app\models\modelbusiness\modelRstBean\PollRstBean;
+use app\models\modelbusiness\modelRstBean\UsrRstBean;
 use app\models\modelbusiness\modelutils\DateUtil;
 use app\models\modelInterface\BoardModelServiceImpl;
 use app\models\modelInterface\PollModelServiceImpl;
@@ -129,7 +130,9 @@ class PollandOptionModelHandler extends Handler
 
         //user name rst
         $usrRst = $this->callUsrModelService(new UsrModelServiceImpl())->searchUsrInfoByID($pollRstBean->getUserID());
-        $pollRstBean->setUserName($usrRst->getUsrName());
+
+        $pollRstBean->setUsrRstBean($usrRst);
+        //$pollRstBean->setUserName($usrRst->getUsrName());
         $pollRstBean->setPostDateDisplay((new DateUtil())->getFormatDate($pollRstBean->getPostDate()));
 
         //poll option result
@@ -182,8 +185,8 @@ class PollandOptionModelHandler extends Handler
             $rstBean->setIsSuccess(false);
         }else{
             $rstBean->setIsSuccess(true);
-            $resultBeanCollection = (new ModelUtil())->getPollUsrBoardUnionRstBean($rst);
-            $rstBean->setResult($resultBeanCollection);
+            $resultBean = (new ModelUtil())->getPollUsrBoardUnionRstBean($rst);
+            $rstBean->setResult($resultBean);
         }
 
         return $rstBean;

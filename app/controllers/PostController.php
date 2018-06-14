@@ -54,13 +54,13 @@ class PostController extends Controller
 
         //var_dump($boardId);
 
-        $boardRstBean = (new Handler())->callBoardModelService(new BoardModelServiceImpl())->searchBoardByID($boardId);
+        /*$boardRstBean = (new Handler())->callBoardModelService(new BoardModelServiceImpl())->searchBoardByID($boardId);
 
         if($boardRstBean->isSuccess()){
 
             $this->boardName = $boardRstBean->getBoardName();
 
-        }
+        }*/
 
         $rst = (new Handler())->callPollAndOptionsUnionService(new PollAndOptionUnionServiceImpl())->searchPollUsrBoardUnionByBoardID($boardId);
 
@@ -68,7 +68,13 @@ class PostController extends Controller
 
         if($rst->isSuccess()){
 
-            $this->pollRstBeanCollection = $rst->getResult();
+            //var_dump($boardRstBean);
+
+            $boardRstBean = $rst->getResult();
+
+            $this->boardName = $boardRstBean->getBoardName();
+
+            $this->pollRstBeanCollection = $boardRstBean->getPollRstBeanCollection();
 
             //var_dump($this->pollRstBeanCollection);
 

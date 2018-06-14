@@ -13,8 +13,26 @@ use comphp\base\RstBean;
 
 class UsrRstBean extends RstBean
 {
+    private $userID;
 
     private $usrName;
+
+    /**
+     * @return mixed
+     */
+    public function getUserID()
+    {
+        return $this->userID;
+    }
+
+    /**
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
+    {
+        $this->userID = $userID;
+    }
+
 
     /**
      * @return mixed

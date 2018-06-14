@@ -16,6 +16,26 @@ class BoardRstBean extends RstBean
     private $boardID;
     private $boardName;
 
+    private $pollRstBeanCollection;
+
+    /**
+     * @return mixed
+     */
+    public function getPollRstBeanCollection()
+    {
+        return $this->pollRstBeanCollection;
+    }
+
+    /**
+     * @param mixed $pollRstBeanCollection
+     */
+    public function setPollRstBeanCollection($pollRstBeanCollection): void
+    {
+        $this->pollRstBeanCollection = $pollRstBeanCollection;
+    }
+
+
+
     /**
      * @return mixed
      */

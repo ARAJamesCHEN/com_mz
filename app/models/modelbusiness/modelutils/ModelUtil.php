@@ -9,6 +9,7 @@
 namespace app\models\modelbusiness\modelutils;
 
 use app\controllers\formbeans\CreateNewPollFormBean;
+use app\models\modelbusiness\modelRstBean\UnionRstBean;
 use app\models\modelbusiness\modelRstBean\UsrRstBean;
 use app\models\modelbusiness\modelVOs\PollModelVO;
 use app\models\modelbusiness\modelVOs\PollOptionModelVO;
@@ -166,8 +167,10 @@ class ModelUtil
     }
 
 
-    public function getPollUsrBoardUnionRstBean($result){
+    public function getPollUsrBoardUnionRstBean($result): BoardRstBean{
         if (!is_null($result)) {
+
+            $boardRstBean = new BoardRstBean();
 
             $pollRstBeanCollection = array();
             $rows = $result->fetchAll();
@@ -184,15 +187,21 @@ class ModelUtil
                     $pollRstBean->setViewNum($aRow['viewNum']);
                     $pollRstBean->setUserID($aRow['userID']);
                     $pollRstBean->setQuestion($aRow['question']);
-                    $pollRstBean->setBoardName($aRow['boardName']);
-                    $pollRstBean->setUserName($aRow['loginName']);
+
+                    $boardRstBean->setBoardName($aRow['boardName']);
+
+                    $usrRstBean = new UsrRstBean();
+                    $usrRstBean->setUsrName($aRow['loginName']);
+                    $pollRstBean->setUsrRstBean($usrRstBean);
+
                     array_push($pollRstBeanCollection, $pollRstBean);
                 }
             }
 
-            //var_dump($pollRstBeanCollection);
+            $boardRstBean->setPollRstBeanCollection($pollRstBeanCollection);
+            //var_dump($boardRstBean);
 
-            return $pollRstBeanCollection;
+            return $boardRstBean;
 
         }
     }

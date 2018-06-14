@@ -7,7 +7,9 @@
  */
 namespace app\models\modelbusiness\modelRstBean;
 
-class PollRstBean extends \comphp\base\RstBean
+use comphp\base\RstBean;
+
+class PollRstBean extends RstBean
 {
     private $pollID;
 
@@ -31,11 +33,46 @@ class PollRstBean extends \comphp\base\RstBean
 
     private $boardName;
 
+    private $totalVotedNum;
+
     private $userID;
 
-    private $userName;
+    private $usrRstBean;
 
-    private $totalVotedNum;
+    /**
+     * @return mixed
+     */
+    public function getUserID()
+    {
+        return $this->userID;
+    }
+
+    /**
+     * @param mixed $userID
+     */
+    public function setUserID($userID): void
+    {
+        $this->userID = $userID;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getUsrRstBean()
+    {
+        return $this->usrRstBean;
+    }
+
+    /**
+     * @param mixed $usrRstBean
+     */
+    public function setUsrRstBean($usrRstBean): void
+    {
+        $this->usrRstBean = $usrRstBean;
+    }
+
+
 
     /**
      * @return mixed
@@ -100,23 +137,6 @@ class PollRstBean extends \comphp\base\RstBean
     {
         $this->boardName = $boardName;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getUserName()
-    {
-        return $this->userName;
-    }
-
-    /**
-     * @param mixed $userName
-     */
-    public function setUserName($userName): void
-    {
-        $this->userName = $userName;
-    }
-
 
 
     /**
@@ -245,22 +265,6 @@ class PollRstBean extends \comphp\base\RstBean
     public function setBoardID($boardID): void
     {
         $this->boardID = $boardID;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUserID()
-    {
-        return $this->userID;
-    }
-
-    /**
-     * @param mixed $userID
-     */
-    public function setUserID($userID): void
-    {
-        $this->userID = $userID;
     }
 
 

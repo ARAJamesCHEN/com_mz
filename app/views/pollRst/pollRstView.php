@@ -31,7 +31,7 @@
 									</a>
 									<dl class="user-info hide-mobile">
 									    <dt class="user-info__name">
-										    <a href="#"><?php echo $pollRstBean->getUserName()?></a>
+										    <a href="#"><?php echo $pollRstBean->getUsrRstBean()->getUsrName()?></a>
 										</dt>
 										<dd class="user-info__item">
 										</dd>
@@ -48,7 +48,7 @@
 							<div class="message-wrap">
 								<div class="message-inner">
 									<div class="message-title">
-                                        Posted by <a href="#"><?php echo $pollRstBean->getUserName();?></a>(<?php echo $pollRstBean->getPostNum() ?> posts)
+                                        Posted by <a href="#"><?php echo $pollRstBean->getUsrRstBean()->getUsrName();?></a>(<?php echo $pollRstBean->getPostNum() ?> posts)
 										<span class="icon icon-time"> <?php echo $pollRstBean->getPostDateDisplay() ?></span>
 									</div>
 									<div class="message-breadcrumb"></div>
