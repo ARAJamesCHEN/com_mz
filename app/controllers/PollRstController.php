@@ -92,6 +92,7 @@ class PollRstController extends ForwardController
 
         }else{
             $this->formBean->setWarning('Please select a poll first!');
+            header( 'Location:post.php' ) ;
         }
 
 
