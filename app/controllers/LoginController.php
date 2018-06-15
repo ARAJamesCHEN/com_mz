@@ -90,7 +90,8 @@ class LoginController extends Controller
                         }else{
 
                             if(ValidateUtil::validateIfWeakPwd($this->formBean->getFormUsrPwd())){
-                                echo "<script type='text/javascript'>alert('Login successfully! Your passwords is weak. We suggest you to modify the password!')</script>";
+                                $_SESSION[ 'isWeakPwd' ] = "true";
+                                $_SESSION[ 'isDisplayed' ] = "false";
                             }
 
                             $_SESSION[ 'theUsrName' ] = $this->formBean->getFormUsrName();
