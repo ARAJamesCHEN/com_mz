@@ -61,6 +61,9 @@ class PollRstController extends ForwardController
             $this->formBean->setPageStatus(POLL_RST_PAGE);
             if(isset($_SESSION['PollId'])){
                 $pollID = $_SESSION['PollId'];
+            }else{
+                $this->formBean->setWarning('Lost the Poll ID !');
+                return;
             }
 
             if(!empty($pollID)){
@@ -87,8 +90,11 @@ class PollRstController extends ForwardController
                 }
             }
 
-
             $this->displayPollDetail($this->formBean->getPollId());
+
+            $_SESSION['PollId'] = $this->formBean->getPollId();
+
+            header( 'Location:pollRst.php?inti_rst') ;
 
         }else{
             $this->formBean->setWarning('Please select a poll first!');
@@ -102,7 +108,7 @@ class PollRstController extends ForwardController
         $this->render();
     }
 
-    private function submitVote(PollOptionService $pollOptionService,&$formBean){
+    private function submitVote(&$formBean){
 
         $rst = new RstBean();
 
